@@ -17,6 +17,17 @@
 		EFB7A09B293A0C5200C5DFA9 /* PhotoFaceSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A09A293A0C5200C5DFA9 /* PhotoFaceSampleTests.swift */; };
 		EFB7A0A5293A0C5200C5DFA9 /* PhotoFaceSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0A4293A0C5200C5DFA9 /* PhotoFaceSampleUITests.swift */; };
 		EFB7A0A7293A0C5200C5DFA9 /* PhotoFaceSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0A6293A0C5200C5DFA9 /* PhotoFaceSampleUITestsLaunchTests.swift */; };
+		EFB7A0B7293A0CB100C5DFA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0B6293A0CB100C5DFA9 /* LoginView.swift */; };
+		EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0B8293A0CBB00C5DFA9 /* LoginViewController.swift */; };
+		EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0BA293A0CC200C5DFA9 /* LoginViewModel.swift */; };
+		EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0BF293A0D5000C5DFA9 /* BaseView.swift */; };
+		EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0C1293A0D5F00C5DFA9 /* BaseViewController.swift */; };
+		EFB7A0C5293A128300C5DFA9 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0C4293A128300C5DFA9 /* MainButton.swift */; };
+		EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0C6293A12B800C5DFA9 /* MainTextInput.swift */; };
+		EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0C8293A12DE00C5DFA9 /* DescriptionLabel.swift */; };
+		EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CB293A244500C5DFA9 /* StatusView.swift */; };
+		EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */; };
+		EFB7A0D0293A248D00C5DFA9 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,17 @@
 		EFB7A0A0293A0C5200C5DFA9 /* PhotoFaceSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFaceSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB7A0A4293A0C5200C5DFA9 /* PhotoFaceSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFaceSampleUITests.swift; sourceTree = "<group>"; };
 		EFB7A0A6293A0C5200C5DFA9 /* PhotoFaceSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFaceSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFB7A0B6293A0CB100C5DFA9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EFB7A0B8293A0CBB00C5DFA9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EFB7A0BA293A0CC200C5DFA9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EFB7A0BF293A0D5000C5DFA9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EFB7A0C1293A0D5F00C5DFA9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EFB7A0C4293A128300C5DFA9 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		EFB7A0C6293A12B800C5DFA9 /* MainTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextInput.swift; sourceTree = "<group>"; };
+		EFB7A0C8293A12DE00C5DFA9 /* DescriptionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
+		EFB7A0CB293A244500C5DFA9 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +123,11 @@
 		EFB7A080293A0C5000C5DFA9 /* PhotoFaceSample */ = {
 			isa = PBXGroup;
 			children = (
-				EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */,
-				EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */,
-				EFB7A085293A0C5000C5DFA9 /* DocumentViewController.swift */,
-				EFB7A087293A0C5000C5DFA9 /* Document.swift */,
-				EFB7A089293A0C5000C5DFA9 /* Main.storyboard */,
+				EFB7A0B3293A0C8500C5DFA9 /* Common */,
+				EFB7A0BC293A0CEF00C5DFA9 /* Reusable */,
+				EFB7A0D1293A2D2600C5DFA9 /* Networking */,
+				EFB7A0B4293A0C9D00C5DFA9 /* Scenes */,
 				EFB7A08C293A0C5200C5DFA9 /* Assets.xcassets */,
-				EFB7A08E293A0C5200C5DFA9 /* LaunchScreen.storyboard */,
 				EFB7A091293A0C5200C5DFA9 /* Info.plist */,
 			);
 			path = PhotoFaceSample;
@@ -128,6 +148,91 @@
 				EFB7A0A6293A0C5200C5DFA9 /* PhotoFaceSampleUITestsLaunchTests.swift */,
 			);
 			path = PhotoFaceSampleUITests;
+			sourceTree = "<group>";
+		};
+		EFB7A0B3293A0C8500C5DFA9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */,
+				EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */,
+				EFB7A085293A0C5000C5DFA9 /* DocumentViewController.swift */,
+				EFB7A087293A0C5000C5DFA9 /* Document.swift */,
+				EFB7A089293A0C5000C5DFA9 /* Main.storyboard */,
+				EFB7A08E293A0C5200C5DFA9 /* LaunchScreen.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EFB7A0B4293A0C9D00C5DFA9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0B5293A0CA400C5DFA9 /* Login */,
+				EFB7A0CA293A243900C5DFA9 /* Status */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EFB7A0B5293A0CA400C5DFA9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0B6293A0CB100C5DFA9 /* LoginView.swift */,
+				EFB7A0B8293A0CBB00C5DFA9 /* LoginViewController.swift */,
+				EFB7A0BA293A0CC200C5DFA9 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EFB7A0BC293A0CEF00C5DFA9 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0C3293A126000C5DFA9 /* Components */,
+				EFB7A0BE293A0CFF00C5DFA9 /* Classes */,
+				EFB7A0BD293A0CF700C5DFA9 /* Extensions */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		EFB7A0BD293A0CF700C5DFA9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFB7A0BE293A0CFF00C5DFA9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0BF293A0D5000C5DFA9 /* BaseView.swift */,
+				EFB7A0C1293A0D5F00C5DFA9 /* BaseViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EFB7A0C3293A126000C5DFA9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0C4293A128300C5DFA9 /* MainButton.swift */,
+				EFB7A0C6293A12B800C5DFA9 /* MainTextInput.swift */,
+				EFB7A0C8293A12DE00C5DFA9 /* DescriptionLabel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EFB7A0CA293A243900C5DFA9 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				EFB7A0CB293A244500C5DFA9 /* StatusView.swift */,
+				EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */,
+				EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		EFB7A0D1293A2D2600C5DFA9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +366,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */,
+				EFB7A0D0293A248D00C5DFA9 /* StatusViewModel.swift in Sources */,
+				EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */,
+				EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */,
+				EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */,
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
 				EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */,
 				EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */,
+				EFB7A0C5293A128300C5DFA9 /* MainButton.swift in Sources */,
+				EFB7A0B7293A0CB100C5DFA9 /* LoginView.swift in Sources */,
+				EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */,
 				EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */,
+				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,
+				EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */,
+				EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +557,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F48MGZ2AUR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoFaceSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -469,6 +586,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F48MGZ2AUR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotoFaceSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
