@@ -28,6 +28,9 @@
 		EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CB293A244500C5DFA9 /* StatusView.swift */; };
 		EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */; };
 		EFB7A0D0293A248D00C5DFA9 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */; };
+		EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */; };
+		EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0D4293A396100C5DFA9 /* LoginModel.swift */; };
+		EFB7A0D7293A396A00C5DFA9 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0D6293A396A00C5DFA9 /* StatusModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		EFB7A0CB293A244500C5DFA9 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		EFB7A0D4293A396100C5DFA9 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		EFB7A0D6293A396A00C5DFA9 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 				EFB7A0B6293A0CB100C5DFA9 /* LoginView.swift */,
 				EFB7A0B8293A0CBB00C5DFA9 /* LoginViewController.swift */,
 				EFB7A0BA293A0CC200C5DFA9 /* LoginViewModel.swift */,
+				EFB7A0D4293A396100C5DFA9 /* LoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -188,6 +195,7 @@
 				EFB7A0C3293A126000C5DFA9 /* Components */,
 				EFB7A0BE293A0CFF00C5DFA9 /* Classes */,
 				EFB7A0BD293A0CF700C5DFA9 /* Extensions */,
+				EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 				EFB7A0CB293A244500C5DFA9 /* StatusView.swift */,
 				EFB7A0CD293A245C00C5DFA9 /* StatusViewController.swift */,
 				EFB7A0CF293A248C00C5DFA9 /* StatusViewModel.swift */,
+				EFB7A0D6293A396A00C5DFA9 /* StatusModel.swift */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -366,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */,
 				EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */,
 				EFB7A0D0293A248D00C5DFA9 /* StatusViewModel.swift in Sources */,
 				EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */,
@@ -373,12 +383,14 @@
 				EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */,
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
 				EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */,
+				EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */,
 				EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */,
 				EFB7A0C5293A128300C5DFA9 /* MainButton.swift in Sources */,
 				EFB7A0B7293A0CB100C5DFA9 /* LoginView.swift in Sources */,
 				EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */,
 				EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */,
 				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,
+				EFB7A0D7293A396A00C5DFA9 /* StatusModel.swift in Sources */,
 				EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */,
 				EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */,
 			);

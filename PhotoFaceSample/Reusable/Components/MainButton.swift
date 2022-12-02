@@ -8,6 +8,7 @@ final class MainButton: BaseView {
     let button = UIButton()
     button.backgroundColor = .systemBlue
     button.setTitleColor(.white, for: .normal)
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
     button.layer.cornerRadius = 4
     button.addTarget(self, action: #selector(didTapAction), for: .touchUpInside)
     button.isUserInteractionEnabled = true
@@ -18,7 +19,7 @@ final class MainButton: BaseView {
   // MARK: - Initialize
       
   override func initialize() {
-    backgroundColor = .red
+    backgroundColor = .white
     clipsToBounds = false
     
     addSubview(mainButton)

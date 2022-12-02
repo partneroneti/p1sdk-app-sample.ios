@@ -17,7 +17,7 @@ final class MainTextInput: BaseView {
     return label
   }()
   
-  let dataTextField: UITextField = {
+  var dataTextField: UITextField = {
     let field = UITextField()
     field.textColor = .black
     field.minimumFontSize = 16

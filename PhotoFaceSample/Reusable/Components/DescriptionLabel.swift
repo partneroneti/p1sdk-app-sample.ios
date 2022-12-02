@@ -20,6 +20,8 @@ final class DescriptionLabel: BaseView {
   let descriptionLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    label.textColor = .black
+    label.numberOfLines = 0
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -37,10 +39,10 @@ final class DescriptionLabel: BaseView {
   
   override func installConstraints() {
     NSLayoutConstraint.activate([
-      mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-      mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-      mainStack.heightAnchor.constraint(equalToConstant: 30),
-      
+      mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+      mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
+      titleLabel.widthAnchor.constraint(equalTo: mainStack.widthAnchor),
+      descriptionLabel.widthAnchor.constraint(equalTo: mainStack.widthAnchor)
     ])
   }
 }
