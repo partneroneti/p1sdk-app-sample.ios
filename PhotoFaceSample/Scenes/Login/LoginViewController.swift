@@ -52,12 +52,15 @@ extension LoginViewController: UITextFieldDelegate {
 
 private extension LoginViewController {
   func setupBinds() {
-    
     /// Navigation do SDK Screen
+    ///
+    
+    
+    /// Navigate to Status Screen
     ///
     baseView.beginButton.btnAction = { [weak self] in
       guard let self = self else { return }
-      self.viewModel.openStatusView()
+      self.viewModel.openStatusView(self)
     }
   }
 }

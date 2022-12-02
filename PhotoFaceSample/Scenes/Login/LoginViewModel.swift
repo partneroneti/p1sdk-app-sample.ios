@@ -2,7 +2,7 @@ import UIKit
 
 protocol PhotoFaceNavigationDelegate: AnyObject {
   func openSDK()
-  func openStatusView()
+  func openStatusView(_ viewController: UIViewController)
 }
 
 protocol LoginViewModelProtocol {
@@ -51,7 +51,11 @@ extension LoginViewModel: PhotoFaceNavigationDelegate {
     navigationDelegate?.openSDK()
   }
   
-  func openStatusView() {
-    navigationDelegate?.openStatusView()
+  func openStatusView(_ viewController: UIViewController) {
+//    navigationDelegate?.openStatusView()
+    
+    let viewModel = StatusViewModel()
+    let mainViewController = StatusViewController(viewModel: viewModel)
+    viewController.navigationController?.pushViewController(mainViewController, animated: true)
   }
 }

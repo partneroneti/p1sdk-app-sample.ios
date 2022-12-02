@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-    let rootViewModel = LoginViewModel()
+    let presenter = UINavigationController()
+    let router = PhotoFaceRouter(presenter: presenter)
+    
+    let rootViewModel = LoginViewModel(navigationDelegate: router)
     let rootViewController = LoginViewController(viewModel: rootViewModel)
     
     let navigationController = UINavigationController(rootViewController: rootViewController)

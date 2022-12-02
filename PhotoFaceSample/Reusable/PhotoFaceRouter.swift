@@ -1,12 +1,20 @@
 import UIKit
 
-class PhotoFaceRouter {
-  public var childRouters: [UIViewController] = []
+class PhotoFaceRouter: Router {
+  public var childRouters: [Router] = []
   private let presenter: UINavigationController
-//  private weak var navigationDelegate: RouterDelegate?
+  private weak var navigationDelegate: RouterDelegate?
   
-  init(presenter: UINavigationController) {
+  init(navigationDelegate: RouterDelegate? = nil,
+       presenter: UINavigationController) {
+    self.navigationDelegate = navigationDelegate
     self.presenter = presenter
+  }
+  
+  func start() {
+    let viewModel = LoginViewModel(navigationDelegate: self)
+    let viewController = LoginViewController(viewModel: viewModel)
+    presenter.pushViewController(viewController, animated: true)
   }
   
   public func close() {
@@ -24,11 +32,9 @@ extension PhotoFaceRouter: PhotoFaceNavigationDelegate {
 //    let viewController =
   }
   
-  func openStatusView() {
+  func openStatusView(_ viewController: UIViewController) {
     let viewModel = StatusViewModel()
     let viewController = StatusViewController(viewModel: viewModel)
     pushViewController(viewController)
   }
 }
-
-

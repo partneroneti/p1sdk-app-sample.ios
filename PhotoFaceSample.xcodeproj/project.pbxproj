@@ -35,6 +35,7 @@
 		EFB7A0DB293A508400C5DFA9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DA293A508400C5DFA9 /* Response.swift */; };
 		EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */; };
 		EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DE293A70AC00C5DFA9 /* Request.swift */; };
+		EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0E0293A73C100C5DFA9 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		EFB7A0DA293A508400C5DFA9 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFaceRouter.swift; sourceTree = "<group>"; };
 		EFB7A0DE293A70AC00C5DFA9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		EFB7A0E0293A73C100C5DFA9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				EFB7A0BD293A0CF700C5DFA9 /* Extensions */,
 				EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */,
 				EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */,
+				EFB7A0E0293A73C100C5DFA9 /* Router.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				EFB7A0B7293A0CB100C5DFA9 /* LoginView.swift in Sources */,
 				EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */,
 				EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */,
+				EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */,
 				EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */,
 				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,
 				EFB7A0D9293A506300C5DFA9 /* ServerError.swift in Sources */,
