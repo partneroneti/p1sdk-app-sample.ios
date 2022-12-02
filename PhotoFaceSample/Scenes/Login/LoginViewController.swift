@@ -3,7 +3,6 @@ import UIKit
 final class LoginViewController: BaseViewController<LoginView> {
   
   typealias Strings = LocalizableStrings
-  
   var viewModel: LoginViewModel
   
   override func viewDidLoad() {
@@ -57,9 +56,8 @@ private extension LoginViewController {
     /// Navigation do SDK Screen
     ///
     baseView.beginButton.btnAction = { [weak self] in
-      let viewModel = StatusViewModel()
-      let viewController = StatusViewController(viewModel: viewModel)
-      self?.navigationController?.pushViewController(viewController, animated: true)
+      guard let self = self else { return }
+      self.viewModel.openStatusView()
     }
   }
 }
