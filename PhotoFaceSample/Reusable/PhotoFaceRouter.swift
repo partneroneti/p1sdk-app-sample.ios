@@ -1,4 +1,5 @@
 import UIKit
+import PartnerOneSDK
 
 class PhotoFaceRouter: Router {
   public var childRouters: [Router] = []
@@ -28,8 +29,8 @@ class PhotoFaceRouter: Router {
 }
 
 extension PhotoFaceRouter: PhotoFaceNavigationDelegate {
-  func openSDK() {
-//    let viewController =
+  func openSDK(_ viewController: UIViewController) {
+    pushViewController(viewController)
   }
   
   func openStatusView(_ viewController: UIViewController) {

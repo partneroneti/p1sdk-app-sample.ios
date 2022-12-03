@@ -1,0 +1,16 @@
+PODS:
+  - PartnerOneSDK (0.1.0)
+
+DEPENDENCIES:
+  - PartnerOneSDK (from `../PartnerOneSDK`)
+
+EXTERNAL SOURCES:
+  PartnerOneSDK:
+    :path: "../PartnerOneSDK"
+
+SPEC CHECKSUMS:
+  PartnerOneSDK: b2bf4570cd65be572ce134bc20f1c65a2e027b83
+
+PODFILE CHECKSUM: 089feffe48a34928da8371ff2d1078d51b45eb93
+
+COCOAPODS: 1.11.3

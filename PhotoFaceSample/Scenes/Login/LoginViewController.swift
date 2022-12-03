@@ -54,13 +54,12 @@ private extension LoginViewController {
   func setupBinds() {
     /// Navigation do SDK Screen
     ///
-    
+    baseView.beginButton.btnAction = { [weak self] in
+      guard let self = self else { return }
+      self.viewModel.openSDK(self)
+    }
     
     /// Navigate to Status Screen
     ///
-    baseView.beginButton.btnAction = { [weak self] in
-      guard let self = self else { return }
-      self.viewModel.openStatusView(self)
-    }
   }
 }

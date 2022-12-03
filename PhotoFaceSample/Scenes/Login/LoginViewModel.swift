@@ -1,7 +1,8 @@
 import UIKit
+import PartnerOneSDK
 
 protocol PhotoFaceNavigationDelegate: AnyObject {
-  func openSDK()
+  func openSDK(_ viewController: UIViewController)
   func openStatusView(_ viewController: UIViewController)
 }
 
@@ -47,8 +48,13 @@ class LoginViewModel: LoginViewModelProtocol {
 // MARK: - Navigation Delegate
 
 extension LoginViewModel: PhotoFaceNavigationDelegate {
-  func openSDK() {
-    navigationDelegate?.openSDK()
+  func openSDK(_ viewController: UIViewController) {
+//    navigationDelegate?.openSDK(viewController)
+    let viewModel = ScanViewModel()
+    let mainViewController = ScanViewController(viewModel: viewModel)
+    viewController.modalPresentationStyle = .overCurrentContext
+    viewController.modalTransitionStyle = .coverVertical
+    viewController.present(mainViewController, animated: true)
   }
   
   func openStatusView(_ viewController: UIViewController) {

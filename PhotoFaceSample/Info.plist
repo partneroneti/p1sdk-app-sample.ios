@@ -33,5 +33,9 @@
 			</dict>
 		</dict>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa utilizar a sua câmera para que possa capturar as imagens dos documentos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) precisa acessar o App Galeria para que possa guardar as imagens capturadas.</string>
 </dict>
 </plist>
