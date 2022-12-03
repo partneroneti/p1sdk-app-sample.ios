@@ -10,6 +10,11 @@
 		532E102A1435FE494F0965CB /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2C4EC1AEFBF6449E510303 /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework */; };
 		87A8C118FBA4D39440885A82 /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF25FAF05B48F24675CAB4ED /* Pods_PhotoFaceSample.framework */; };
 		AE1CF7C45C3FFD63E48FCF36 /* Pods_PhotoFaceSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D2D0952E7686AF6E223323 /* Pods_PhotoFaceSampleTests.framework */; };
+		EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D1293BF8F2002A9746 /* Worker.swift */; };
+		EF2400D4293BFF12002A9746 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D3293BFF12002A9746 /* Result.swift */; };
+		EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D5293BFF68002A9746 /* ErrorType.swift */; };
+		EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D7293C026E002A9746 /* ErrorResponse.swift */; };
+		EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D9293C07E3002A9746 /* DataParser.swift */; };
 		EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */; };
 		EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */; };
 		EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A085293A0C5000C5DFA9 /* DocumentViewController.swift */; };
@@ -68,6 +73,11 @@
 		AC2C4EC1AEFBF6449E510303 /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF25FAF05B48F24675CAB4ED /* Pods_PhotoFaceSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D310B1E8AAB56AC9531FF2 /* Pods-PhotoFaceSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSampleTests/Pods-PhotoFaceSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2400D1293BF8F2002A9746 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
+		EF2400D3293BFF12002A9746 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		EF2400D5293BFF68002A9746 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		EF2400D7293C026E002A9746 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		EF2400D9293C07E3002A9746 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		EFB7A07E293A0C5000C5DFA9 /* PhotoFaceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFaceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +151,6 @@
 				C4D310B1E8AAB56AC9531FF2 /* Pods-PhotoFaceSampleTests.debug.xcconfig */,
 				7050DAD89F78A5028CB795EA /* Pods-PhotoFaceSampleTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -239,6 +248,7 @@
 				EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */,
 				EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */,
 				EFB7A0E0293A73C100C5DFA9 /* Router.swift */,
+				EF2400D1293BF8F2002A9746 /* Worker.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -286,6 +296,10 @@
 				EFB7A0D8293A506300C5DFA9 /* ServerError.swift */,
 				EFB7A0DE293A70AC00C5DFA9 /* Request.swift */,
 				EFB7A0DA293A508400C5DFA9 /* Response.swift */,
+				EF2400D3293BFF12002A9746 /* Result.swift */,
+				EF2400D5293BFF68002A9746 /* ErrorType.swift */,
+				EF2400D7293C026E002A9746 /* ErrorResponse.swift */,
+				EF2400D9293C07E3002A9746 /* DataParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -540,10 +554,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */,
+				EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */,
 				EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */,
 				EFB7A0D0293A248D00C5DFA9 /* StatusViewModel.swift in Sources */,
 				EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */,
 				EFB7A0DB293A508400C5DFA9 /* Response.swift in Sources */,
+				EF2400D4293BFF12002A9746 /* Result.swift in Sources */,
 				EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */,
 				EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */,
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
@@ -551,6 +567,7 @@
 				EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */,
 				EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */,
 				EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */,
+				EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */,
 				EFB7A0C5293A128300C5DFA9 /* MainButton.swift in Sources */,
 				EFB7A0B7293A0CB100C5DFA9 /* LoginView.swift in Sources */,
 				EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */,
@@ -560,7 +577,9 @@
 				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,
 				EFB7A0D9293A506300C5DFA9 /* ServerError.swift in Sources */,
 				EFB7A0D7293A396A00C5DFA9 /* StatusModel.swift in Sources */,
+				EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */,
 				EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */,
+				EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */,
 				EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

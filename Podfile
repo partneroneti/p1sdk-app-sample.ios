@@ -6,6 +6,8 @@ target 'PhotoFaceSample' do
   use_frameworks!
   
   pod 'PartnerOneSDK', :path => "../PartnerOneSDK"
+  pod 'Alamofire', '~> 4.7'
+  pod 'ObjectMapper', '~> 3.5'
 
   # Pods for PhotoFaceSample
 

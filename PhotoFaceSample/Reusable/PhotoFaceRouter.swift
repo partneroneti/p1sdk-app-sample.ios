@@ -1,7 +1,13 @@
 import UIKit
 import PartnerOneSDK
 
-class PhotoFaceRouter: Router {
+class PhotoFaceRouter: Router, PhotoFaceNavigationDelegate {
+  var worker: PhotoFaceWorker?
+  
+  var model: LoginModel?
+  
+  var didGetData: (() -> Void)?
+  
   public var childRouters: [Router] = []
   private let presenter: UINavigationController
   private weak var navigationDelegate: RouterDelegate?
@@ -13,7 +19,8 @@ class PhotoFaceRouter: Router {
   }
   
   func start() {
-    let viewModel = LoginViewModel(navigationDelegate: self)
+    let worker = PhotoFaceWorker()
+    let viewModel = LoginViewModel(worker: worker, navigationDelegate: self)
     let viewController = LoginViewController(viewModel: viewModel)
     presenter.pushViewController(viewController, animated: true)
   }
@@ -28,7 +35,7 @@ class PhotoFaceRouter: Router {
   }
 }
 
-extension PhotoFaceRouter: PhotoFaceNavigationDelegate {
+extension PhotoFaceRouter {
   func openSDK(_ viewController: UIViewController) {
     pushViewController(viewController)
   }

@@ -1,16 +1,27 @@
 PODS:
+  - Alamofire (4.9.1)
+  - ObjectMapper (3.5.3)
   - PartnerOneSDK (0.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - ObjectMapper (~> 3.5)
   - PartnerOneSDK (from `../PartnerOneSDK`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ObjectMapper
 
 EXTERNAL SOURCES:
   PartnerOneSDK:
     :path: "../PartnerOneSDK"
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PartnerOneSDK: b2bf4570cd65be572ce134bc20f1c65a2e027b83
 
-PODFILE CHECKSUM: 089feffe48a34928da8371ff2d1078d51b45eb93
+PODFILE CHECKSUM: c1b5edc3f8bafd97455f6efbc989bf9502438554
 
 COCOAPODS: 1.11.3

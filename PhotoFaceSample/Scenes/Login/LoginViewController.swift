@@ -5,14 +5,14 @@ final class LoginViewController: BaseViewController<LoginView> {
   typealias Strings = LocalizableStrings
   var viewModel: LoginViewModel
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setupBinds()
-  }
-  
   init(viewModel: LoginViewModel) {
     self.viewModel = viewModel
     super.init()
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupBinds()
   }
 }
 
@@ -56,7 +56,9 @@ private extension LoginViewController {
     ///
     baseView.beginButton.btnAction = { [weak self] in
       guard let self = self else { return }
-      self.viewModel.openSDK(self)
+      
+      self.viewModel.getInitialData()
+//      self.viewModel.openSDK(self)
     }
     
     /// Navigate to Status Screen

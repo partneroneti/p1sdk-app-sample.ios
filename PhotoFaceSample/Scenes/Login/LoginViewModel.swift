@@ -1,64 +1,62 @@
 import UIKit
+import Alamofire
 import PartnerOneSDK
 
 protocol PhotoFaceNavigationDelegate: AnyObject {
+  var worker: PhotoFaceWorker { get }
   func openSDK(_ viewController: UIViewController)
   func openStatusView(_ viewController: UIViewController)
 }
 
-protocol LoginViewModelProtocol {
-  func getData(_ completion: @escaping (_ response: Response<LoginModel?>) -> Void)
-}
-
-class LoginViewModel: LoginViewModelProtocol {
+class LoginViewModel {
   
   private weak var navigationDelegate: PhotoFaceNavigationDelegate?
   
-  init(navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
+  let worker: PhotoFaceWorker
+  
+  init(worker: PhotoFaceWorker,
+       navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
+    self.worker = worker
     self.navigationDelegate = navigationDelegate
   }
   
-  func getData(_ completion: @escaping (Response<LoginModel?>) -> Void) {
-    guard let url = URL(string: "https://integracao-sodexo-homologacao.partner1.com.br/swagger/v1/swagger.json") else {
-      return
-    }
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-      guard let dataResponse = data,
-            error == nil else {
-        print(error?.localizedDescription ?? "Response Error")
-        return }
-      do {
-        let decoder = JSONDecoder()
-        let response = try? decoder.decode(LoginModel.self, from: dataResponse)
-        
-        if let response = response {
-          completion(.success(model: response))
-        } else {
-          print("Not possible to parse...")
+  func getInitialData() {
+    print("@! >>> START TO GETTING DATA...")
+    
+    print("@! >>> SHOWING API \(worker.apiURL)/api/transaction")
+    
+    worker.parseMainData({ (data) in
+      DispatchQueue.main.async {
+        switch data {
+        case .success(let model):
+          print(model.cpf)
+        case .noConnection(let description):
+            print("Server error timeOut: \(description) \n")
+        case .serverError(let error):
+            let errorData = "\(error.statusCode), -, \(error.msgError)"
+            print("Server error: \(errorData) \n")
+            break
+        case .timeOut(let description):
+            print("Server error noConnection: \(description) \n")
         }
-        
-      } catch let parsingError {
-        print("Sorray... The data could not be parsed for some reason.", parsingError)
       }
-    }
-    task.resume()
+    })
   }
 }
 
 // MARK: - Navigation Delegate
 
 extension LoginViewModel: PhotoFaceNavigationDelegate {
+  
   func openSDK(_ viewController: UIViewController) {
-//    navigationDelegate?.openSDK(viewController)
+    //    navigationDelegate?.openSDK(viewController)
     let viewModel = ScanViewModel()
     let mainViewController = ScanViewController(viewModel: viewModel)
-    viewController.modalPresentationStyle = .overCurrentContext
-    viewController.modalTransitionStyle = .coverVertical
-    viewController.present(mainViewController, animated: true)
+    viewController.navigationController?.pushViewController(mainViewController, animated: true)
   }
   
   func openStatusView(_ viewController: UIViewController) {
-//    navigationDelegate?.openStatusView()
+    //    navigationDelegate?.openStatusView()
     
     let viewModel = StatusViewModel()
     let mainViewController = StatusViewController(viewModel: viewModel)
