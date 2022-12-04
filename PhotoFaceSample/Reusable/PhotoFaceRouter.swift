@@ -2,20 +2,19 @@ import UIKit
 import PartnerOneSDK
 
 class PhotoFaceRouter: Router, PhotoFaceNavigationDelegate {
-  var worker: PhotoFaceWorker?
   
-  var model: LoginModel?
-  
-  var didGetData: (() -> Void)?
+  var worker: PhotoFaceWorker
   
   public var childRouters: [Router] = []
   private let presenter: UINavigationController
   private weak var navigationDelegate: RouterDelegate?
   
   init(navigationDelegate: RouterDelegate? = nil,
-       presenter: UINavigationController) {
+       presenter: UINavigationController,
+       worker: PhotoFaceWorker = PhotoFaceWorker()) {
     self.navigationDelegate = navigationDelegate
     self.presenter = presenter
+    self.worker = worker
   }
   
   func start() {

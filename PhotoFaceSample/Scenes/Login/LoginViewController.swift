@@ -13,40 +13,16 @@ final class LoginViewController: BaseViewController<LoginView> {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupBinds()
+    viewModel.getInitialData()
   }
 }
 
 extension LoginViewController: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-     
-    let dataTextField = baseView.cpfTextField.dataTextField
-    let currentString: NSString = dataTextField.text! as NSString
-    
-    let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
-    return newString.length <= 8
-    
-    var appendString = ""
-
-    if range.length == 0 {
-      switch range.location {
-      case 3:
-        appendString = "."
-      case 7:
-        appendString = "."
-      case 11:
-        appendString = "-"
-      default:
-        break
-      }
-    }
-
-    dataTextField.text?.append(appendString)
-
-    if (dataTextField.text?.count)! > 13 && range.length == 0 {
-      return false
-    }
-
     return true
+  }
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
   }
 }
 
@@ -57,11 +33,14 @@ private extension LoginViewController {
     baseView.beginButton.btnAction = { [weak self] in
       guard let self = self else { return }
       
-      self.viewModel.getInitialData()
-//      self.viewModel.openSDK(self)
+      let dataTextField = self.baseView.cpfTextField.dataTextField
+      let cpfNumber = dataTextField.text!
+      
+      self.viewModel.sendCPFAuth(cpf: cpfNumber)
+      
+      if cpfNumber != "" && cpfNumber.count == 11 {
+        self.viewModel.openSDK(self)
+      }
     }
-    
-    /// Navigate to Status Screen
-    ///
   }
 }
