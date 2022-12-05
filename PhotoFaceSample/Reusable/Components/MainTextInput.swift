@@ -20,8 +20,11 @@ final class MainTextInput: BaseView {
   var dataTextField: UITextField = {
     let field = UITextField()
     field.minimumFontSize = 16
-    field.layer.borderColor = UIColor.gray.cgColor
-    field.borderStyle = .roundedRect
+    field.textColor = .black
+    field.layer.borderColor = UIColor.lightGray.cgColor
+    field.layer.borderWidth = 1
+    field.layer.cornerRadius = 4
+    field.backgroundColor = .white
     field.translatesAutoresizingMaskIntoConstraints = false
     return field
   }()

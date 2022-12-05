@@ -71,7 +71,8 @@
 		E288BDF41B3C287145911A343BB1F991 /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A89278756743331738866CAF0E880B5 /* IntegerOperators.swift */; };
 		E5EC111C9EB089D63E72B9CDBE40D616 /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2FEA3F4F1B6517F147B77E29420C22 /* MapError.swift */; };
 		EDD25AF2E9AD92E6753644CCE38C595D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11390BAF0CF628900FB6109ABA844950 /* ScanViewController.swift */; };
-		EF0F547D293D18A5004D17B7 /* LivenessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F547C293D18A5004D17B7 /* LivenessViewController.swift */; };
+		EF8D7104293D95BD000D890B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D7103293D95BD000D890B /* UIView+Extension.swift */; };
+		EF8D7106293D95C7000D890B /* LivenessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D7105293D95C7000D890B /* LivenessViewController.swift */; };
 		F5C92DC8E274C4FC541267A97575BC05 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D491CE8637E17DC2BE7138C422386C07 /* ParameterEncoding.swift */; };
 		F93AEAF3659818E2308E0E5C70B66423 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD11D98468D0AAF7A8EBEB09858F4FA /* DispatchQueue+Alamofire.swift */; };
 /* End PBXBuildFile section */
@@ -140,7 +141,7 @@
 		2551DF439B1B1DB29F943C832A1F09C4 /* Pods-PhotoFaceSampleTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoFaceSampleTests-Info.plist"; sourceTree = "<group>"; };
 		2570BF2AE3E2845D751CDD13DF7D51CF /* PartnerOneSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PartnerOneSDK-umbrella.h"; sourceTree = "<group>"; };
 		2B032996AD4F8D361AB8C1DB3428EE87 /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
-		2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PartnerOneSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PartnerOneSDK; path = PartnerOneSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0503F49ACC1779BA220F115CC1CB00 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Operators.swift; sourceTree = "<group>"; };
 		323CCE2AFBE7F24D67F61277AA199B4B /* Pods-PhotoFaceSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PhotoFaceSample-dummy.m"; sourceTree = "<group>"; };
 		33099138EFE8389EF320F25DD6A589AE /* PartnerOneSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PartnerOneSDK.modulemap; sourceTree = "<group>"; };
@@ -229,7 +230,8 @@
 		E9F521C718A3842D632871DB49F5C01B /* Pods-PhotoFaceSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PhotoFaceSample-umbrella.h"; sourceTree = "<group>"; };
 		EAAD943649CB3557C756CCE392B2E519 /* Pods-PhotoFaceSample-PhotoFaceSampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PhotoFaceSample-PhotoFaceSampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ED6E84492E5CFFD916349D5E8DE65146 /* FromJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FromJSON.swift; path = Sources/FromJSON.swift; sourceTree = "<group>"; };
-		EF0F547C293D18A5004D17B7 /* LivenessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessViewController.swift; sourceTree = "<group>"; };
+		EF8D7103293D95BD000D890B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EF8D7105293D95C7000D890B /* LivenessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LivenessViewController.swift; path = Example/PartnerOneSDK/LivenessViewController.swift; sourceTree = "<group>"; };
 		F286B4D9825507BC5AB26F752F21C7F3 /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = Sources/TransformType.swift; sourceTree = "<group>"; };
 		F56806A5EBDFF8EB9BD93068DBA37859 /* PartnerOneSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PartnerOneSDK.release.xcconfig; sourceTree = "<group>"; };
 		F5B21AACFD0B64FC92034DD36BC80EA8 /* PartnerOneSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PartnerOneSDK.debug.xcconfig; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		79157C47282FE89898BE1B2DBBE3093D /* PartnerOneSDK */ = {
 			isa = PBXGroup;
 			children = (
+				EF8D7103293D95BD000D890B /* UIView+Extension.swift */,
 				74BDC5ECF1B00623384462E1B6852154 /* BaseView.swift */,
 				C434E9CE6D7AEE249770BEED657845D6 /* BaseViewController.swift */,
 				485186AAFDC9D5479D1F7D8A461E798C /* CapturedImageView.swift */,
@@ -343,9 +346,9 @@
 				44036CC1B8D3B8A71450442CB359FADB /* ScanView.swift */,
 				11390BAF0CF628900FB6109ABA844950 /* ScanViewController.swift */,
 				E1D9396F653A1C6494AC19F41896D055 /* ScanViewModel.swift */,
+				EF8D7105293D95C7000D890B /* LivenessViewController.swift */,
 				4F55EAD5BA97923C1F6F32138E26AE47 /* Pod */,
 				9527FC27B4E2713FA147D38B91C61C1C /* Support Files */,
-				EF0F547C293D18A5004D17B7 /* LivenessViewController.swift */,
 			);
 			name = PartnerOneSDK;
 			path = ../../PartnerOneSDK;
@@ -388,7 +391,7 @@
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
 				B9084FE779702931E8DF1D00A2D725FB /* ObjectMapper */,
-				2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */,
+				2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */,
 				DB33D24E97A97ADDC6AAEA777D59E371 /* Pods-PhotoFaceSample */,
 				714E5F0F4B961193C98733427EE7EDA6 /* Pods-PhotoFaceSample-PhotoFaceSampleUITests */,
 				433E82F8C448565563532D5303D73788 /* Pods-PhotoFaceSampleTests */,
@@ -607,7 +610,7 @@
 			);
 			name = PartnerOneSDK;
 			productName = PartnerOneSDK;
-			productReference = 2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */;
+			productReference = 2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */;
 			productType = "com.apple.product-type.framework";
 		};
 		162E649F50FEC62B61BDD87D1BD422B4 /* ObjectMapper */ = {
@@ -790,10 +793,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C52A7A368C08C18CDB11AF014BF4CD1 /* BaseView.swift in Sources */,
+				EF8D7106293D95C7000D890B /* LivenessViewController.swift in Sources */,
 				1AABDACDE045C3D2BED80BD082D442D2 /* BaseViewController.swift in Sources */,
 				827C179BE61AE429F7F60C00E86E5209 /* CapturedImageView.swift in Sources */,
+				EF8D7104293D95BD000D890B /* UIView+Extension.swift in Sources */,
 				5E7D6AE2D6F1E98E708C349C056873EF /* CroppingView.swift in Sources */,
-				EF0F547D293D18A5004D17B7 /* LivenessViewController.swift in Sources */,
 				4684437A10696179237261D4915ACCE9 /* PartnerOneSDK-dummy.m in Sources */,
 				97A356498A05C13DFA76B432004A88F7 /* ScanView.swift in Sources */,
 				EDD25AF2E9AD92E6753644CCE38C595D /* ScanViewController.swift in Sources */,
@@ -1018,10 +1022,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				GCC_PREFIX_HEADER = "Target Support Files/PartnerOneSDK/PartnerOneSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PartnerOneSDK/PartnerOneSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1119,10 +1119,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				GCC_PREFIX_HEADER = "Target Support Files/PartnerOneSDK/PartnerOneSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/PartnerOneSDK/PartnerOneSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

@@ -21,9 +21,6 @@ extension LoginViewController: UITextFieldDelegate {
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
     return true
   }
-  
-  func textFieldDidBeginEditing(_ textField: UITextField) {
-  }
 }
 
 private extension LoginViewController {
