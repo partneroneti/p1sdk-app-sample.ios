@@ -1,4 +1,5 @@
 import UIKit
+import PartnerOneSDK
 
 final class LoginViewController: BaseViewController<LoginView> {
   
@@ -39,5 +40,13 @@ private extension LoginViewController {
         self.viewModel.openSDK(self)
       }
     }
+    
+    /// Navtigation to Status Screen
+    ///
+    let viewModel = StatusViewModel()
+    let viewController = StatusViewController(viewModel: viewModel)
+    
+    let partnerModel = ScanViewModel(transactionID: "")
+    let partnerView = ScanViewController(viewModel: partnerModel)
   }
 }

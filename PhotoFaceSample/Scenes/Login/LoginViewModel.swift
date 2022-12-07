@@ -12,7 +12,7 @@ protocol LogiViewModelProtocol: AnyObject {
 ///
 protocol PhotoFaceNavigationDelegate: AnyObject {
   func openSDK(_ viewController: UIViewController)
-  func openStatusView(_ viewController: UIViewController)
+  func openStatusView()
 }
 
 //MARK: - Class
@@ -38,7 +38,7 @@ class LoginViewModel: LogiViewModelProtocol {
       DispatchQueue.main.async {
         switch data {
         case .success(let model):
-          print(model)
+          print(model.paths)
         case .noConnection(let description):
             print("Server error timeOut: \(description) \n")
         case .serverError(let error):
@@ -75,7 +75,7 @@ class LoginViewModel: LogiViewModelProtocol {
 
 // MARK: - Navigation Delegate
 
-extension LoginViewModel: PhotoFaceNavigationDelegate {
+extension LoginViewModel {
   
   func openSDK(_ viewController: UIViewController) {
     let viewModel = ScanViewModel(transactionID: transactionID)
@@ -86,6 +86,7 @@ extension LoginViewModel: PhotoFaceNavigationDelegate {
   func openStatusView(_ viewController: UIViewController) {
     let viewModel = StatusViewModel()
     let mainViewController = StatusViewController(viewModel: viewModel)
+    
     viewController.navigationController?.pushViewController(mainViewController, animated: true)
   }
 }

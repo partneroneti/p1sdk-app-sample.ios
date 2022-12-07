@@ -3,20 +3,22 @@
   "version": "0.1.0",
   "summary": "A short description of PartnerOneSDK.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/ci-mobile-unicred/PartnerOneSDK",
+  "homepage": "https://github.com/partneroneti/p1sdk.ios",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "ci-mobile-unicred": "thyago_casablancas@hotmail.com"
+    "Thiago Silva": "thyago_casablancas@hotmail.com"
   },
   "source": {
-    "git": "https://github.com/ci-mobile-unicred/PartnerOneSDK.git",
+    "git": "https://github.com/partneroneti/p1sdk.ios/PartnerOneSDK.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "PartnerOneSDK/Classes/**/*"
+  "source_files": "PartnerOneSDK/Classes/**/*",
+  "public_header_files": "Pods/Classes/**/*.h",
+  "frameworks": "FaceTecSDK"
 }

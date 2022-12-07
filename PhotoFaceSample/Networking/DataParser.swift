@@ -20,16 +20,13 @@ struct DataParser {
         case .success(let value):
           if statusCode == 200 {
             guard let item = value as? [String:Any] else { return }
-                    
+
             let model = Mapper<T>().map(JSON: item)
             completion(.success(model: model!))
-            
+
             print(item)
-                    
-//            for item in value as! [[String:Any]] {
-//              let model = Mapper<T>().map(JSON: item)
-//              completion(.success(model: model!))
-//            }
+          } else {
+            print("NOT WORKING!")
           }
         case .failure(let error):
           print("Ocorreu o seguinte erro na requisição: ", error)

@@ -39,7 +39,7 @@ extension PhotoFaceRouter {
     pushViewController(viewController)
   }
   
-  func openStatusView(_ viewController: UIViewController) {
+  func openStatusView() {
     let viewModel = StatusViewModel()
     let viewController = StatusViewController(viewModel: viewModel)
     pushViewController(viewController)

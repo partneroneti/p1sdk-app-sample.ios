@@ -23,7 +23,8 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol {
       "grant_type": "password"
     ]
     
-    network.mapperParser(url: url, method: .get, parameters: params, completion: completion)
+//    network.mapperParser(url: url, method: .get, parameters: params, completion: completion)
+    network.encoderParser(parameters: <#T##Parameters#>, url: <#T##URL#>, method: <#T##HTTPMethod#>, completion: <#T##(Result<T, ErrorType>, Int) -> Void#>)
   }
   
   func postCPF(cpf: String, completion: @escaping (Response<AuthenticationModel>) -> Void) {
