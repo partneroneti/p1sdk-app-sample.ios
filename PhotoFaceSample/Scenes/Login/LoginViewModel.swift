@@ -19,6 +19,8 @@ protocol PhotoFaceNavigationDelegate: AnyObject {
 
 class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   
+  //MARK: - Properties
+  
   weak var viewController: LoginViewController?
   private weak var navigationDelegate: PhotoFaceNavigationDelegate?
   
@@ -27,11 +29,19 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   var transactionID: String = ""
   var accessToken: String = ""
   
+  //MARK: - init
+  
   init(worker: PhotoFaceWorker,
        navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
     self.worker = worker
     self.navigationDelegate = navigationDelegate
   }
+  
+}
+
+//MARK: - API Info Functions
+
+extension LoginViewModel {
   
   func getInitialData() {
     print("@! >>> Begin main data fetch...")
@@ -90,6 +100,8 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
     }
   }
   
+  /// First time getting TransactionID
+  ///
   func setupTransactionID() {
     worker.getTransactionID(transactionID: self.transactionID) { [weak self] (response) in
       guard let self = self else { return }
@@ -114,7 +126,6 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
 // MARK: - Navigation Delegate
 
 extension LoginViewModel {
-  
   func openSDK(_ viewController: UIViewController) {
     helper.initializeSDK(viewController)
   }

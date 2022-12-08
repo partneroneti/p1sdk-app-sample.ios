@@ -48,3 +48,11 @@ private extension LoginViewController {
     }
   }
 }
+
+//public static String createUserAgentForNewSession(){
+//            return FaceTecSDK.createFaceTecAPIUserAgentString("");
+//        }
+//
+//    public static String createUserAgentForSession(String sessionId){
+//        return FaceTecSDK.createFaceTecAPIUserAgentString(sessionId);
+//    }
