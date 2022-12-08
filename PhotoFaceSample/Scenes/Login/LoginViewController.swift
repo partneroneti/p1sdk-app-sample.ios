@@ -40,7 +40,8 @@ private extension LoginViewController {
           self.viewModel.sendCPFAuth(cpf: cpfNumber) {
             print(cpfNumber)
           }
-          self.viewModel.openSDK(self)
+          
+          self.viewModel.openSDK(self, id: self.viewModel.transactionID)
         }
       }
     }

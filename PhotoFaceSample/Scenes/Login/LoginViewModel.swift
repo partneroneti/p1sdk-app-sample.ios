@@ -38,7 +38,7 @@ class LoginViewModel: LogiViewModelProtocol {
       guard let self = self else { return }
       switch response {
       case .success(let model):
-        self.accessToken = model.objectReturn[0].accessToken ?? ""
+        self.accessToken = model.objectReturn?[0].accessToken ?? ""
         print(self.accessToken)
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
@@ -56,9 +56,7 @@ class LoginViewModel: LogiViewModelProtocol {
     worker.getTransaction(cpf: cpf, token: accessToken) { (response) in
       switch response {
       case .success(let model):
-//        model
-        print(model)
-        break
+        print(model.objectReturn)
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -76,7 +74,7 @@ class LoginViewModel: LogiViewModelProtocol {
 
 extension LoginViewModel {
   
-  func openSDK(_ viewController: UIViewController) {
+  func openSDK(_ viewController: UIViewController, id transactionID: String) {
     let viewModel = ScanViewModel(transactionID: transactionID)
     let mainViewController = ScanViewController(viewModel: viewModel, viewTitle: "Frente")
     viewController.navigationController?.pushViewController(mainViewController, animated: true)

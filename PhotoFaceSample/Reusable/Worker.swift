@@ -4,8 +4,8 @@ import ObjectMapper
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
   func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void)
-  func getTransaction(cpf: String, token: String, completion: @escaping (Response<TransactionModel>) -> Void)
-//  func insertTransactionID(transactionID: String, completion: @escaping ((Response<>) -> Void))
+  func getTransaction(cpf: String, token: String, completion: @escaping (Response<AuthenticationModel>) -> Void)
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<AuthenticationModel>) -> Void))
 }
 
 class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol {
@@ -27,7 +27,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol {
     network.mainParser(url: url, body: body, method: .post, completion: completion)
   }
   
-  func getTransaction(cpf: String, token: String, completion: @escaping (Response<TransactionModel>) -> Void) {
+  func getTransaction(cpf: String, token: String, completion: @escaping (Response<AuthenticationModel>) -> Void) {
     guard let url = URL(string: "\(apiURL)/transaction") else {
       return
     }
@@ -36,10 +36,14 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol {
       "cpf": cpf
     ]
     
-    network.mainParser(url: url, body: body, header: token, method: .post, completion: completion)
+    network.loginParser(url: url, body: body, header: token, method: .post, completion: completion)
   }
   
-//  func insertTransactionID(transactionID: String, completion: @escaping ((Response<>) -> Void)) {
-//
-//  }
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<AuthenticationModel>) -> Void)) {
+    guard let url = URL(string: "\(apiURL)/transaction/\(transactionID)") else {
+      return
+    }
+    
+    
+  }
 }
