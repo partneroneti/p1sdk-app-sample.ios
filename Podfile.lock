@@ -20,13 +20,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   PartnerOneSDK:
-    :commit: db45bda02270bed83b88b7d43c2f6f8190f3cd62
+    :commit: 0ce26d442237dcc75587d0b8663f8858ddba9ca5
     :git: https://github.com/partneroneti/p1sdk.ios.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
-  PartnerOneSDK: ce8d01fb886b0eb70408b8d44e86226bdb535df6
+  PartnerOneSDK: 3cda736d817e85daef32afccfb438d8323fd8e12
 
 PODFILE CHECKSUM: 3ef6c14b80635726fb11e9a52d8cff784b85c9fb
 

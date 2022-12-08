@@ -10,6 +10,7 @@ protocol PhotoFaceWorkerProtocol: AnyObject {
   func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void)
   func getTransaction(cpf: String, completion: @escaping (Response<TransactionModel>) -> Void)
   func getTransactionID(transactionID: String, completion: @escaping ((Response<TransactionIDModel>) -> Void))
+  func getCredentials(completion: @escaping (Response<CredentialsModel>) -> Void)
 }
 
 class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
@@ -54,9 +55,14 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
       return
     }
     
-    print("@! >>> WORKER_ACCESS_TOKEN: ", accessToken)
-    print("@! >>> TRANSACTION_ID_URL: \(url)")
-    
     network.loginParser(url: url, header: accessToken, method: .get, completion: completion)
+  }
+  
+  func getCredentials(completion: @escaping (Response<CredentialsModel>) -> Void) {
+    guard let url = URL(string: "\(apiURL)/credentials") else {
+      return
+    }
+    
+    network.getParser(url: url, header: accessToken, method: .get, completion: completion)
   }
 }

@@ -29,6 +29,12 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   var transactionID: String = ""
   var accessToken: String = ""
   
+  ///FaceTec properties
+  ///
+  var certificate: String?
+  var productionKeyText: String?
+  var deviceKeyIdentifier: String?
+  
   //MARK: - init
   
   init(worker: PhotoFaceWorker,
@@ -110,6 +116,31 @@ extension LoginViewModel {
       case .success(let model):
         print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
         print("@! >>> STATUS_DESCRIPTION", String(model.objectReturn[0].result[0].statusDescription!))
+      case .noConnection(let description):
+          print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+          let errorData = "\(error.statusCode), -, \(error.msgError)"
+          print("Server error: \(errorData) \n")
+          break
+      case .timeOut(let description):
+          print("Server error noConnection: \(description) \n")
+      }
+    }
+  }
+  
+  func getCredentials() {
+    worker.getCredentials { [weak self] (response) in
+      guard let self = self else { return }
+      
+      switch response {
+      case .success(let model):
+        self.certificate = String(model.objectReturn[0].certificate!)
+        self.deviceKeyIdentifier = String(model.objectReturn[0].deviceKeyIdentifier!)
+        self.productionKeyText = String(model.objectReturn[0].productionKeyText!)
+        
+        print("@! >>> CERTIFICATE: ", String(model.objectReturn[0].certificate!))
+        print("@! >>> DEVICE_KEY_IDENTIFIER: ", String(model.objectReturn[0].deviceKeyIdentifier!))
+        print("@! >>> PRODUCTION_KEY: ", String(model.objectReturn[0].productionKeyText!))
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):

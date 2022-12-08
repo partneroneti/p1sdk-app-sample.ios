@@ -57,6 +57,7 @@ struct DataParser {
     var request = URLRequest(url: url)
     request.addValue("Bearer \(header)", forHTTPHeaderField: "Authorization")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.addValue("text/plain", forHTTPHeaderField: "Accept")
     request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "\(method)"
     request.httpBody = jsonData
@@ -74,11 +75,51 @@ struct DataParser {
         
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-
+          
           guard let item = responseJSON as? [String:Any] else {
             return
           }
-
+          
+          let model = Mapper<T>().map(JSON: item)
+          completion(.success(model: model!))
+        } else {
+          print(error?.localizedDescription ?? "Não conseguimos receber os dados da API...")
+        }
+      }
+    }
+    task.resume()
+  }
+  
+  func getParser<T: Mappable>(url: URL,
+                              header: String,
+                              method: HTTPMethod,
+                              completion: @escaping ((Response<T>) -> Void)) {
+    
+    var request = URLRequest(url: url)
+    request.addValue("Bearer \(header)", forHTTPHeaderField: "Authorization")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.addValue("text/plain", forHTTPHeaderField: "Accept")
+    request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "\(method)"
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+      
+      Alamofire.request(request).response { (response) in
+        guard let statusCode = response.response?.statusCode,
+              let data = response.data else {
+          return
+        }
+        
+        print("@! >>> STATUS_CODE: ", statusCode)
+        
+        if statusCode == 200 {
+          let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+          
+          guard let item = responseJSON as? [String:Any] else {
+            return
+          }
+          print(item)
+          
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
         } else {

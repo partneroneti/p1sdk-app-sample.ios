@@ -2,7 +2,7 @@
   "name": "PartnerOneSDK",
   "version": "0.1.0",
   "summary": "A short description of PartnerOneSDK.",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "A SDK to send documentation and facil validation.",
   "homepage": "https://github.com/partneroneti/p1sdk.ios",
   "license": {
     "type": "MIT",
