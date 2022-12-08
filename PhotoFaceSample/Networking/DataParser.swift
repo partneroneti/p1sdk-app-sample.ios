@@ -3,6 +3,51 @@ import Alamofire
 import ObjectMapper
 
 struct DataParser {
+  
+  func mainParser<T: Mappable>(url: URL,
+                               body: [String:Any],
+                               header: String = "",
+                               method: HTTPMethod,
+                               completion: @escaping ((Response<T>) -> Void)) {
+    
+    let jsonData = try? JSONSerialization.data(withJSONObject: body)
+    
+    var request = URLRequest(url: url)
+    if header != "" {
+      request.addValue("Authorization", forHTTPHeaderField: "Bearer \(header)")
+    }
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.httpMethod = "\(method)"
+    request.httpBody = jsonData
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+      
+      Alamofire.request(request).response { (response) in
+        guard let statusCode = response.response?.statusCode,
+              let data = response.data else {
+          return
+        }
+        
+        print("@! >>> STATUS_CODE: ", statusCode)
+        
+        if statusCode == 200 {
+          let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+          
+          guard let item = responseJSON as? [String:Any] else {
+            return
+          }
+          
+          let model = Mapper<T>().map(JSON: item)
+          completion(.success(model: model!))
+        } else {
+          print(error?.localizedDescription ?? "Não conseguimos receber os dados da API...")
+        }
+      }
+    }
+    task.resume()
+  }
+  
   func mapperParser<T: Mappable>(url: URL,
                                  method: HTTPMethod,
                                  parameters: Parameters,
@@ -12,26 +57,26 @@ struct DataParser {
       var request = try URLRequest(url: url, method: method)
       request.setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
       
-      Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers)
+      Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
         .responseJSON() { data in
-        let statusCode = data.response?.statusCode
-        
-        switch data.result {
-        case .success(let value):
-          if statusCode == 200 {
-            guard let item = value as? [String:Any] else { return }
-
-            let model = Mapper<T>().map(JSON: item)
-            completion(.success(model: model!))
-
-            print(item)
-          } else {
-            print("NOT WORKING!")
+          let statusCode = data.response?.statusCode
+          
+          switch data.result {
+          case .success(let value):
+            if statusCode == 200 {
+              guard let item = value as? [String:Any] else { return }
+              
+              let model = Mapper<T>().map(JSON: item)
+              completion(.success(model: model!))
+              
+              print(item)
+            } else {
+              print("NOT WORKING!")
+            }
+          case .failure(let error):
+            print("Ocorreu o seguinte erro na requisição: ", error)
           }
-        case .failure(let error):
-          print("Ocorreu o seguinte erro na requisição: ", error)
         }
-      }
     } catch let errorData {
       print(errorData)
     }

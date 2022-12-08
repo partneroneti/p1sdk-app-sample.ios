@@ -23,7 +23,7 @@ class LoginViewModel: LogiViewModelProtocol {
   
   let worker: PhotoFaceWorker
   var transactionID: String = ""
-  
+  var accessToken: String = ""
   
   init(worker: PhotoFaceWorker,
        navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
@@ -32,44 +32,43 @@ class LoginViewModel: LogiViewModelProtocol {
   }
   
   func getInitialData() {
-    print("@! >>> START TO GETTING DATA...")
+    print("@! >>> Begin main data fetch...")
     
-    worker.parseMainData({ [weak self] (data) in
-      DispatchQueue.main.async {
-        switch data {
-        case .success(let model):
-          print(model.paths)
-        case .noConnection(let description):
-            print("Server error timeOut: \(description) \n")
-        case .serverError(let error):
-            let errorData = "\(error.statusCode), -, \(error.msgError)"
-            print("Server error: \(errorData) \n")
-            break
-        case .timeOut(let description):
-            print("Server error noConnection: \(description) \n")
-        }
+    worker.parseMainData { [weak self] (response) in
+      guard let self = self else { return }
+      switch response {
+      case .success(let model):
+        self.accessToken = model.objectReturn[0].accessToken ?? ""
+        print(self.accessToken)
+      case .noConnection(let description):
+          print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+          let errorData = "\(error.statusCode), -, \(error.msgError)"
+          print("Server error: \(errorData) \n")
+          break
+      case .timeOut(let description):
+          print("Server error noConnection: \(description) \n")
       }
-    })
+    }
   }
   
-  func sendCPFAuth(cpf: String) {
-    self.worker.postCPF(cpf: cpf,
-                        completion: { [weak self] (data) in
-      DispatchQueue.main.async {
-        switch data {
-        case .success(let model):
-          print(model)
-        case .noConnection(let description):
-            print("Server error timeOut: \(description) \n")
-        case .serverError(let error):
-            let errorData = "\(error.statusCode), -, \(error.msgError)"
-            print("Server error: \(errorData) \n")
-            break
-        case .timeOut(let description):
-            print("Server error noConnection: \(description) \n")
-        }
+  func sendCPFAuth(cpf: String, completion: @escaping (() -> Void)) {
+    worker.getTransaction(cpf: cpf, token: accessToken) { (response) in
+      switch response {
+      case .success(let model):
+//        model
+        print(model)
+        break
+      case .noConnection(let description):
+          print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+          let errorData = "\(error.statusCode), -, \(error.msgError)"
+          print("Server error: \(errorData) \n")
+          break
+      case .timeOut(let description):
+          print("Server error noConnection: \(description) \n")
       }
-    })
+    }
   }
 }
 

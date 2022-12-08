@@ -14,7 +14,6 @@ final class LoginViewController: BaseViewController<LoginView> {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupBinds()
-    viewModel.getInitialData()
   }
 }
 
@@ -34,10 +33,15 @@ private extension LoginViewController {
       let dataTextField = self.baseView.cpfTextField.dataTextField
       let cpfNumber = dataTextField.text!
       
-      self.viewModel.sendCPFAuth(cpf: cpfNumber)
+      self.viewModel.getInitialData()
       
       if cpfNumber != "" && cpfNumber.count == 11 {
-        self.viewModel.openSDK(self)
+        DispatchQueue.main.async {
+          self.viewModel.sendCPFAuth(cpf: cpfNumber) {
+            print(cpfNumber)
+          }
+          self.viewModel.openSDK(self)
+        }
       }
     }
     

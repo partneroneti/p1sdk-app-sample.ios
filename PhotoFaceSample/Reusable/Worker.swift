@@ -3,39 +3,43 @@ import Alamofire
 import ObjectMapper
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
-  func parseMainData(_ completion: @escaping (_ response: Response<TestModel>) -> Void)
-  func postCPF(cpf: String, completion: @escaping (Response<AuthenticationModel>) -> Void)
+  func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void)
+  func getTransaction(cpf: String, token: String, completion: @escaping (Response<TransactionModel>) -> Void)
+//  func insertTransactionID(transactionID: String, completion: @escaping ((Response<>) -> Void))
 }
 
 class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol {
   
   let network = DataParser()
-  let apiURL = "https://integracao-sodexo-homologacao.partner1.com.br/swagger/v1/swagger.json/"
+  let apiURL = "https://integracao-sodexo-homologacao.partner1.com.br/api"
   
-  func parseMainData(_ completion: @escaping (Response<TestModel>) -> Void) {
-    guard let url = URL(string: "\(apiURL)") else {
+  func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void) {
+    guard let url = URL(string: "\(apiURL)/authentication") else {
       return
     }
     
-    let params: Parameters = [
+    let body: [String:Any] = [
       "username": "HMG.IOS",
       "password": "eQtlC7BM",
       "grant_type": "password"
     ]
     
-//    network.mapperParser(url: url, method: .get, parameters: params, completion: completion)
-    network.encoderParser(parameters: <#T##Parameters#>, url: <#T##URL#>, method: <#T##HTTPMethod#>, completion: <#T##(Result<T, ErrorType>, Int) -> Void#>)
+    network.mainParser(url: url, body: body, method: .post, completion: completion)
   }
   
-  func postCPF(cpf: String, completion: @escaping (Response<AuthenticationModel>) -> Void) {
-    guard let url = URL(string: "\(apiURL)/api/authentication") else {
+  func getTransaction(cpf: String, token: String, completion: @escaping (Response<TransactionModel>) -> Void) {
+    guard let url = URL(string: "\(apiURL)/transaction") else {
       return
     }
     
-    let params: Parameters = [
+    let body: [String:Any] = [
       "cpf": cpf
     ]
-//    network.decoderParser(url: url, method: .post, parameters: params, completion: completion)
-    network.mapperParser(url: url, method: .post, parameters: params, completion: completion)
+    
+    network.mainParser(url: url, body: body, header: token, method: .post, completion: completion)
   }
+  
+//  func insertTransactionID(transactionID: String, completion: @escaping ((Response<>) -> Void)) {
+//
+//  }
 }

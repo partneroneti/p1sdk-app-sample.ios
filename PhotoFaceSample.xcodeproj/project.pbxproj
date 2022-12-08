@@ -15,12 +15,15 @@
 		EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D5293BFF68002A9746 /* ErrorType.swift */; };
 		EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D7293C026E002A9746 /* ErrorResponse.swift */; };
 		EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D9293C07E3002A9746 /* DataParser.swift */; };
-		EF2400DC293C0E56002A9746 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400DB293C0E56002A9746 /* TestModel.swift */; };
 		EF2400DF293C1EC8002A9746 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400DE293C1EC8002A9746 /* AuthenticationModel.swift */; };
 		EF2400E1293C1F68002A9746 /* ObjectReturnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */; };
 		EF5BFD1429404AD400F1955E /* FaceTecSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; };
 		EF5BFD1529404AD400F1955E /* FaceTecSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF5BFD1729404D3A00F1955E /* FaceTec.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF5BFD1629404D3A00F1955E /* FaceTec.strings */; };
+		EF5BFD8329415F7900F1955E /* PathsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD8229415F7900F1955E /* PathsModel.swift */; };
+		EF5BFD872941761B00F1955E /* TransactionIDItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */; };
+		EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD88294176D500F1955E /* ErrorModel.swift */; };
+		EF5BFD8B2941789E00F1955E /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD8A2941789E00F1955E /* TransactionModel.swift */; };
 		EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */; };
 		EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */; };
 		EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A085293A0C5000C5DFA9 /* DocumentViewController.swift */; };
@@ -96,11 +99,14 @@
 		EF2400D5293BFF68002A9746 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		EF2400D7293C026E002A9746 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		EF2400D9293C07E3002A9746 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
-		EF2400DB293C0E56002A9746 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		EF2400DE293C1EC8002A9746 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReturnModel.swift; sourceTree = "<group>"; };
 		EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FaceTecSDK.xcframework; sourceTree = "<group>"; };
 		EF5BFD1629404D3A00F1955E /* FaceTec.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FaceTec.strings; sourceTree = "<group>"; };
+		EF5BFD8229415F7900F1955E /* PathsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsModel.swift; sourceTree = "<group>"; };
+		EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDItemModel.swift; sourceTree = "<group>"; };
+		EF5BFD88294176D500F1955E /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		EF5BFD8A2941789E00F1955E /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		EFB7A07E293A0C5000C5DFA9 /* PhotoFaceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFaceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -194,9 +200,12 @@
 		EF2400DD293C1BB5002A9746 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EF2400DB293C0E56002A9746 /* TestModel.swift */,
 				EF2400DE293C1EC8002A9746 /* AuthenticationModel.swift */,
 				EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */,
+				EF5BFD8229415F7900F1955E /* PathsModel.swift */,
+				EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */,
+				EF5BFD88294176D500F1955E /* ErrorModel.swift */,
+				EF5BFD8A2941789E00F1955E /* TransactionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,20 +302,12 @@
 			children = (
 				EFB7A0C3293A126000C5DFA9 /* Components */,
 				EFB7A0BE293A0CFF00C5DFA9 /* Classes */,
-				EFB7A0BD293A0CF700C5DFA9 /* Extensions */,
 				EFB7A0D2293A315A00C5DFA9 /* LocalizableStrings.swift */,
 				EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */,
 				EFB7A0E0293A73C100C5DFA9 /* Router.swift */,
 				EF2400D1293BF8F2002A9746 /* Worker.swift */,
 			);
 			path = Reusable;
-			sourceTree = "<group>";
-		};
-		EFB7A0BD293A0CF700C5DFA9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EFB7A0BE293A0CFF00C5DFA9 /* Classes */ = {
@@ -594,6 +595,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */,
 				EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */,
 				EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */,
 				EFB7A0CE293A245C00C5DFA9 /* StatusViewController.swift in Sources */,
@@ -606,6 +608,7 @@
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
 				EF2400E1293C1F68002A9746 /* ObjectReturnModel.swift in Sources */,
 				EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */,
+				EF5BFD872941761B00F1955E /* TransactionIDItemModel.swift in Sources */,
 				EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */,
 				EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */,
 				EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */,
@@ -616,15 +619,16 @@
 				EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */,
 				EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */,
 				EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */,
+				EF5BFD8B2941789E00F1955E /* TransactionModel.swift in Sources */,
 				EF2400DF293C1EC8002A9746 /* AuthenticationModel.swift in Sources */,
 				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,
 				EFB7A0D9293A506300C5DFA9 /* ServerError.swift in Sources */,
 				EFB7A0D7293A396A00C5DFA9 /* StatusModel.swift in Sources */,
 				EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */,
 				EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */,
+				EF5BFD8329415F7900F1955E /* PathsModel.swift in Sources */,
 				EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */,
 				EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */,
-				EF2400DC293C0E56002A9746 /* TestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
