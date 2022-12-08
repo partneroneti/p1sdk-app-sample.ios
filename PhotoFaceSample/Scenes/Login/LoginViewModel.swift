@@ -101,12 +101,6 @@ extension LoginViewModel {
   func openStatusView(_ viewController: UIViewController) {
     let mainViewModel = StatusViewModel()
     let mainViewController = StatusViewController(viewModel: mainViewModel)
-    let topController = UIApplication.shared.keyWindow?.rootViewController
-    
-    if topController == LoginViewController(viewModel: self) {
-      viewController.navigationController?.pushViewController(mainViewController, animated: true)
-    }
-    
-    helper.visibleViewController(viewControllerToPush: mainViewController)
+    viewController.navigationController?.pushViewController(mainViewController, animated: true)
   }
 }

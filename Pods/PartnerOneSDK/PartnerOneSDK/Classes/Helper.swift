@@ -1,16 +1,29 @@
 import UIKit
 
 protocol PartnerHelperProtocol: AnyObject {
+  var mainViewController: UIViewController { get }
   var transactionID: String { get }
 }
 
-public class PartnerHelper: PartnerHelperProtocol {
+open class PartnerHelper: PartnerHelperProtocol {
   
-  var transactionID: String = ""
+  public var mainViewController = UIViewController()
+  public var transactionID: String = ""
   
-  public func openViewAfter(from viewController: UIViewController, to: UIViewController = UIViewController()) {
-    DispatchQueue.main.async {
-      viewController.navigationController?.pushViewController(to, animated: true)
-    }
+  public init(mainViewController: UIViewController = UIViewController(),
+              transactionID: String = "") {
+    self.mainViewController = mainViewController
+    self.transactionID = transactionID
+  }
+  
+  public func initializeSDK(_ viewController: UIViewController) {
+    let mainWorker = PartnerOneWorker()
+    let mainViewModel = ScanViewModel(worker: mainWorker)
+    let mainViewController = ScanViewController(viewModel: mainViewModel)
+    viewController.navigationController?.pushViewController(mainViewController, animated: true)
+  }
+  
+  public func openViewAfter(_ viewController: UIViewController) {
+    viewController.navigationController?.popToViewController(mainViewController, animated: true)
   }
 }
