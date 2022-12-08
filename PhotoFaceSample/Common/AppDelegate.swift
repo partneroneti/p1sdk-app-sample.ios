@@ -20,8 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let worker = PhotoFaceWorker()
     let rootViewModel = LoginViewModel(worker: worker, navigationDelegate: router)
     let rootViewController = LoginViewController(viewModel: rootViewModel)
-    
+
     worker.accessToken = rootViewModel.accessToken
+    
+//    let rootViewModel = StatusViewModel()
+//    let rootViewController = StatusViewController(viewModel: rootViewModel)
     
     let navigationController = UINavigationController(rootViewController: rootViewController)
     

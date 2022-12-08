@@ -42,6 +42,7 @@ private extension LoginViewController {
       if cpfNumber != "" && cpfNumber.count == 11 {
         self.viewModel.sendCPFAuth(cpf: cpfNumber, completion: {
           self.viewModel.openSDK(self)
+          self.viewModel.setupTransactionID()
         })
       }
     }

@@ -47,7 +47,7 @@ struct DataParser {
   }
   
   func loginParser<T: Mappable>(url: URL,
-                                body: [String:Any],
+                                body: [String:Any] = [:],
                                 header: String,
                                 method: HTTPMethod,
                                 completion: @escaping ((Response<T>) -> Void)) {

@@ -18,6 +18,10 @@ final class StatusViewController: BaseViewController<StatusView> {
 private extension StatusViewController {
   func setupBinds() {
     baseView.transactionIdLabel.descriptionLabel.text = viewModel.transactionID
-    baseView.statusLabel.descriptionLabel.text = viewModel.status
+    baseView.statusLabel.descriptionLabel.text = "\(viewModel.statusDescription)"
+    
+    baseView.didTapReset = {
+      self.navigationController?.popToRootViewController(animated: true)
+    }
   }
 }

@@ -3,6 +3,7 @@ import UIKit
 final class StatusView: BaseView {
   
   typealias Strings = LocalizableStrings
+  var didTapReset: (() -> Void)?
   
   private let mainTitle: UILabel = {
     let label = UILabel()
@@ -36,6 +37,7 @@ final class StatusView: BaseView {
   private let restartBtn: MainButton = {
     let button = MainButton()
     button.mainButton.setTitle(Strings.restartTitle.rawValue, for: .normal)
+    button.mainButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
     return button
   }()
   
@@ -63,5 +65,10 @@ final class StatusView: BaseView {
       transactionIdLabel.heightAnchor.constraint(equalToConstant: 40),
       statusLabel.heightAnchor.constraint(equalToConstant: 40)
     ])
+  }
+  
+  @objc
+  func resetButtonTapped() {
+    self.didTapReset?()
   }
 }

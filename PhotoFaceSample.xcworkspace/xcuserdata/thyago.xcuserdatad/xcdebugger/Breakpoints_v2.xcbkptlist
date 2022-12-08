@@ -3,4 +3,70 @@
    uuid = "9C4C34D3-9AD9-43F6-9F72-91C7CB38E8C5"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06D0DED2-0228-48DB-99C5-E4D2EFF5A0E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getTransactionID(transactionID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06D0DED2-0228-48DB-99C5-E4D2EFF5A0E7 - 7ae8cfb517b4e473"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoFaceSample.PhotoFaceWorker.getTransactionID(transactionID: Swift.String, completion: (PhotoFaceSample.Response&lt;PhotoFaceSample.TransactionIDModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PhotoFaceSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thyago/Documents/GitHub/PhotoFaceSample/PhotoFaceSample/Reusable/Worker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "376">
+               </Location>
+               <Location
+                  uuid = "06D0DED2-0228-48DB-99C5-E4D2EFF5A0E7 - 7ae8cfb517b4e473"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoFaceSample.PhotoFaceWorker.getTransactionID(transactionID: Swift.String, completion: (PhotoFaceSample.Response&lt;PhotoFaceSample.TransactionIDModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PhotoFaceSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thyago/Documents/GitHub/PhotoFaceSample/PhotoFaceSample/Reusable/Worker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "804">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F54963E-49EE-4D05-A024-F1114FED5A1C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "getTransactionID(transactionID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

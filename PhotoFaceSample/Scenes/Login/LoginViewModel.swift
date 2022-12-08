@@ -69,6 +69,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
         /// Get and passa TransactionID to SDK Helper
         ///
         self.helper.transactionID = String(model.objectReturn[0].transactionId!)
+        self.transactionID = String(model.objectReturn[0].transactionId!)
         
         /// Navigate to SDK after API response 200
         ///
@@ -77,6 +78,26 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
         }
         
         print("@! >>> TRANSACTION_ID: \(String(model.objectReturn[0].transactionId!))")
+      case .noConnection(let description):
+          print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+          let errorData = "\(error.statusCode), -, \(error.msgError)"
+          print("Server error: \(errorData) \n")
+          break
+      case .timeOut(let description):
+          print("Server error noConnection: \(description) \n")
+      }
+    }
+  }
+  
+  func setupTransactionID() {
+    worker.getTransactionID(transactionID: self.transactionID) { [weak self] (response) in
+      guard let self = self else { return }
+    
+      switch response {
+      case .success(let model):
+        print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
+        print("@! >>> STATUS_DESCRIPTION", String(model.objectReturn[0].result[0].statusDescription!))
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):

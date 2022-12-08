@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0CA98D6060FA231478D84B70 /* Pods_PhotoFaceSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846E3656B18A1F66BF77DC1B /* Pods_PhotoFaceSampleTests.framework */; };
 		39A04C20BCD80522F7AFFD5B /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E148394E82460C061C27C174 /* Pods_PhotoFaceSample.framework */; };
+		EF08860129425EF6001E8EB4 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860029425EF6001E8EB4 /* ResultModel.swift */; };
+		EF08860329425FC2001E8EB4 /* TransactionIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860229425FC2001E8EB4 /* TransactionIDModel.swift */; };
+		EF08860529426036001E8EB4 /* TransactionIDResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */; };
 		EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D1293BF8F2002A9746 /* Worker.swift */; };
 		EF2400D4293BFF12002A9746 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D3293BFF12002A9746 /* Result.swift */; };
 		EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D5293BFF68002A9746 /* ErrorType.swift */; };
@@ -96,6 +99,9 @@
 		B479DBBA7296B94CAB9BBB1A /* Pods-PhotoFaceSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSample.debug.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSample/Pods-PhotoFaceSample.debug.xcconfig"; sourceTree = "<group>"; };
 		D09790BF4578A7186F9BEB90 /* Pods-PhotoFaceSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSampleTests.release.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSampleTests/Pods-PhotoFaceSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		E148394E82460C061C27C174 /* Pods_PhotoFaceSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF08860029425EF6001E8EB4 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		EF08860229425FC2001E8EB4 /* TransactionIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDModel.swift; sourceTree = "<group>"; };
+		EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDResponseModel.swift; sourceTree = "<group>"; };
 		EF2400D1293BF8F2002A9746 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		EF2400D3293BFF12002A9746 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		EF2400D5293BFF68002A9746 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
@@ -206,6 +212,9 @@
 				EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */,
 				EF5BFD88294176D500F1955E /* ErrorModel.swift */,
 				EF5BFD8A2941789E00F1955E /* TransactionModel.swift */,
+				EF08860029425EF6001E8EB4 /* ResultModel.swift */,
+				EF08860229425FC2001E8EB4 /* TransactionIDModel.swift */,
+				EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF08860529426036001E8EB4 /* TransactionIDResponseModel.swift in Sources */,
 				EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */,
 				EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */,
 				EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */,
@@ -626,8 +636,10 @@
 				EFB7A0D7293A396A00C5DFA9 /* StatusModel.swift in Sources */,
 				EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */,
 				EFB7A0BB293A0CC200C5DFA9 /* LoginViewModel.swift in Sources */,
+				EF08860329425FC2001E8EB4 /* TransactionIDModel.swift in Sources */,
 				EF5BFD8329415F7900F1955E /* PathsModel.swift in Sources */,
 				EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */,
+				EF08860129425EF6001E8EB4 /* ResultModel.swift in Sources */,
 				EFB7A0C0293A0D5000C5DFA9 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
