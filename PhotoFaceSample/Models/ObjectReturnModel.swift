@@ -2,9 +2,9 @@ import Foundation
 import ObjectMapper
 
 struct ObjectReturnModel: Mappable {
-  var expiresIn: Int?
-  var accessToken: String?
-  var tokenType: String?
+  var expiresIn: Int
+  var accessToken: String
+  var tokenType: String
   
   init?(map: Map) {
     expiresIn = (try? map.value("expires_in")) ?? 0

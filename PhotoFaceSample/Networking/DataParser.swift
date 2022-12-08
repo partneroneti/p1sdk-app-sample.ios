@@ -28,11 +28,13 @@ struct DataParser {
         print("@! >>> STATUS_CODE: ", statusCode)
         
         if statusCode == 200 {
-          let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+          let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+          
           
           guard let item = responseJSON as? [String:Any] else {
             return
           }
+          print(item)
           
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
@@ -50,11 +52,12 @@ struct DataParser {
                                 method: HTTPMethod,
                                 completion: @escaping ((Response<T>) -> Void)) {
     
-    let jsonData = try? JSONSerialization.data(withJSONObject: body)
+    let jsonData = try? JSONSerialization.data(withJSONObject: body, options: [])
     
     var request = URLRequest(url: url)
-    request.addValue("Authorization", forHTTPHeaderField: "\(header)")
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("Bearer \(header)", forHTTPHeaderField: "Authorization")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "\(method)"
     request.httpBody = jsonData
     
@@ -67,14 +70,15 @@ struct DataParser {
         }
         
         print("@! >>> STATUS_CODE: ", statusCode)
+        print("@! >>> RESPONSE_DATA: ", data)
         
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-          
+
           guard let item = responseJSON as? [String:Any] else {
             return
           }
-          
+
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
         } else {

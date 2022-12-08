@@ -17,10 +17,12 @@ protocol PhotoFaceNavigationDelegate: AnyObject {
 
 //MARK: - Class
 
-class LoginViewModel: LogiViewModelProtocol {
+class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   
+  weak var viewController: LoginViewController?
   private weak var navigationDelegate: PhotoFaceNavigationDelegate?
   
+  let helper = PartnerHelper()
   let worker: PhotoFaceWorker
   var transactionID: String = ""
   var accessToken: String = ""
@@ -38,8 +40,12 @@ class LoginViewModel: LogiViewModelProtocol {
       guard let self = self else { return }
       switch response {
       case .success(let model):
-        self.accessToken = model.objectReturn?[0].accessToken ?? ""
-        print(self.accessToken)
+        /// Passes AccessToken to Worker Layer
+        ///
+        self.worker.accessToken = model.objectReturn[0].accessToken
+        self.accessToken = model.objectReturn[0].accessToken
+        
+        print("@! >>> ACCESS_TOKEN: ", model.objectReturn[0].accessToken)
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -52,11 +58,25 @@ class LoginViewModel: LogiViewModelProtocol {
     }
   }
   
+  /// Login Authentication
+  /// 
   func sendCPFAuth(cpf: String, completion: @escaping (() -> Void)) {
-    worker.getTransaction(cpf: cpf, token: accessToken) { (response) in
+    worker.getTransaction(cpf: cpf) { [weak self] (response) in
+      guard let self = self else { return }
+      
       switch response {
       case .success(let model):
-        print(model.objectReturn)
+        /// Get and passa TransactionID to SDK Helper
+        ///
+        self.helper.transactionID = String(model.objectReturn[0].transactionId!)
+        
+        /// Navigate to SDK after API response 200
+        ///
+        if let viewController = self.viewController {
+          self.openSDK(viewController)
+        }
+        
+        print("@! >>> TRANSACTION_ID: \(String(model.objectReturn[0].transactionId!))")
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -74,16 +94,19 @@ class LoginViewModel: LogiViewModelProtocol {
 
 extension LoginViewModel {
   
-  func openSDK(_ viewController: UIViewController, id transactionID: String) {
-    let viewModel = ScanViewModel(transactionID: transactionID)
-    let mainViewController = ScanViewController(viewModel: viewModel, viewTitle: "Frente")
-    viewController.navigationController?.pushViewController(mainViewController, animated: true)
+  func openSDK(_ viewController: UIViewController) {
+    helper.initializeSDK(viewController)
   }
   
   func openStatusView(_ viewController: UIViewController) {
-    let viewModel = StatusViewModel()
-    let mainViewController = StatusViewController(viewModel: viewModel)
+    let mainViewModel = StatusViewModel()
+    let mainViewController = StatusViewController(viewModel: mainViewModel)
+    let topController = UIApplication.shared.keyWindow?.rootViewController
     
-    viewController.navigationController?.pushViewController(mainViewController, animated: true)
+    if topController == LoginViewController(viewModel: self) {
+      viewController.navigationController?.pushViewController(mainViewController, animated: true)
+    }
+    
+    helper.visibleViewController(viewControllerToPush: mainViewController)
   }
 }

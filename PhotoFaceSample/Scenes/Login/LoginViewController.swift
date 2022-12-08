@@ -14,6 +14,12 @@ final class LoginViewController: BaseViewController<LoginView> {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupBinds()
+    viewModel.viewController = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    viewModel.getInitialData()
   }
 }
 
@@ -33,25 +39,11 @@ private extension LoginViewController {
       let dataTextField = self.baseView.cpfTextField.dataTextField
       let cpfNumber = dataTextField.text!
       
-      self.viewModel.getInitialData()
-      
       if cpfNumber != "" && cpfNumber.count == 11 {
-        DispatchQueue.main.async {
-          self.viewModel.sendCPFAuth(cpf: cpfNumber) {
-            print(cpfNumber)
-          }
-          
-          self.viewModel.openSDK(self, id: self.viewModel.transactionID)
-        }
+        self.viewModel.sendCPFAuth(cpf: cpfNumber, completion: {
+          self.viewModel.openSDK(self)
+        })
       }
     }
-    
-    /// Navtigation to Status Screen
-    ///
-    let viewModel = StatusViewModel()
-    let viewController = StatusViewController(viewModel: viewModel)
-    
-    let partnerModel = ScanViewModel(transactionID: "")
-    let partnerView = ScanViewController(viewModel: partnerModel)
   }
 }

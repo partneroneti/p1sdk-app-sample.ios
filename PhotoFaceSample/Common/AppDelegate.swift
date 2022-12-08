@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let rootViewModel = LoginViewModel(worker: worker, navigationDelegate: router)
     let rootViewController = LoginViewController(viewModel: rootViewModel)
     
+    worker.accessToken = rootViewModel.accessToken
+    
     let navigationController = UINavigationController(rootViewController: rootViewController)
     
     let window = UIWindow(frame: window!.bounds)

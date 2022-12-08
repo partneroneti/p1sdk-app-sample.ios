@@ -6,7 +6,7 @@ struct AuthenticationModel: Mappable {
   var message: String?
   var timeProcess: Int?
   var requestId: String?
-  var objectReturn: [ObjectReturnModel]?
+  var objectReturn: [ObjectReturnModel]
 
   init?(map: Map) {
     success = (try? map.value("success")) ?? false

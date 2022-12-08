@@ -6,7 +6,7 @@ struct TransactionModel: Mappable {
   var message: String?
   var timeProcess: Int?
   var requestId: String?
-  var objectReturn: [TransactionIDItemModel]?
+  var objectReturn: [TransactionIDItemModel]
 
   init?(map: Map) {
     success = (try? map.value("success")) ?? false
