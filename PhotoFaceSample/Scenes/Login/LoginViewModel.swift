@@ -23,11 +23,13 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   
   weak var viewController: LoginViewController?
   private weak var navigationDelegate: PhotoFaceNavigationDelegate?
+  private var decisionMatrix: DecisionMatrix?
   
   let helper = PartnerHelper()
   let worker: PhotoFaceWorker
   var transactionID: String = ""
   var accessToken: String = ""
+  var statusDescription: String?
   
   ///FaceTec properties
   ///
@@ -117,6 +119,10 @@ extension LoginViewModel {
       
       switch response {
       case .success(let model):
+        self.statusDescription = String(model.objectReturn[0].result[0].statusDescription!)
+        
+        /// Erase prints below
+        ///
         print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
         print("@! >>> STATUS_DESCRIPTION", String(model.objectReturn[0].result[0].statusDescription!))
       case .noConnection(let description):
@@ -171,6 +177,8 @@ extension LoginViewModel {
   
   func openStatusView(_ viewController: UIViewController) {
     let mainViewModel = StatusViewModel()
+    mainViewModel.transactionID = transactionID
+    mainViewModel.statusDescription = statusDescription
     let mainViewController = StatusViewController(viewModel: mainViewModel)
     viewController.navigationController?.pushViewController(mainViewController, animated: true)
   }

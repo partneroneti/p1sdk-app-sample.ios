@@ -67,4 +67,23 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     
     network.getParser(url: url, header: accessToken, method: .get, completion: completion)
   }
+  
+  func sendDocumentPictures(transactionId: String,
+                            imgType: String,
+                            imgByte: String,
+                            completion: @escaping ((Response<TransactionModel>) -> Void)) {
+    guard let url = URL(string: "\(apiURL)/document") else {
+      return
+    }
+    
+    let body: [String:Any] = [
+      "transactionId": transactionId,
+      "documents": [
+        "type": imgType,
+        "byte": imgByte
+      ]
+    ]
+    
+    network.mainParser(url: url, body: body, method: .post, completion: completion)
+  }
 }
