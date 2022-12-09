@@ -93,6 +93,8 @@ extension LoginViewModel {
           self.openSDK(viewController)
         }
         
+        self.setupTransactionID(self.transactionID)
+        
         print("@! >>> TRANSACTION_ID: \(String(model.objectReturn[0].transactionId!))")
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
@@ -108,10 +110,11 @@ extension LoginViewModel {
   
   /// First time getting TransactionID
   ///
-  func setupTransactionID() {
-    worker.getTransactionID(transactionID: self.transactionID) { [weak self] (response) in
-      guard let self = self else { return }
+  func setupTransactionID(_ transactionID: String) {
     
+    worker.getTransactionID(transactionID: transactionID) { [weak self] (response) in
+      guard let self = self else { return }
+      
       switch response {
       case .success(let model):
         print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
@@ -138,9 +141,12 @@ extension LoginViewModel {
         self.deviceKeyIdentifier = String(model.objectReturn[0].deviceKeyIdentifier!)
         self.productionKeyText = String(model.objectReturn[0].productionKeyText!)
         
+        /// Erase prints below
+        ///
         print("@! >>> CERTIFICATE: ", String(model.objectReturn[0].certificate!))
         print("@! >>> DEVICE_KEY_IDENTIFIER: ", String(model.objectReturn[0].deviceKeyIdentifier!))
         print("@! >>> PRODUCTION_KEY: ", String(model.objectReturn[0].productionKeyText!))
+      
       case .noConnection(let description):
           print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -152,6 +158,8 @@ extension LoginViewModel {
       }
     }
   }
+  
+  
 }
 
 // MARK: - Navigation Delegate

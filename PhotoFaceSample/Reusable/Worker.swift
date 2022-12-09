@@ -55,7 +55,9 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
       return
     }
     
-    network.loginParser(url: url, header: accessToken, method: .get, completion: completion)
+    print("@! TransacitonID_URL: ", url)
+    
+    network.getParser(url: url, header: accessToken, method: .get, completion: completion)
   }
   
   func getCredentials(completion: @escaping (Response<CredentialsModel>) -> Void) {

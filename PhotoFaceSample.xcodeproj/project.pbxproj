@@ -29,6 +29,7 @@
 		EF5BFD8B2941789E00F1955E /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD8A2941789E00F1955E /* TransactionModel.swift */; };
 		EF9202D32942A2D000302029 /* FaceTecDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D22942A2D000302029 /* FaceTecDataModel.swift */; };
 		EF9202D52942A3A800302029 /* CredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D42942A3A800302029 /* CredentialsModel.swift */; };
+		EF9202D72942B24600302029 /* DecisionMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D62942B24600302029 /* DecisionMatrix.swift */; };
 		EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */; };
 		EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */; };
 		EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A085293A0C5000C5DFA9 /* DocumentViewController.swift */; };
@@ -118,6 +119,7 @@
 		EF5BFD8A2941789E00F1955E /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		EF9202D22942A2D000302029 /* FaceTecDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTecDataModel.swift; sourceTree = "<group>"; };
 		EF9202D42942A3A800302029 /* CredentialsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsModel.swift; sourceTree = "<group>"; };
+		EF9202D62942B24600302029 /* DecisionMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionMatrix.swift; sourceTree = "<group>"; };
 		EFB7A07E293A0C5000C5DFA9 /* PhotoFaceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFaceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFB7A083293A0C5000C5DFA9 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */,
 				EFB7A0E0293A73C100C5DFA9 /* Router.swift */,
 				EF2400D1293BF8F2002A9746 /* Worker.swift */,
+				EF9202D62942B24600302029 /* DecisionMatrix.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */,
 				EFB7A0DB293A508400C5DFA9 /* Response.swift in Sources */,
 				EF2400D4293BFF12002A9746 /* Result.swift in Sources */,
+				EF9202D72942B24600302029 /* DecisionMatrix.swift in Sources */,
 				EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */,
 				EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */,
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,

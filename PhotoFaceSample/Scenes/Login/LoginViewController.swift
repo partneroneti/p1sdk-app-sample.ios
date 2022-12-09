@@ -44,7 +44,6 @@ private extension LoginViewController {
     baseView.beginButton.btnAction = { [weak self] in
       guard let self = self else { return }
       
-      self.viewModel.setupTransactionID()
       self.viewModel.getCredentials()
       
       let dataTextField = self.baseView.cpfTextField.dataTextField
