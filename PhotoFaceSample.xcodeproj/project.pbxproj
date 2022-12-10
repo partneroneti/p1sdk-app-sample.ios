@@ -10,7 +10,7 @@
 		087B62518B3A40826B4FF7BD /* Pods_PhotoFaceSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0D58F04E5B7EEEE5EC9409 /* Pods_PhotoFaceSampleTests.framework */; };
 		C2BC6C1ECFD1A80BCA3BB4A3 /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C38804F8F4D339AE554D8AD /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework */; };
 		EF08860129425EF6001E8EB4 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860029425EF6001E8EB4 /* ResultModel.swift */; };
-		EF08860529426036001E8EB4 /* TransactionIDResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */; };
+		EF08860529426036001E8EB4 /* TransactionIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860429426036001E8EB4 /* TransactionIDModel.swift */; };
 		EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D1293BF8F2002A9746 /* Worker.swift */; };
 		EF2400D4293BFF12002A9746 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D3293BFF12002A9746 /* Result.swift */; };
 		EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D5293BFF68002A9746 /* ErrorType.swift */; };
@@ -20,7 +20,7 @@
 		EF5BFD1429404AD400F1955E /* FaceTecSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; };
 		EF5BFD1529404AD400F1955E /* FaceTecSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF5BFD1729404D3A00F1955E /* FaceTec.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF5BFD1629404D3A00F1955E /* FaceTec.strings */; };
-		EF5BFD872941761B00F1955E /* TransactionIDItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */; };
+		EF5BFD872941761B00F1955E /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD862941761B00F1955E /* TransactionModel.swift */; };
 		EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD88294176D500F1955E /* ErrorModel.swift */; };
 		EF9202D32942A2D000302029 /* FaceTecDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D22942A2D000302029 /* FaceTecDataModel.swift */; };
 		EF9202D72942B24600302029 /* DecisionMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D62942B24600302029 /* DecisionMatrix.swift */; };
@@ -99,7 +99,7 @@
 		DB5D394F4EFAD5EB22A81821 /* Pods-PhotoFaceSample-PhotoFaceSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSample-PhotoFaceSampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSample-PhotoFaceSampleUITests/Pods-PhotoFaceSample-PhotoFaceSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE3356AE61303B2349CD257B /* Pods-PhotoFaceSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSampleTests/Pods-PhotoFaceSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF08860029425EF6001E8EB4 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
-		EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDResponseModel.swift; sourceTree = "<group>"; };
+		EF08860429426036001E8EB4 /* TransactionIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDModel.swift; sourceTree = "<group>"; };
 		EF2400D1293BF8F2002A9746 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		EF2400D3293BFF12002A9746 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		EF2400D5293BFF68002A9746 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReturnModel.swift; sourceTree = "<group>"; };
 		EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FaceTecSDK.xcframework; sourceTree = "<group>"; };
 		EF5BFD1629404D3A00F1955E /* FaceTec.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FaceTec.strings; sourceTree = "<group>"; };
-		EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDItemModel.swift; sourceTree = "<group>"; };
+		EF5BFD862941761B00F1955E /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		EF5BFD88294176D500F1955E /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		EF9202D22942A2D000302029 /* FaceTecDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTecDataModel.swift; sourceTree = "<group>"; };
 		EF9202D62942B24600302029 /* DecisionMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionMatrix.swift; sourceTree = "<group>"; };
@@ -206,10 +206,10 @@
 			isa = PBXGroup;
 			children = (
 				EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */,
-				EF5BFD862941761B00F1955E /* TransactionIDItemModel.swift */,
+				EF5BFD862941761B00F1955E /* TransactionModel.swift */,
 				EF5BFD88294176D500F1955E /* ErrorModel.swift */,
 				EF08860029425EF6001E8EB4 /* ResultModel.swift */,
-				EF08860429426036001E8EB4 /* TransactionIDResponseModel.swift */,
+				EF08860429426036001E8EB4 /* TransactionIDModel.swift */,
 				EF9202D22942A2D000302029 /* FaceTecDataModel.swift */,
 				EF9202DA2942BF0E00302029 /* SessionIDModel.swift */,
 				EF9202E62944B3BC00302029 /* MainResponseModel.swift */,
@@ -604,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF08860529426036001E8EB4 /* TransactionIDResponseModel.swift in Sources */,
+				EF08860529426036001E8EB4 /* TransactionIDModel.swift in Sources */,
 				EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */,
 				EFB7A0D3293A315A00C5DFA9 /* LocalizableStrings.swift in Sources */,
 				EF2400D2293BF8F2002A9746 /* Worker.swift in Sources */,
@@ -619,7 +619,7 @@
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
 				EF2400E1293C1F68002A9746 /* ObjectReturnModel.swift in Sources */,
 				EFB7A086293A0C5000C5DFA9 /* DocumentViewController.swift in Sources */,
-				EF5BFD872941761B00F1955E /* TransactionIDItemModel.swift in Sources */,
+				EF5BFD872941761B00F1955E /* TransactionModel.swift in Sources */,
 				EF9202DB2942BF0E00302029 /* SessionIDModel.swift in Sources */,
 				EF9202D32942A2D000302029 /* FaceTecDataModel.swift in Sources */,
 				EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */,

@@ -94,7 +94,7 @@ extension LoginViewModel {
         
         /// Navigate to SDK after API response 200
         ///
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
           self.setupTransactionID(self.transactionID)
         }
         
@@ -125,7 +125,7 @@ extension LoginViewModel {
         
         /// Matrix Decision Navigator
         ///
-        self.navigateToView(Int(model.objectReturn[0].result[0].status!))
+        self.navigateToView(self.status!)
         
         /// Erase prints below
         ///
@@ -230,28 +230,19 @@ extension LoginViewModel {
       break
     case 1:
       navigationDelegate?.openStatusView()
+      print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
     case 2:
       navigationDelegate?.openStatusView()
+      print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
     case 3:
       navigationDelegate?.openFaceCapture()
+      print("@! >>> Redirecionando para captura de face...")
     case 4:
       navigationDelegate?.openDocumentCapture()
+      print("@! >>> Logado com sucesso!")
+      print("@! >>> Redirecionando para captura de documento...")
     default:
       break
     }
   }
-  
-//  func openStatusView() -> UIViewController {
-//    let mainViewModel = StatusViewModel()
-//    mainViewModel.transactionID = transactionID
-//    mainViewModel.statusDescription = statusDescription
-//    let mainViewController = StatusViewController(viewModel: mainViewModel)
-//    viewController.navigationController?.pushViewController(mainViewController, animated: true)
-//    
-//    self.viewController?.navigationController?.pushViewController(mainViewController, animated: <#T##Bool#>)
-//    
-//    navigationDelegate?.openStatusView()
-//    
-//    return mainViewController
-//  }
 }

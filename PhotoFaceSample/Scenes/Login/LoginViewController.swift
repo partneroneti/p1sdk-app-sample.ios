@@ -40,17 +40,24 @@ extension LoginViewController: UITextFieldDelegate {
 
 private extension LoginViewController {
   func setupBinds() {
+    (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
+      
     /// Navigation do SDK Screen
     ///
     baseView.beginButton.btnAction = { [weak self] in
+      
       guard let self = self else { return }
+      
+      self.baseView.beginButton.isUserInteractionEnabled = false
       
       let dataTextField = self.baseView.cpfTextField.dataTextField
       let cpfNumber = dataTextField.text!
       
       if cpfNumber != "" && cpfNumber.count == 11 {
-        self.viewModel.sendCPFAuth(cpf: cpfNumber)
-        print("@! >>> Botão de Login apertado!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+          self.viewModel.sendCPFAuth(cpf: cpfNumber)
+          print("@! >>> Botão de Login apertado!")
+        }
       }
     }
   }

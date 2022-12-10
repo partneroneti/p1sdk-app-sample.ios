@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-struct TransactionIDResponseModel: Mappable {
+struct TransactionIDModel: Mappable {
   var transactionId: String
   var result: [ResultModel]
 

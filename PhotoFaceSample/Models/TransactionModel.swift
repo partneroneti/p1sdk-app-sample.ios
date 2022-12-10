@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-struct TransactionIDItemModel: Mappable {
+struct TransactionModel: Mappable {
   var transactionId: String?
   
   init?(map: Map) {

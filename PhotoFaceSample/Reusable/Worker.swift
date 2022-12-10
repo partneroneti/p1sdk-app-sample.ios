@@ -8,10 +8,10 @@ protocol AccessTokeProtocol: AnyObject {
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
   func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void)
-  func getTransaction(cpf: String, completion: @escaping (Response<ResponseModel<TransactionIDItemModel>>) -> Void)
-  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDResponseModel>>) -> Void))
+  func getTransaction(cpf: String, completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void)
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
   func getCredentials(completion: @escaping (Response<ResponseModel<FaceTecDataModel>>) -> Void)
-  func sendDocumentPictures(transactionId: String, imgType: String, imgByte: String, completion: @escaping ((Response<ResponseModel<TransactionIDItemModel>>) -> Void))
+  func sendDocumentPictures(transactionId: String, imgType: String, imgByte: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
   func getSession(userAgent: String, deviceKey: String, completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
 }
 
@@ -41,7 +41,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
   }
   
   func getTransaction(cpf: String,
-                      completion: @escaping (Response<ResponseModel<TransactionIDItemModel>>) -> Void) {
+                      completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void) {
     guard let url = URL(string: "\(apiURL)/transaction") else {
       return
     }
@@ -53,7 +53,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     network.loginParser(url: url, body: body, header: accessToken, method: .post, completion: completion)
   }
   
-  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDResponseModel>>) -> Void)) {
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void)) {
     guard let url = URL(string: "\(apiURL)/transaction/\(transactionID)") else {
       return
     }
@@ -72,7 +72,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
   func sendDocumentPictures(transactionId: String,
                             imgType: String,
                             imgByte: String,
-                            completion: @escaping ((Response<ResponseModel<TransactionIDItemModel>>) -> Void)) {
+                            completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void)) {
     guard let url = URL(string: "\(apiURL)/document") else {
       return
     }
