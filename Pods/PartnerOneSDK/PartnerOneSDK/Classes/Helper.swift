@@ -23,13 +23,11 @@ open class PartnerHelper {
   }
   
   public func startFaceCapture() -> UIViewController {
-    let mainWorker = PartnerOneWorker()
     let mainViewModel = ScanViewModel(helper: self)
     return ScanViewController(viewModel: mainViewModel)
   }
   
   public func startDocumentCapture() -> UIViewController {
-    let mainWorker = PartnerOneWorker()
     let mainViewModel = ScanViewModel(helper: self)
     return FacialScanViewController(viewModel: mainViewModel)
   }
