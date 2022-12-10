@@ -49,9 +49,8 @@ private extension LoginViewController {
       let cpfNumber = dataTextField.text!
       
       if cpfNumber != "" && cpfNumber.count == 11 {
-        self.viewModel.sendCPFAuth(cpf: cpfNumber, completion: {
-          self.viewModel.navigateToView()
-        })
+        self.viewModel.sendCPFAuth(cpf: cpfNumber)
+        print("@! >>> Botão de Login apertado!")
       }
     }
   }

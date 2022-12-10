@@ -55,7 +55,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
 extension LoginViewModel {
   
   func getInitialData() {
-    print("@! >>> Begin main data fetch...")
+    print("@! >>> Busca inicial de dados...")
     
     worker.parseMainData { [weak self] (response) in
       guard let self = self else { return }
@@ -66,7 +66,7 @@ extension LoginViewModel {
         self.worker.accessToken = model.objectReturn[0].accessToken
         self.accessToken = model.objectReturn[0].accessToken
         
-        print("@! >>> ACCESS_TOKEN: ", model.objectReturn[0].accessToken)
+        print("@! >>> Access Token gerado: ", model.objectReturn[0].accessToken)
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -81,7 +81,7 @@ extension LoginViewModel {
   
   /// Login Authentication
   ///
-  func sendCPFAuth(cpf: String, completion: @escaping (() -> Void)) {
+  func sendCPFAuth(cpf: String) {
     worker.getTransaction(cpf: cpf) { [weak self] (response) in
       guard let self = self else { return }
       
@@ -92,17 +92,13 @@ extension LoginViewModel {
         self.helper.transactionID = String(model.objectReturn[0].transactionId!)
         self.transactionID = String(model.objectReturn[0].transactionId!)
         
-        self.helper.sendDocumentPicture = {
-          self.sendDocuments()
-        }
-        
         /// Navigate to SDK after API response 200
         ///
-        self.navigateToView()
+        DispatchQueue.main.async {
+          self.setupTransactionID(self.transactionID)
+        }
         
-        self.setupTransactionID(self.transactionID)
-        
-        print("@! >>> TRANSACTION_ID: \(String(model.objectReturn[0].transactionId!))")
+        print("@! >>> Transaction ID gerado: \(String(model.objectReturn[0].transactionId!))")
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -129,12 +125,12 @@ extension LoginViewModel {
         
         /// Matrix Decision Navigator
         ///
-        self.navigateToView(self.status ?? 0)
+        self.navigateToView(Int(model.objectReturn[0].result[0].status!))
         
         /// Erase prints below
         ///
-        print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
-        print("@! >>> STATUS_DESCRIPTION", String(model.objectReturn[0].result[0].statusDescription!))
+        print("@! >>> Satus da matriz de decisão: ", Int(model.objectReturn[0].result[0].status!))
+        print("@! >>> Descrição da matriz de decisão", String(model.objectReturn[0].result[0].statusDescription!))
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
@@ -160,9 +156,9 @@ extension LoginViewModel {
         
         /// Erase prints below
         ///
-        print("@! >>> CERTIFICATE: ", String(model.objectReturn[0].certificate!))
-        print("@! >>> DEVICE_KEY_IDENTIFIER: ", String(model.objectReturn[0].deviceKeyIdentifier!))
-        print("@! >>> PRODUCTION_KEY: ", String(model.objectReturn[0].productionKeyText!))
+        print("@! >>> FaceTec Certificado: ", String(model.objectReturn[0].certificate!))
+        print("@! >>> FaceTec DeviceKeyIdentifier: ", String(model.objectReturn[0].deviceKeyIdentifier!))
+        print("@! >>> FaceTec ProductionKey: ", String(model.objectReturn[0].productionKeyText!))
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")

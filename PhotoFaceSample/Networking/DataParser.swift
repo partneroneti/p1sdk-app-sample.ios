@@ -25,7 +25,7 @@ struct DataParser {
           return
         }
         
-        print("@! >>> STATUS_CODE: ", statusCode)
+        print("@! >>> Status code da requisição de \(url): ", statusCode)
         
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
@@ -70,8 +70,7 @@ struct DataParser {
           return
         }
         
-        print("@! >>> STATUS_CODE: ", statusCode)
-        print("@! >>> RESPONSE_DATA: ", data)
+        print("@! >>> Status code da requisição de \(url): ", statusCode)
         
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
@@ -117,7 +116,7 @@ struct DataParser {
           return
         }
         
-        print("@! >>> STATUS_CODE: ", statusCode)
+        print("@! >>> Status code da requisição de \(url): ", statusCode)
         
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
