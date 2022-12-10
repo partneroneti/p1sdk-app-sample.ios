@@ -12,6 +12,8 @@ protocol LogiViewModelProtocol: AnyObject {
 ///
 protocol PhotoFaceNavigationDelegate: AnyObject {
   func openSDK(_ viewController: UIViewController)
+  func openDocumentCapture()
+  func openFaceCapture()
   func openStatusView()
 }
 
@@ -29,6 +31,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   let worker: PhotoFaceWorker
   var transactionID: String = ""
   var accessToken: String = ""
+  var status: Int?
   var statusDescription: String?
   
   ///FaceTec properties
@@ -65,19 +68,19 @@ extension LoginViewModel {
         
         print("@! >>> ACCESS_TOKEN: ", model.objectReturn[0].accessToken)
       case .noConnection(let description):
-          print("Server error timeOut: \(description) \n")
+        print("Server error timeOut: \(description) \n")
       case .serverError(let error):
-          let errorData = "\(error.statusCode), -, \(error.msgError)"
-          print("Server error: \(errorData) \n")
-          break
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
       case .timeOut(let description):
-          print("Server error noConnection: \(description) \n")
+        print("Server error noConnection: \(description) \n")
       }
     }
   }
   
   /// Login Authentication
-  /// 
+  ///
   func sendCPFAuth(cpf: String, completion: @escaping (() -> Void)) {
     worker.getTransaction(cpf: cpf) { [weak self] (response) in
       guard let self = self else { return }
@@ -89,23 +92,25 @@ extension LoginViewModel {
         self.helper.transactionID = String(model.objectReturn[0].transactionId!)
         self.transactionID = String(model.objectReturn[0].transactionId!)
         
+        self.helper.sendDocumentPicture = {
+          self.sendDocuments()
+        }
+        
         /// Navigate to SDK after API response 200
         ///
-        if let viewController = self.viewController {
-          self.openSDK(viewController)
-        }
+        self.navigateToView()
         
         self.setupTransactionID(self.transactionID)
         
         print("@! >>> TRANSACTION_ID: \(String(model.objectReturn[0].transactionId!))")
       case .noConnection(let description):
-          print("Server error timeOut: \(description) \n")
+        print("Server error timeOut: \(description) \n")
       case .serverError(let error):
-          let errorData = "\(error.statusCode), -, \(error.msgError)"
-          print("Server error: \(errorData) \n")
-          break
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
       case .timeOut(let description):
-          print("Server error noConnection: \(description) \n")
+        print("Server error noConnection: \(description) \n")
       }
     }
   }
@@ -119,20 +124,26 @@ extension LoginViewModel {
       
       switch response {
       case .success(let model):
+        self.status = Int(model.objectReturn[0].result[0].status!)
         self.statusDescription = String(model.objectReturn[0].result[0].statusDescription!)
+        
+        /// Matrix Decision Navigator
+        ///
+        self.navigateToView(self.status ?? 0)
         
         /// Erase prints below
         ///
         print("@! >>> STATUS_ID: ", Int(model.objectReturn[0].result[0].status!))
         print("@! >>> STATUS_DESCRIPTION", String(model.objectReturn[0].result[0].statusDescription!))
+        
       case .noConnection(let description):
-          print("Server error timeOut: \(description) \n")
+        print("Server error timeOut: \(description) \n")
       case .serverError(let error):
-          let errorData = "\(error.statusCode), -, \(error.msgError)"
-          print("Server error: \(errorData) \n")
-          break
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
       case .timeOut(let description):
-          print("Server error noConnection: \(description) \n")
+        print("Server error noConnection: \(description) \n")
       }
     }
   }
@@ -143,43 +154,108 @@ extension LoginViewModel {
       
       switch response {
       case .success(let model):
-        self.certificate = String(model.objectReturn[0].certificate!)
-        self.deviceKeyIdentifier = String(model.objectReturn[0].deviceKeyIdentifier!)
-        self.productionKeyText = String(model.objectReturn[0].productionKeyText!)
+        self.certificate = model.objectReturn[0].certificate ?? ""
+        self.deviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier ?? ""
+        self.productionKeyText = model.objectReturn[0].productionKeyText ?? ""
         
         /// Erase prints below
         ///
         print("@! >>> CERTIFICATE: ", String(model.objectReturn[0].certificate!))
         print("@! >>> DEVICE_KEY_IDENTIFIER: ", String(model.objectReturn[0].deviceKeyIdentifier!))
         print("@! >>> PRODUCTION_KEY: ", String(model.objectReturn[0].productionKeyText!))
-      
+        
       case .noConnection(let description):
-          print("Server error timeOut: \(description) \n")
+        print("Server error timeOut: \(description) \n")
       case .serverError(let error):
-          let errorData = "\(error.statusCode), -, \(error.msgError)"
-          print("Server error: \(errorData) \n")
-          break
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
       case .timeOut(let description):
-          print("Server error noConnection: \(description) \n")
+        print("Server error noConnection: \(description) \n")
       }
     }
   }
   
+  func getSession(deviceKey: String, userAgent: String) {
+//    worker.get
+  }
   
+  func sendDocuments() {
+    worker.sendDocumentPictures(transactionId: transactionID,
+                                imgType: "base64",
+                                imgByte: "") { [weak self] (response) in
+      guard let self = self else { return }
+      switch response {
+      case .success:
+        self.navigationDelegate?.openStatusView()
+        print("@! >>> Documentos enviados com sucesso!")
+      case .noConnection(let description):
+        print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
+      case .timeOut(let description):
+        print("Server error noConnection: \(description) \n")
+      }
+    }
+  }
+  
+  func createSession() {
+    guard let deviceKeyIdentifier = deviceKeyIdentifier else { return }
+    
+    worker.getSession(userAgent: helper.createUserAgentForNewSession(),
+                      deviceKey: deviceKeyIdentifier) { [weak self] (response) in
+      guard let self = self else { return }
+      
+      switch response {
+      case .success:
+        self.navigationDelegate?.openStatusView()
+      case .noConnection(let description):
+        print("Server error timeOut: \(description) \n")
+      case .serverError(let error):
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
+      case .timeOut(let description):
+        print("Server error noConnection: \(description) \n")
+      }
+    }
+  }
 }
 
 // MARK: - Navigation Delegate
 
 extension LoginViewModel {
-  func openSDK(_ viewController: UIViewController) {
-    helper.initializeSDK(viewController)
+  
+  func navigateToView(_ status: Int = 0) {
+    switch status {
+    case 0:
+      break
+    case 1:
+      navigationDelegate?.openStatusView()
+    case 2:
+      navigationDelegate?.openStatusView()
+    case 3:
+      navigationDelegate?.openFaceCapture()
+    case 4:
+      navigationDelegate?.openDocumentCapture()
+    default:
+      break
+    }
   }
   
-  func openStatusView(_ viewController: UIViewController) {
-    let mainViewModel = StatusViewModel()
-    mainViewModel.transactionID = transactionID
-    mainViewModel.statusDescription = statusDescription
-    let mainViewController = StatusViewController(viewModel: mainViewModel)
-    viewController.navigationController?.pushViewController(mainViewController, animated: true)
-  }
+//  func openStatusView() -> UIViewController {
+//    let mainViewModel = StatusViewModel()
+//    mainViewModel.transactionID = transactionID
+//    mainViewModel.statusDescription = statusDescription
+//    let mainViewController = StatusViewController(viewModel: mainViewModel)
+//    viewController.navigationController?.pushViewController(mainViewController, animated: true)
+//    
+//    self.viewController?.navigationController?.pushViewController(mainViewController, animated: <#T##Bool#>)
+//    
+//    navigationDelegate?.openStatusView()
+//    
+//    return mainViewController
+//  }
 }

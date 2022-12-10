@@ -91,8 +91,11 @@ struct DataParser {
   }
   
   func getParser<T: Mappable>(url: URL,
-                              header: String,
+                              header: String = "",
                               method: HTTPMethod,
+                              isSession: Bool = false,
+                              userAgent: String = "",
+                              xDeviceKey: String = "",
                               completion: @escaping ((Response<T>) -> Void)) {
     
     var request = URLRequest(url: url)
@@ -100,6 +103,10 @@ struct DataParser {
     request.addValue("application/json", forHTTPHeaderField: "Accept")
     request.addValue("text/plain", forHTTPHeaderField: "Accept")
     request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
+    if isSession {
+      request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
+      request.addValue(xDeviceKey, forHTTPHeaderField: "X-Device-Key")
+    }
     request.httpMethod = "\(method)"
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in

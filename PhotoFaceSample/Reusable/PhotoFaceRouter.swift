@@ -4,6 +4,7 @@ import PartnerOneSDK
 class PhotoFaceRouter: Router, PhotoFaceNavigationDelegate {
   
   var worker: PhotoFaceWorker
+  private var helper: PartnerHelper?
   
   public var childRouters: [Router] = []
   private let presenter: UINavigationController
@@ -42,6 +43,16 @@ extension PhotoFaceRouter {
   func openStatusView() {
     let viewModel = StatusViewModel()
     let viewController = StatusViewController(viewModel: viewModel)
+    pushViewController(viewController)
+  }
+  
+  func openDocumentCapture() {
+    guard let viewController = helper?.startDocumentCapture() else { return }
+    pushViewController(viewController)
+  }
+  
+  func openFaceCapture() {
+    guard let viewController = helper?.startFaceCapture() else { return }
     pushViewController(viewController)
   }
 }

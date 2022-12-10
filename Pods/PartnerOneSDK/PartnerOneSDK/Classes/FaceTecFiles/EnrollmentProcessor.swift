@@ -11,10 +11,10 @@ import FaceTecSDK
 class EnrollmentProcessor: NSObject, Processor, FaceTecFaceScanProcessorDelegate, URLSessionTaskDelegate {
     var latestNetworkRequest: URLSessionTask!
     var success = false
-    var fromViewController: ScanViewController!
+    var fromViewController: FacialScanViewController!
     var faceScanResultCallback: FaceTecFaceScanResultCallback!
     
-    init(sessionToken: String, fromViewController: ScanViewController) {
+    init(sessionToken: String, fromViewController: FacialScanViewController) {
         self.fromViewController = fromViewController
         super.init()
         //
@@ -62,6 +62,7 @@ class EnrollmentProcessor: NSObject, Processor, FaceTecFaceScanProcessorDelegate
         //
         // Part 4:  Get essential data off the FaceTecSessionResult
         //
+        let BaseURL = "https://digital-id.webdatadome.com/api"
         var parameters: [String : Any] = [:]
         parameters["faceScan"] = sessionResult.faceScanBase64
         parameters["auditTrailImage"] = sessionResult.auditTrailCompressedBase64![0]
@@ -71,7 +72,7 @@ class EnrollmentProcessor: NSObject, Processor, FaceTecFaceScanProcessorDelegate
         //
         // Part 5:  Make the Networking Call to Your Servers.  Below is just example code, you are free to customize based on how your own API works.
         //
-        let request = NSMutableURLRequest(url: NSURL(string: Config.BaseURL + "/enrollment-3d")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: BaseURL + "/enrollment-3d")! as URL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions(rawValue: 0))

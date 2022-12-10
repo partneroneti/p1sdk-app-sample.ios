@@ -20,6 +20,7 @@ final class LoginViewController: BaseViewController<LoginView> {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupBinds()
+    dismissKeyboard()
     viewModel.viewController = self
   }
   
@@ -44,24 +45,25 @@ private extension LoginViewController {
     baseView.beginButton.btnAction = { [weak self] in
       guard let self = self else { return }
       
-      self.viewModel.getCredentials()
-      
       let dataTextField = self.baseView.cpfTextField.dataTextField
       let cpfNumber = dataTextField.text!
       
       if cpfNumber != "" && cpfNumber.count == 11 {
         self.viewModel.sendCPFAuth(cpf: cpfNumber, completion: {
-          self.viewModel.openSDK(self)
+          self.viewModel.navigateToView()
         })
       }
     }
   }
+  
+  func dismissKeyboard() {
+    let tapGestureReconizer = UITapGestureRecognizer(target: self, action: #selector(tap))
+    tapGestureReconizer.cancelsTouchesInView = false
+    view.addGestureRecognizer(tapGestureReconizer)
+  }
+  
+  @objc
+  func tap(sender: UITapGestureRecognizer) {
+    view.endEditing(true)
+  }
 }
-
-//public static String createUserAgentForNewSession(){
-//            return FaceTecSDK.createFaceTecAPIUserAgentString("");
-//        }
-//
-//    public static String createUserAgentForSession(String sessionId){
-//        return FaceTecSDK.createFaceTecAPIUserAgentString(sessionId);
-//    }

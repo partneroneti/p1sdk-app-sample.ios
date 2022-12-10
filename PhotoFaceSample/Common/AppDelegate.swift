@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     worker.accessToken = rootViewModel.accessToken
     
-//    let rootViewModel = StatusViewModel()
-//    let rootViewController = StatusViewController(viewModel: rootViewModel)
-    
     let navigationController = UINavigationController(rootViewController: rootViewController)
     
     let window = UIWindow(frame: window!.bounds)

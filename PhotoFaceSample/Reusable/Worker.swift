@@ -7,10 +7,12 @@ protocol AccessTokeProtocol: AnyObject {
 }
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
-  func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void)
-  func getTransaction(cpf: String, completion: @escaping (Response<TransactionModel>) -> Void)
-  func getTransactionID(transactionID: String, completion: @escaping ((Response<TransactionIDModel>) -> Void))
-  func getCredentials(completion: @escaping (Response<CredentialsModel>) -> Void)
+  func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void)
+  func getTransaction(cpf: String, completion: @escaping (Response<ResponseModel<TransactionIDItemModel>>) -> Void)
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDResponseModel>>) -> Void))
+  func getCredentials(completion: @escaping (Response<ResponseModel<FaceTecDataModel>>) -> Void)
+  func sendDocumentPictures(transactionId: String, imgType: String, imgByte: String, completion: @escaping ((Response<ResponseModel<TransactionIDItemModel>>) -> Void))
+  func getSession(userAgent: String, deviceKey: String, completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
 }
 
 class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
@@ -24,7 +26,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     self.accessToken = accessToken
   }
   
-  func parseMainData(_ completion: @escaping (Response<AuthenticationModel>) -> Void) {
+  func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void) {
     guard let url = URL(string: "\(apiURL)/authentication") else {
       return
     }
@@ -38,7 +40,8 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     network.mainParser(url: url, body: body, method: .post, completion: completion)
   }
   
-  func getTransaction(cpf: String, completion: @escaping (Response<TransactionModel>) -> Void) {
+  func getTransaction(cpf: String,
+                      completion: @escaping (Response<ResponseModel<TransactionIDItemModel>>) -> Void) {
     guard let url = URL(string: "\(apiURL)/transaction") else {
       return
     }
@@ -50,17 +53,15 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     network.loginParser(url: url, body: body, header: accessToken, method: .post, completion: completion)
   }
   
-  func getTransactionID(transactionID: String, completion: @escaping ((Response<TransactionIDModel>) -> Void)) {
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDResponseModel>>) -> Void)) {
     guard let url = URL(string: "\(apiURL)/transaction/\(transactionID)") else {
       return
     }
     
-    print("@! TransacitonID_URL: ", url)
-    
     network.getParser(url: url, header: accessToken, method: .get, completion: completion)
   }
   
-  func getCredentials(completion: @escaping (Response<CredentialsModel>) -> Void) {
+  func getCredentials(completion: @escaping (Response<ResponseModel<FaceTecDataModel>>) -> Void) {
     guard let url = URL(string: "\(apiURL)/credentials") else {
       return
     }
@@ -71,7 +72,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
   func sendDocumentPictures(transactionId: String,
                             imgType: String,
                             imgByte: String,
-                            completion: @escaping ((Response<TransactionModel>) -> Void)) {
+                            completion: @escaping ((Response<ResponseModel<TransactionIDItemModel>>) -> Void)) {
     guard let url = URL(string: "\(apiURL)/document") else {
       return
     }
@@ -85,5 +86,15 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     ]
     
     network.mainParser(url: url, body: body, method: .post, completion: completion)
+  }
+  
+  func getSession(userAgent: String,
+                  deviceKey: String,
+                  completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void)) {
+    guard let url = URL(string: "\(apiURL)/session") else {
+      return
+    }
+    
+    network.getParser(url: url, method: .get, userAgent: userAgent, xDeviceKey: deviceKey, completion: completion)
   }
 }
