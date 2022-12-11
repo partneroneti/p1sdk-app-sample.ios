@@ -23,13 +23,13 @@ open class PartnerHelper {
   }
   
   public func startFaceCapture() -> UIViewController {
-    let mainViewModel = ScanViewModel(helper: self)
-    return ScanViewController(viewModel: mainViewModel)
+      let mainViewModel = ScanViewModel(helper: self)
+      return FacialScanViewController(viewModel: mainViewModel)
   }
   
   public func startDocumentCapture() -> UIViewController {
     let mainViewModel = ScanViewModel(helper: self)
-    return FacialScanViewController(viewModel: mainViewModel)
+    return ScanViewController(viewModel: mainViewModel)
   }
   
   public func sessionToken(_ token: String = "") -> String {

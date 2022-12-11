@@ -254,15 +254,15 @@ extension LoginViewModel {
   
   private
   func openFaceCapture() {
-    let viewController = helper.startFaceCapture()
-    viewController.navigationController?.pushViewController(viewController, animated: true)
+    let faceCaptureViewController = helper.startFaceCapture()
+    viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
     print("@! >>> Redirecionando para captura de face...")
   }
   
   private
   func openDocumentCapture() {
-    let viewController = helper.startDocumentCapture()
-    viewController.navigationController?.pushViewController(viewController, animated: true)
+    let documentViewController = helper.startDocumentCapture()
+    viewController?.navigationController?.pushViewController(documentViewController, animated: true)
     print("@! >>> Logado com sucesso!")
     print("@! >>> Redirecionando para captura de documento...")
   }
