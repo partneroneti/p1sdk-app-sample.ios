@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let presenter = UINavigationController()
     let router = PhotoFaceRouter(presenter: presenter)
+    router.start()
     
     let worker = PhotoFaceWorker()
     let rootViewModel = LoginViewModel(worker: worker, navigationDelegate: router)

@@ -7,7 +7,7 @@ struct TransactionIDModel: Mappable {
 
   init?(map: Map) {
     transactionId = (try? map.value("transactionId")) ?? ""
-    result = [(try? map.value("statusDescription")) ?? ResultModel(map: map)!]
+    result = [(try? map.value("result")) ?? ResultModel(map: map)!]
   }
 
   mutating func mapping(map: Map) {

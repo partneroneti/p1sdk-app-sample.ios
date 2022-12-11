@@ -120,8 +120,8 @@ extension LoginViewModel {
       
       switch response {
       case .success(let model):
-        self.status = Int(model.objectReturn[0].result[0].status!)
-        self.statusDescription = String(model.objectReturn[0].result[0].statusDescription!)
+        self.status = Int(model.objectReturn[0].result[0].status)
+        self.statusDescription = String(model.objectReturn[0].result[0].statusDescription)
         
         /// Matrix Decision Navigator
         ///
@@ -129,8 +129,8 @@ extension LoginViewModel {
         
         /// Erase prints below
         ///
-        print("@! >>> Satus da matriz de decisão: ", Int(model.objectReturn[0].result[0].status!))
-        print("@! >>> Descrição da matriz de decisão", String(model.objectReturn[0].result[0].statusDescription!))
+        print("@! >>> Satus da matriz de decisão: ", model.objectReturn[0].result[0].status)
+        print("@! >>> Descrição da matriz de decisão", model.objectReturn[0].result[0].statusDescription)
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
@@ -173,7 +173,7 @@ extension LoginViewModel {
   }
   
   func getSession(deviceKey: String, userAgent: String) {
-//    worker.get
+    //    worker.get
   }
   
   func sendDocuments() {
@@ -229,20 +229,41 @@ extension LoginViewModel {
     case 0:
       break
     case 1:
-      navigationDelegate?.openStatusView()
-      print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
+      navigateToStatus()
     case 2:
-      navigationDelegate?.openStatusView()
-      print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
+      navigateToStatus()
     case 3:
-      navigationDelegate?.openFaceCapture()
-      print("@! >>> Redirecionando para captura de face...")
+      openFaceCapture()
     case 4:
-      navigationDelegate?.openDocumentCapture()
-      print("@! >>> Logado com sucesso!")
-      print("@! >>> Redirecionando para captura de documento...")
+      openDocumentCapture()
     default:
       break
     }
+  }
+  
+  private
+  func navigateToStatus() {
+    let statusViewModel = StatusViewModel()
+    statusViewModel.status = self.status
+    statusViewModel.transactionID = self.transactionID
+    statusViewModel.statusDescription = self.statusDescription
+    let statusViewController = StatusViewController(viewModel: statusViewModel)
+    self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
+    print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
+  }
+  
+  private
+  func openFaceCapture() {
+    let viewController = helper.startFaceCapture()
+    viewController.navigationController?.pushViewController(viewController, animated: true)
+    print("@! >>> Redirecionando para captura de face...")
+  }
+  
+  private
+  func openDocumentCapture() {
+    let viewController = helper.startDocumentCapture()
+    viewController.navigationController?.pushViewController(viewController, animated: true)
+    print("@! >>> Logado com sucesso!")
+    print("@! >>> Redirecionando para captura de documento...")
   }
 }

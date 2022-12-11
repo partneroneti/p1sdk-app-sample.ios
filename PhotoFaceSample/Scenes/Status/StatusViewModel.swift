@@ -48,10 +48,10 @@ extension StatusViewModel {
       switch response {
       case .success(let model):
         self.status = model.objectReturn[0].result[0].status
-        self.statusDescription = String(model.objectReturn[0].result[0].statusDescription!)
+        self.statusDescription = String(model.objectReturn[0].result[0].statusDescription)
         
         self.didChangeStatus = { status in
-          self.statusMessage.set(msg: String(model.objectReturn[0].result[0].statusDescription!))
+          self.statusMessage.set(msg: String(model.objectReturn[0].result[0].statusDescription))
         }
         
         print("@! >>> STATUS_DESCRIPTION", model.objectReturn[0].result[0].statusDescription)
