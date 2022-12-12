@@ -227,7 +227,7 @@
 		979374EFA50742F0108D7E03AAEF469B /* DictionaryTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryTransform.swift; path = Sources/DictionaryTransform.swift; sourceTree = "<group>"; };
 		9B8DBE07A1EF3EE18A130AAD541B62F6 /* Pods-PhotoFaceSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotoFaceSample.release.xcconfig"; sourceTree = "<group>"; };
 		9C55A7A7F2CBAB5898B1BB52C7CCB8F0 /* NSDecimalNumberTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSDecimalNumberTransform.swift; path = Sources/NSDecimalNumberTransform.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1B5FA371222168EA895D71C325242CE /* Pods-PhotoFaceSample-PhotoFaceSampleUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PhotoFaceSample-PhotoFaceSampleUITests-frameworks.sh"; sourceTree = "<group>"; };
 		A5C39D54E13AF4EA17D35EE615E7C02C /* BaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseView.swift; path = PartnerOneSDK/Classes/BaseView.swift; sourceTree = "<group>"; };
 		A6B82035CA5B54EE5B2C4FDD9242E9D3 /* DataTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTransform.swift; path = Sources/DataTransform.swift; sourceTree = "<group>"; };
@@ -269,7 +269,6 @@
 		EA97BEBF23D7172933B85E101561EFA7 /* FacialScanViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FacialScanViewController.swift; path = PartnerOneSDK/Classes/FacialScanViewController.swift; sourceTree = "<group>"; };
 		EAAD943649CB3557C756CCE392B2E519 /* Pods-PhotoFaceSample-PhotoFaceSampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PhotoFaceSample-PhotoFaceSampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EF392A4800CE36DA0BCA21D0D2D8D427 /* CroppingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CroppingView.swift; path = PartnerOneSDK/Classes/CroppingView.swift; sourceTree = "<group>"; };
-		EF81543B29466806009E9895 /* FaceTecSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FaceTecSDK.xcframework; path = "../../../../Downloads/FaceTecSDK-ios-9.6.7/FaceTecSDK.xcframework"; sourceTree = "<group>"; };
 		F202E1B09FC005E3D5E49D7EDD55B390 /* ObjectMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-prefix.pch"; sourceTree = "<group>"; };
 		F60005F2B35579B3A5FE5D524F0566BA /* ObjectMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjectMapper.debug.xcconfig; sourceTree = "<group>"; };
 		F7C6AC7202DA4E859FB553D2AA2D1FDC /* CredentialsModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CredentialsModel.swift; path = PartnerOneSDK/Classes/CredentialsModel.swift; sourceTree = "<group>"; };
@@ -384,6 +383,7 @@
 				E813E10CF87C968104DF9C68C3D6EC5F /* UIView+Extension.swift */,
 				3892622A0827D98A929E9C28996999AE /* Support Files */,
 			);
+			name = PartnerOneSDK;
 			path = PartnerOneSDK;
 			sourceTree = "<group>";
 		};
@@ -434,6 +434,7 @@
 				CC3519B885F8511073DD8DEA122A0B2D /* URLTransform.swift */,
 				E003B86BFFAED4D9A7ED169A6B635894 /* Support Files */,
 			);
+			name = ObjectMapper;
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -487,6 +488,7 @@
 				2F0A934A3879210135C3AB95C556216A /* Validation.swift */,
 				DF672270DD38850C4FCE4FED9728556B /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -520,7 +522,6 @@
 		C113A1B6789FF094537BD5211B183964 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				EF81543B29466806009E9895 /* FaceTecSDK.xcframework */,
 				C69D3C9004DBF9003187F350F291B815 /* FaceTecSDK.framework */,
 				DDADE5FC484DADB14C602CA35E7F8200 /* Foundation.framework */,
 			);

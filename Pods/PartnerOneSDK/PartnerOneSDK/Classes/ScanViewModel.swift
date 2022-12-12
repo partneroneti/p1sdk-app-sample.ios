@@ -27,6 +27,18 @@ open class ScanViewModel {
       let nextViewController = ScanViewController(viewModel: self, viewTitle: "Verso")
       viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
+    
+    if sideTitle == setPhotoSide(.backView) {
+      let nextViewController = FacialScanViewController(viewModel: self)
+      helper?.onNavigateToFaceCapture?()
+      viewController.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+  }
+  
+  func navigateToPreviewView(_ viewController: UIViewController) {
+    if sideTitle == setPhotoSide(.backView) {
+      viewController.navigationController?.popViewController(animated: true)
+    }
   }
   
   func sendPicture() {

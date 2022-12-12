@@ -5,15 +5,29 @@ open class PartnerHelper {
   
   //MARK: - Public Properties
   
+  private var processor: LivenessCheckProcessor?
+  
   public var sendDocumentPicture: (() -> Void)?
+  public var onNavigateToFaceCapture: (() -> Void)?
+  public var waitingFaceTecResponse: (() -> Void)?
   public var navigateToStatus: (() -> Void)?
-  public var transactionID: String = ""
+  public var onSuccessFaceTec: (() -> Void)?
+  
+  public var transaction: String = ""
+  public var sessionToken: String = ""
+  public var faceTecDeviceKeyIdentifier: String = ""
+  public var faceTecPublicFaceScanEncryptionKey: String = ""
+  public var faceTecProductionKeyText: String = ""
+  
+  public var getFaceScan: String = ""
+  public var getAuditTrailImage: String = ""
+  public var getLowQualityAuditTrailImage: String = ""
+  
+  public var faceScanResultCallback: FaceTecFaceScanResultCallback?
   
   //MARK: - init
 
-  public init(transactionID: String = "") {
-    self.transactionID = transactionID
-  }
+  public init() {}
   
   //MARK: - Public Functions
   
@@ -23,13 +37,21 @@ open class PartnerHelper {
   }
   
   public func startFaceCapture() -> UIViewController {
-      let mainViewModel = ScanViewModel(helper: self)
-      return FacialScanViewController(viewModel: mainViewModel)
+    let mainViewModel = ScanViewModel(helper: self)
+    let viewController = FacialScanViewController(viewModel: mainViewModel)
+    
+    processor?.helper = self
+    
+    return viewController
   }
   
   public func startDocumentCapture() -> UIViewController {
     let mainViewModel = ScanViewModel(helper: self)
-    return ScanViewController(viewModel: mainViewModel)
+    return ScanViewController(viewModel: mainViewModel, viewTitle: "Frente")
+  }
+  
+  public func transactionId(_ id: String = "") -> String {
+    return id
   }
   
   public func sessionToken(_ token: String = "") -> String {
@@ -44,15 +66,9 @@ open class PartnerHelper {
     return FaceTec.sdk.createFaceTecAPIUserAgentString(sessionToken)
   }
   
-  public func faceTecDeviceKeyIdentifier(_ clientKey: String = "") -> String {
-    return clientKey
+  public func lastViewController(_ viewController: UIViewController = UIViewController()) -> UIViewController {
+    return viewController
   }
   
-  public func faceTecPublicFaceScanEncryptionKey(_ key: String = "") -> String {
-    return key
-  }
   
-  public func faceTecProductionKeyText(_ key: String = "") -> String {
-    return key
-  }
 }

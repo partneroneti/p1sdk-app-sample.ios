@@ -2,9 +2,9 @@ import Foundation
 import ObjectMapper
 
 struct FaceTecDataModel: Mappable {
-  var certificate: String?
-  var deviceKeyIdentifier: String?
-  var productionKeyText: String?
+  var certificate: String
+  var deviceKeyIdentifier: String
+  var productionKeyText: String
 
   init?(map: Map) {
     certificate = (try? map.value("certificate")) ?? ""

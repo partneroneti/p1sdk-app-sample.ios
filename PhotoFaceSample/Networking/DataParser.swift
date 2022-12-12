@@ -30,11 +30,9 @@ struct DataParser {
         if statusCode == 200 {
           let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
           
-          
           guard let item = responseJSON as? [String:Any] else {
             return
           }
-          print(item)
           
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
@@ -124,7 +122,6 @@ struct DataParser {
           guard let item = responseJSON as? [String:Any] else {
             return
           }
-          print(item)
           
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
@@ -157,7 +154,6 @@ struct DataParser {
               let model = Mapper<T>().map(JSON: item)
               completion(.success(model: model!))
               
-              print(item)
             } else {
               print("NOT WORKING!")
             }

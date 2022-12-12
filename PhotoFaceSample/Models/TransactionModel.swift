@@ -2,7 +2,7 @@ import Foundation
 import ObjectMapper
 
 struct TransactionModel: Mappable {
-  var transactionId: String?
+  var transactionId: String
   
   init?(map: Map) {
     transactionId = (try? map.value("transactionId")) ?? ""

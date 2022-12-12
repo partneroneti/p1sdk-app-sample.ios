@@ -2,7 +2,7 @@ import Foundation
 import ObjectMapper
 
 struct SessionIDModel: Mappable {
-  var session: String?
+  var session: String
 
   init?(map: Map) {
     session = (try? map.value("session")) ?? ""

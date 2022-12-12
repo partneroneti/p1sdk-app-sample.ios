@@ -42,6 +42,8 @@ private extension LoginViewController {
   func setupBinds() {
     (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
       
+    viewModel.createSessionOnNavigate()
+    
     /// Navigation do SDK Screen
     ///
     baseView.beginButton.btnAction = { [weak self] in

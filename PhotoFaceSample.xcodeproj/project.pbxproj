@@ -55,6 +55,7 @@
 		EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */; };
 		EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DE293A70AC00C5DFA9 /* Request.swift */; };
 		EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0E0293A73C100C5DFA9 /* Router.swift */; };
+		EFDBA2CA294672960040268E /* LivenessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDBA2C9294672960040268E /* LivenessModel.swift */; };
 		FEAF551555F1478CABBCE107 /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +148,7 @@
 		EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFaceRouter.swift; sourceTree = "<group>"; };
 		EFB7A0DE293A70AC00C5DFA9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EFB7A0E0293A73C100C5DFA9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EFDBA2C9294672960040268E /* LivenessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessModel.swift; sourceTree = "<group>"; };
 		FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -213,6 +215,7 @@
 				EF9202D22942A2D000302029 /* FaceTecDataModel.swift */,
 				EF9202DA2942BF0E00302029 /* SessionIDModel.swift */,
 				EF9202E62944B3BC00302029 /* MainResponseModel.swift */,
+				EFDBA2C9294672960040268E /* LivenessModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				EF9202D32942A2D000302029 /* FaceTecDataModel.swift in Sources */,
 				EFB7A0D5293A396100C5DFA9 /* LoginModel.swift in Sources */,
 				EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */,
+				EFDBA2CA294672960040268E /* LivenessModel.swift in Sources */,
 				EFB7A084293A0C5000C5DFA9 /* DocumentBrowserViewController.swift in Sources */,
 				EF2400D6293BFF68002A9746 /* ErrorType.swift in Sources */,
 				EFB7A0C5293A128300C5DFA9 /* MainButton.swift in Sources */,

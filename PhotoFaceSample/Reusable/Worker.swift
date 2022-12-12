@@ -8,11 +8,24 @@ protocol AccessTokeProtocol: AnyObject {
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
   func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void)
-  func getTransaction(cpf: String, completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void)
-  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
+  func getTransaction(cpf: String,
+                      completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void)
+  func getTransactionID(transactionID: String,
+                        completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
   func getCredentials(completion: @escaping (Response<ResponseModel<FaceTecDataModel>>) -> Void)
-  func sendDocumentPictures(transactionId: String, imgType: String, imgByte: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
-  func getSession(userAgent: String, deviceKey: String, completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
+  func sendDocumentPictures(transactionId: String,
+                            imgType: String,
+                            imgByte: String,
+                            completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
+  func getSession(userAgent: String,
+                  deviceKey: String,
+                  completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
+  func getLiveness(transactionID: String,
+                   faceScan: String,
+                   auditTrailImage: String,
+                   lowQualityAuditTrailImage: String,
+                   sessionId: String,
+                   deviceKey: String,completion: @escaping ((Response<ResponseModel<LivenessModel>>) -> Void))
 }
 
 class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
@@ -95,6 +108,29 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
       return
     }
     
-    network.getParser(url: url, method: .get, userAgent: userAgent, xDeviceKey: deviceKey, completion: completion)
+    network.getParser(url: url, header: accessToken, method: .get, isSession: true, userAgent: userAgent, xDeviceKey: deviceKey, completion: completion)
+  }
+  
+  func getLiveness(transactionID: String,
+                   faceScan: String,
+                   auditTrailImage: String,
+                   lowQualityAuditTrailImage: String,
+                   sessionId: String,
+                   deviceKey: String,
+                   completion: @escaping ((Response<ResponseModel<LivenessModel>>) -> Void)) {
+    guard let url = URL(string: "\(apiURL)/liveness") else {
+      return
+    }
+    
+    let body: [String:Any] = [
+      "transactionId": transactionID,
+      "faceScan": faceScan,
+      "auditTrailImage": auditTrailImage,
+      "lowQualityAuditTrailImage": lowQualityAuditTrailImage,
+      "sessionId": sessionId,
+      "deviceKey": deviceKey
+    ]
+    
+    network.mainParser(url: url, body: body, method: .post, completion: completion)
   }
 }

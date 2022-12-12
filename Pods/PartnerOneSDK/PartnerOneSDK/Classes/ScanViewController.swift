@@ -5,7 +5,7 @@ import PartnerOneSDK
 open class ScanViewController: BaseViewController<ScanView> {
   
   private var viewModel: ScanViewModel
-  private var viewTitle: String
+  var viewTitle: String
   
   /// Camera Setup Variables
   ///
@@ -90,9 +90,6 @@ extension ScanViewController {
       
       self.setupOutput()
       
-      let photoOutput = AVCapturePhotoOutput()
-      self.captureSession.addOutput(photoOutput)
-      
       self.captureSession.commitConfiguration()
       self.captureSession.startRunning()
     }
@@ -123,24 +120,7 @@ extension ScanViewController {
       captureSession.addOutput(photoOutput)
     }
     
-    stabilizingPhotoSettings()
-    
     photoOutput.connections.first?.videoOrientation = .portrait
-  }
-  
-  func stabilizingPhotoSettings() {
-    if #available(iOS 11.0, *) {
-      if photoOutput.availablePhotoCodecTypes.contains(.jpeg) {
-        photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-      } else {
-        photoSettings = AVCapturePhotoSettings()
-      }
-    }
-    
-    photoSettings.flashMode = .off
-    photoSettings.isAutoStillImageStabilizationEnabled = self.photoOutput.isStillImageStabilizationSupported
-    
-    photoOutput.capturePhoto(with: photoSettings, delegate: self)
   }
   
   func setupPreviewLayer(){
@@ -201,6 +181,7 @@ extension ScanViewController {
       guard let self = self else { return }
       if #available(iOS 11.0, *) {
         self.takePicure()
+        self.viewModel.navigateToNextView(self)
       }
     }
     

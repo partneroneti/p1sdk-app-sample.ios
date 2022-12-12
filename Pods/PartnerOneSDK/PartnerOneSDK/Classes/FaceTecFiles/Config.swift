@@ -6,13 +6,15 @@ import UIKit
 import Foundation
 import FaceTecSDK
 
-class Config {
+open class Config {
   
-  static let DeviceKeyIdentifier = PartnerHelper().faceTecDeviceKeyIdentifier()
+  static let helper = PartnerHelper()
   
-  static let PublicFaceScanEncryptionKey = PartnerHelper().faceTecPublicFaceScanEncryptionKey()
+  public static var DeviceKeyIdentifier = helper.faceTecDeviceKeyIdentifier
   
-  static let ProductionKeyText = PartnerHelper().faceTecProductionKeyText()
+  public static var PublicFaceScanEncryptionKey = helper.faceTecPublicFaceScanEncryptionKey
+  
+  public static var ProductionKeyText = helper.faceTecProductionKeyText
   
   static func displayLogs() {
     print("@! >>> FaceTec_DeviceKeyIdentifier: ", Config.DeviceKeyIdentifier)
@@ -22,7 +24,7 @@ class Config {
   
   //    static let DeviceKeyIdentifier = "dioxhbQHfJHmnHTzJ40hCiUm3FR0IkXY"
   
-  //    static let BaseURL = "https://digital-id.webdatadome.com/api"
+  //  static let BaseURL = "https://digital-id.webdatadome.com/api"
   
   //    static let PublicFaceScanEncryptionKey =
   //        "-----BEGIN PUBLIC KEY-----\n" +
