@@ -238,14 +238,15 @@ extension LoginViewModel {
       
       switch response {
       case .success(let model):
-        
-        self.createLiveness()
-        
         self.session = model.objectReturn[0].session
         self.helper.createUserAgentForSession(model.objectReturn[0].session)
         print("@! >>> Session Data: ", model.objectReturn[0].session)
         
-        self.createLiveness()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+          self.createLiveness()
+          print("@! >>> FaceScan: ",  self.helper.getFaceScan())
+        }
         
         self.helper.sessionToken = model.objectReturn[0].session
       case .noConnection(let description):
@@ -279,9 +280,6 @@ extension LoginViewModel {
         
         self.setSessionCode(self.livenessCode ?? 0)
         
-        print("@! >>> FaceScan: ",  self.helper.getFaceScan)
-        
-        self.helper.onSuccessFaceTec?()
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -383,14 +381,17 @@ extension LoginViewModel {
   
   func createLiveness() {
     
-      self.setupLiveness(faceScan: self.helper.getFaceScan,
-                         auditTrailImage: self.helper.getAuditTrailImage,
-                         lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
-      
-      print("@! >>> AUTID: ", self.helper.getAuditTrailImage)
+    self.setupLiveness(faceScan: self.helper.getFaceScan(),
+                       auditTrailImage: self.helper.getAuditTrailImage(),
+                       lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage())
     
-    helper.waitingFaceTecResponse = {
+    helper.waitingFaceTecResponse = { [weak self] (faceScan, auditTrailImage, lowQualityAuditTrailImage) in
       
+      guard let self = self else { return }
+      
+      print("@! >>> FaceScan (1): ", faceScan)
+      print("@! >>> AuditTrailImage (2): ", auditTrailImage)
+      print("@! >>> LowQualityAuditTrailImage (3): ", lowQualityAuditTrailImage)
     }
   }
 }

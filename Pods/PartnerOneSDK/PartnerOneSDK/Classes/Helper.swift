@@ -9,9 +9,11 @@ open class PartnerHelper {
   
   public var sendDocumentPicture: (() -> Void)?
   public var onNavigateToFaceCapture: (() -> Void)?
-  public var waitingFaceTecResponse: (() -> Void)?
+  public var waitingFaceTecResponse: ((_ faceScan: String, _ auditTrailImage: String, _ lowQualityAuditTrailImage: String) -> Void)?
   public var navigateToStatus: (() -> Void)?
   public var onSuccessFaceTec: (() -> Void)?
+  
+  public var currentViewController: UIViewController?
   
   public var transaction: String = ""
   public var sessionToken: String = ""
@@ -19,9 +21,9 @@ open class PartnerHelper {
   public var faceTecPublicFaceScanEncryptionKey: String = ""
   public var faceTecProductionKeyText: String = ""
   
-  public var getFaceScan: String = ""
-  public var getAuditTrailImage: String = ""
-  public var getLowQualityAuditTrailImage: String = ""
+//  public var getFaceScan: String = ""
+//  public var getAuditTrailImage: String = ""
+//  public var getLowQualityAuditTrailImage: String = ""
   
   public var faceScanResultCallback: FaceTecFaceScanResultCallback?
   
@@ -70,5 +72,28 @@ open class PartnerHelper {
     return viewController
   }
   
+  public func faceTecAnalisys() -> Bool {
+    let paramViewModel = ScanViewModel(helper: self)
+    let facialViewController = FacialScanViewController(viewModel: paramViewModel)
+    
+    facialViewController.processorResponse?()
+    
+    if currentViewController == facialViewController {
+      return true
+    } else {
+      return false
+    }
+  }
   
+  public func getFaceScan(_ string: String = "") -> String {
+    return string
+  }
+  
+  public func getAuditTrailImage(_ string: String = "") -> String {
+    return string
+  }
+  
+  public func getLowQualityAuditTrailImage(_ string: String = "") -> String {
+    return string
+  }
 }

@@ -92,11 +92,11 @@ extension FacialScanViewController {
   }
   
   func getLatestExternalDatabaseRefID() -> String {
-      return latestExternalDatabaseRefID;
+    return latestExternalDatabaseRefID;
   }
   
   func setLatestSessionResult(sessionResult: FaceTecSessionResult) {
-      latestSessionResult = sessionResult
+    latestSessionResult = sessionResult
   }
   
   func initializeProcessor() -> Processor {
@@ -115,15 +115,18 @@ extension FacialScanViewController {
     return sessionResult?.lowQualityAuditTrailCompressedBase64![0] ?? ""
   }
   
-  func faceTecLivenessData(faceScanBase: String = "",
-                           auditTrailImage: String = "",
-                           lowQualityAuditTrailImage: String = "") {
-    helper.getFaceScan = faceScanBase
-    helper.getAuditTrailImage = auditTrailImage
-    helper.getLowQualityAuditTrailImage = lowQualityAuditTrailImage
+  public func faceTecLivenessData(faceScanBase: String = "",
+                                  auditTrailImage: String = "",
+                                  lowQualityAuditTrailImage: String = "") {
     
     processorResponse = {
-      self.helper.waitingFaceTecResponse?()
+      self.helper.getFaceScan(faceScanBase)
+      self.helper.getAuditTrailImage(auditTrailImage)
+      self.helper.getLowQualityAuditTrailImage(lowQualityAuditTrailImage)
+      
+      self.helper.waitingFaceTecResponse?(faceScanBase, auditTrailImage, lowQualityAuditTrailImage)
+      
+      print("@! >>> Processamento finalizado.")
     }
   }
 }

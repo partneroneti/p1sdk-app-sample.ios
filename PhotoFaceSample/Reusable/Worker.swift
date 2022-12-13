@@ -131,6 +131,6 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
       "deviceKey": deviceKey
     ]
     
-    network.mainParser(url: url, body: body, method: .post, completion: completion)
+    network.loginParser(url: url, body: body, header: accessToken, method: .post, completion: completion)
   }
 }

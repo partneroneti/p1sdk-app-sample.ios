@@ -26,12 +26,9 @@ open class LivenessCheckProcessor: NSObject, Processor, FaceTecFaceScanProcessor
   public func processSessionWhileFaceTecSDKWaits(sessionResult: FaceTecSessionResult, faceScanResultCallback: FaceTecFaceScanResultCallback) {
     fromViewController.setLatestSessionResult(sessionResult: sessionResult)
     
-    self.helper.getFaceScan = sessionResult.faceScanBase64 ?? ""
-    self.helper.getAuditTrailImage = sessionResult.auditTrailCompressedBase64?[0] ?? ""
-    self.helper.getLowQualityAuditTrailImage = sessionResult.lowQualityAuditTrailCompressedBase64?[0] ?? ""
-    
-    self.faceScanResultCallback = faceScanResultCallback
-    self.helper.faceScanResultCallback = faceScanResultCallback
+    self.helper.getFaceScan(sessionResult.faceScanBase64 ?? "")
+    self.helper.getAuditTrailImage(sessionResult.auditTrailCompressedBase64?[0] ?? "")
+    self.helper.getLowQualityAuditTrailImage(sessionResult.lowQualityAuditTrailCompressedBase64?[0] ?? "")
     
     self.fromViewController.faceTecLivenessData(faceScanBase: sessionResult.faceScanBase64 ?? "",
                                                 auditTrailImage: sessionResult.auditTrailCompressedBase64?[0] ?? "",
