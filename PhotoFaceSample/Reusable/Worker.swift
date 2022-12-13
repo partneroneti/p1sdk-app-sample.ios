@@ -98,7 +98,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
       ]
     ]
     
-    network.mainParser(url: url, body: body, method: .post, completion: completion)
+    network.loginParser(url: url, body: body, header: accessToken, method: .post, completion: completion)
   }
   
   func getSession(userAgent: String,

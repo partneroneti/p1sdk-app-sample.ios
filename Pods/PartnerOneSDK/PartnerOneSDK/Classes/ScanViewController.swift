@@ -51,32 +51,48 @@ open class ScanViewController: BaseViewController<ScanView> {
 
 extension ScanViewController {
   func checkPermissions() {
+    
     let cameraAuthStatus =  AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+    
     switch cameraAuthStatus {
     case .authorized:
-      self.startCaptureSession()
-    case .denied: abort()
+      self.prepareCamera()
+    case .denied:
+      abort()
     case .notDetermined:
-      AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (authorized) in
+      AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { [weak self] (authorized) in
+        guard let self = self else { return }
         if(!authorized) {
           abort()
+        } else {
+          self.prepareCamera()
         }
       })
-    case .restricted: abort()
-    @unknown default: fatalError()
+    case .restricted:
+      abort()
+    @unknown default:
+      fatalError()
     }
+  }
+  
+  func prepareCamera() {
+    
+    self.captureSession = AVCaptureSession()
+    self.captureSession.beginConfiguration()
+    
+    if captureSession.canSetSessionPreset(.photo) {
+      captureSession.sessionPreset = AVCaptureSession.Preset.photo
+    }
+    
+    let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera],
+                                                            mediaType: .video, position: .back).devices
+    backCamera = availableDevices.first
+    startCaptureSession()
   }
   
   func startCaptureSession() {
     DispatchQueue.global(qos: .userInitiated).async { [weak self] in
       guard let self = self else { return }
-      
-      self.captureSession = AVCaptureSession()
-      self.captureSession.beginConfiguration()
-      
-      if self.captureSession.canSetSessionPreset(.photo) {
-        self.captureSession.sessionPreset = .photo
-      }
       
       if #available(iOS 10.0, *) {
         self.captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true
@@ -132,7 +148,8 @@ extension ScanViewController {
                                                   below: baseView.background.cropReferenceView.layer)
     previewLayer.frame.size = CGSize(width: width, height: height)
     previewLayer.position = self.view.center
-    
+    previewLayer.videoGravity = .resizeAspect
+    previewLayer.connection?.videoOrientation = .portrait
     
     baseView.cameraContainer.addSubview(baseView.background)
     baseView.sendSubviewToBack(baseView.cameraContainer)
@@ -146,7 +163,7 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
   
   @objc
   func takePicure() {
-    let photoSettings = AVCapturePhotoSettings()
+    let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
     
     if let photoPreviewType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {
       photoSettings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: photoPreviewType]
@@ -155,7 +172,12 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
   }
   
   public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    
     guard let imageData = photo.fileDataRepresentation() else { return }
+    
+    viewModel.setImageType(imageData.base64EncodedString())
+    viewModel.setImageSize("\(imageData.map({ $0.byteSwapped }))")
+    
     let previewImage = UIImage(data: imageData)
     
     let photoPreviewContainer = baseView.photoPreviewContainer

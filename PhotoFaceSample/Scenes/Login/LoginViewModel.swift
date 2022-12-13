@@ -103,8 +103,6 @@ extension LoginViewModel {
         
         print("@! >>> Transaction ID gerado: \(String(model.objectReturn[0].transactionId))")
         
-        self.helper.startFaceCapture()
-        
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -183,34 +181,18 @@ extension LoginViewModel {
     }
   }
   
-  func getSession(deviceKey: String, userAgent: String) {
-    worker.getSession(userAgent: userAgent, deviceKey: deviceKey) { [weak self] (response) in
-      guard let self = self else { return }
-      switch response {
-      case .success(let model):
-        self.session = model.objectReturn[0].session
-        print("@! >>> Session: ", String(model.objectReturn[0].session))
-      case .noConnection(let description):
-        print("Server error timeOut: \(description) \n")
-      case .serverError(let error):
-        let errorData = "\(error.statusCode), -, \(error.msgError)"
-        print("Server error: \(errorData) \n")
-        break
-      case .timeOut(let description):
-        print("Server error noConnection: \(description) \n")
-      }
-    }
-  }
-  
   func sendDocuments() {
     worker.sendDocumentPictures(transactionId: transactionID,
-                                imgType: "base64",
-                                imgByte: "") { [weak self] (response) in
+                                imgType: helper.getDocumentImageType(),
+                                imgByte: helper.getDocumentImageSize()) { [weak self] (response) in
       guard let self = self else { return }
       switch response {
       case .success:
-        self.navigationDelegate?.openStatusView()
-        print("@! >>> Documentos enviados com sucesso!")
+        print("@! >>> Documento enviado com sucesso!")
+        
+        self.setupTransactionID(self.transactionID)
+        print("@! >>> Navegando para escaneamento facial...")
+        
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -220,12 +202,6 @@ extension LoginViewModel {
       case .timeOut(let description):
         print("Server error noConnection: \(description) \n")
       }
-      
-      
-      print("@! >>> ", self.helper.getFaceScan)
-      print("@! >>> ", self.helper.getAuditTrailImage)
-      print("@! >>> ", self.helper.getLowQualityAuditTrailImage)
-      
     }
   }
   
@@ -330,6 +306,13 @@ extension LoginViewModel {
     }
   }
   
+  func postDocuments() {
+    helper.sendDocumentPicture = {
+      self.sendDocuments()
+      print(self.helper.getDocumentImageType())
+    }
+  }
+  
   private
   func openStatus() {
     let statusViewModel = StatusViewModel()
@@ -353,6 +336,7 @@ extension LoginViewModel {
   
   func openFaceCapture() {
     createSession()
+    
     
     let faceCaptureViewController = helper.startFaceCapture()
     viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
@@ -381,10 +365,6 @@ extension LoginViewModel {
   
   func createLiveness() {
     
-    self.setupLiveness(faceScan: self.helper.getFaceScan(),
-                       auditTrailImage: self.helper.getAuditTrailImage(),
-                       lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage())
-    
     helper.waitingFaceTecResponse = { [weak self] (faceScan, auditTrailImage, lowQualityAuditTrailImage) in
       
       guard let self = self else { return }
@@ -392,6 +372,16 @@ extension LoginViewModel {
       print("@! >>> FaceScan (1): ", faceScan)
       print("@! >>> AuditTrailImage (2): ", auditTrailImage)
       print("@! >>> LowQualityAuditTrailImage (3): ", lowQualityAuditTrailImage)
+    }
+  }
+  
+  func testingData() {
+    let faceCaptureViewController = helper.startFaceCapture()
+    
+    if helper.faceTecAnalisys() == true {
+      print("@! >>> It's true!")
+    } else {
+      print("@! >>> It's false...")
     }
   }
 }

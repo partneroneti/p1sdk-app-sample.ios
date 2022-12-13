@@ -50,6 +50,7 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
     
     FaceTec.initialize()
     faceTecLivenessData()
+    helper.faceTecAnalisys(self)
   }
   
   override func viewWillAppear(_ animated: Bool) {

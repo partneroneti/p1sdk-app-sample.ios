@@ -68,17 +68,20 @@ open class PartnerHelper {
     return FaceTec.sdk.createFaceTecAPIUserAgentString(sessionToken)
   }
   
+  public func getDocumentImageType(_ type: String = "") -> String {
+    return type
+  }
+  
+  public func getDocumentImageSize(_ size: String = "") -> String {
+    return size
+  }
+  
   public func lastViewController(_ viewController: UIViewController = UIViewController()) -> UIViewController {
     return viewController
   }
   
-  public func faceTecAnalisys() -> Bool {
-    let paramViewModel = ScanViewModel(helper: self)
-    let facialViewController = FacialScanViewController(viewModel: paramViewModel)
-    
-    facialViewController.processorResponse?()
-    
-    if currentViewController == facialViewController {
+  public func faceTecAnalisys(_ viewController: UIViewController = UIViewController()) -> Bool {
+    if currentViewController == viewController {
       return true
     } else {
       return false
