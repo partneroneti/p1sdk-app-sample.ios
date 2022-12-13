@@ -309,7 +309,6 @@ extension LoginViewModel {
   func postDocuments() {
     helper.sendDocumentPicture = {
       self.sendDocuments()
-      print(self.helper.getDocumentImageType())
     }
   }
   

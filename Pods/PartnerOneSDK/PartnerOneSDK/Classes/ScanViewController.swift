@@ -5,6 +5,7 @@ import PartnerOneSDK
 open class ScanViewController: BaseViewController<ScanView> {
   
   private var viewModel: ScanViewModel
+  private var helper = PartnerHelper()
   var viewTitle: String
   
   /// Camera Setup Variables
@@ -175,15 +176,13 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
     
     guard let imageData = photo.fileDataRepresentation() else { return }
     
-    viewModel.setImageType(imageData.base64EncodedString())
-    viewModel.setImageSize("\(imageData.map({ $0.byteSwapped }))")
-    
     let previewImage = UIImage(data: imageData)
     
     let photoPreviewContainer = baseView.photoPreviewContainer
     photoPreviewContainer.imageView.image = previewImage
     
-    viewModel.sendPicture()
+    viewModel.sendPicture(imageType: imageData.base64EncodedString(),
+                          imageSize: "\(imageData.map({ $0.byteSwapped }))")
     
     captureSession.stopRunning()
     baseView.photoPreviewContainer.isHidden = false

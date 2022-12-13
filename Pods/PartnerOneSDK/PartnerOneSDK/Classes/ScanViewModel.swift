@@ -28,10 +28,10 @@ open class ScanViewModel {
       viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-//    if sideTitle == setPhotoSide(.backView) {
-//      let nextViewController = FacialScanViewController(viewModel: self)
-//      viewController.navigationController?.pushViewController(nextViewController, animated: true)
-//    }
+    if sideTitle == setPhotoSide(.backView) {
+      let nextViewController = FacialScanViewController(viewModel: self)
+      viewController.navigationController?.pushViewController(nextViewController, animated: true)
+    }
   }
   
   func navigateToPreviewView(_ viewController: UIViewController) {
@@ -48,7 +48,7 @@ open class ScanViewModel {
     helper?.getDocumentImageSize(size)
   }
   
-  func sendPicture() {
+  func sendPicture(imageType: String, imageSize: String) {
     helper?.sendDocumentPicture?()
     print("@! >>> Enviando imagens dos documentos...")
   }
