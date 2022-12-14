@@ -183,9 +183,12 @@ extension LoginViewModel {
   
   func sendDocuments() {
     
-    let documents: [String: Any] = [
+    var newDocuments = [[String:Any]]()
+    newDocuments = helper.documentsImages
+    
+    var documents: [String: Any] = [
       "transactionId": self.transactionID,
-      "documents": helper.documentsImages
+      "documents": newDocuments
     ]
     
     worker.sendDocumentPictures(transactionId: transactionID,
@@ -200,8 +203,6 @@ extension LoginViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
           self.setupTransactionID(self.transactionID)
         }
-        
-        print("@! >>> Navegando para escaneamento facial...")
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
@@ -228,7 +229,6 @@ extension LoginViewModel {
         self.helper.sessionToken = model.objectReturn[0].session
         
         print("@! >>> Session: ", String(self.session!))
-        print("@! >>> GetFaceScan: ", self.helper.getFaceScan)
           
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
           self.setupLiveness(faceScan: self.helper.getFaceScan,
@@ -284,17 +284,12 @@ extension LoginViewModel {
 extension LoginViewModel {
   func navigateToView(_ status: Int = 0) {
     switch status {
-    case 0:
-      openStatus()
+    case 0: openStatus()
       break
-    case 1:
-      openStatus()
-    case 2:
-      openStatus()
-    case 3:
-      openFaceCapture()
-    case 4:
-      openDocumentCapture()
+    case 1: openStatus()
+    case 2: openStatus()
+    case 3: openFaceCapture()
+    case 4: openDocumentCapture()
     default:
       break
     }
@@ -319,8 +314,7 @@ extension LoginViewModel {
   
   func postDocuments() {
     helper.sendDocumentPicture = {
-//      self.sendDocuments()
-      self.openFaceCapture()
+      self.sendDocuments()
     }
   }
   
@@ -366,12 +360,5 @@ extension LoginViewModel {
     
     print("@! >>> Logado com sucesso!")
     print("@! >>> Redirecionando para captura de documento...")
-  }
-  
-  func createSessionOnNavigate() {
-    helper.onNavigateToFaceCapture = {
-      self.createSession()
-      print("@! >>> Redirecionando para captura de face...")
-    }
   }
 }

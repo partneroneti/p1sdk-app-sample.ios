@@ -21,7 +21,7 @@ open class PartnerHelper {
   public var faceTecPublicFaceScanEncryptionKey: String = ""
   public var faceTecProductionKeyText: String = ""
   
-  public var documentsImages: [Any] = []
+  public var documentsImages = [[String:Any]]()
   public var documentType: String = ""
   public var documentByte: String = ""
   

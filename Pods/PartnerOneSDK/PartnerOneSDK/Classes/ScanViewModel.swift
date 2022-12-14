@@ -29,9 +29,19 @@ open class ScanViewModel {
       viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    if sideTitle == setPhotoSide(.backView) {
-      sendPicture()
+    if sideTitle == setPhotoSide(.backView) {   
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        self.sendPicture()
+      }
     }
+  }
+  
+  func appendDocumentPicture(type: String, byte: String) {
+    let documentImage: [String:Any] = [
+      "type": type,
+      "byte": byte
+    ]
+    helper.documentsImages.append(documentImage)
   }
   
   func navigateToPreviewView(_ viewController: UIViewController) {

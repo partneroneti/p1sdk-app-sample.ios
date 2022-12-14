@@ -43,8 +43,6 @@ private extension LoginViewController {
     (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
     viewModel.postDocuments()
     
-//    viewModel.createSessionOnNavigate()
-    
     /// Navigation do SDK Screen
     ///
     baseView.beginButton.btnAction = { [weak self] in

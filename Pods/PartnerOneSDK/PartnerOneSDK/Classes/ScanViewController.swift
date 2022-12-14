@@ -181,6 +181,11 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
     helper.documentByte = imageData.base64EncodedString()
     
     captureSession.stopRunning()
+    
+    viewModel.appendDocumentPicture(type: helper.documentType,
+                                    byte: helper.documentByte)
+    
+    print("@! >>> Documento da \(viewTitle) adicionado.")
   }
   
   @objc
@@ -191,11 +196,6 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
       photoSettings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: photoPreviewType]
       photoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
-    
-    viewModel.appendDocumentPicture(type: helper.documentType,
-                                    byte: helper.documentByte)
-    
-    print("@! >>> Documento da \(viewTitle) adicionado.")
   }
 }
 

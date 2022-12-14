@@ -29,7 +29,7 @@ private extension StatusViewController {
     navigationItem.hidesBackButton = true
     
     baseView.transactionIdLabel.descriptionLabel.text = viewModel.transactionID
-    baseView.statusLabel.descriptionLabel.text = "\(viewModel.statusDescription)"
+    baseView.statusLabel.descriptionLabel.text = "\(String(describing: viewModel.statusDescription!))"
     
     /// Action to pop to home
     ///
