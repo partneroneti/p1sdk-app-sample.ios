@@ -7,11 +7,12 @@ enum PictureView {
 
 open class ScanViewModel {
   
-  var helper: PartnerHelper?
+  var helper: PartnerHelper
   var sideTitle: String = ""
   var transactionID: String = ""
+  var documents = [AnyObject]()
   
-  init(helper: PartnerHelper?) {
+  init(helper: PartnerHelper) {
     self.helper = helper
   }
   
@@ -24,13 +25,12 @@ open class ScanViewModel {
   
   func navigateToNextView(_ viewController: UIViewController) {
     if sideTitle == setPhotoSide(.frontView) {
-      let nextViewController = ScanViewController(viewModel: self, viewTitle: "Verso")
+      let nextViewController = ScanViewController(viewModel: self, helper: self.helper, viewTitle: "Verso")
       viewController.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     if sideTitle == setPhotoSide(.backView) {
-      let nextViewController = FacialScanViewController(viewModel: self)
-      viewController.navigationController?.pushViewController(nextViewController, animated: true)
+      sendPicture()
     }
   }
   
@@ -40,16 +40,9 @@ open class ScanViewModel {
     }
   }
   
-  func setImageType(_ type: String) {
-    helper?.getDocumentImageType(type)
-  }
-  
-  func setImageSize(_ size: String) {
-    helper?.getDocumentImageSize(size)
-  }
-  
-  func sendPicture(imageType: String, imageSize: String) {
-    helper?.sendDocumentPicture?()
+  func sendPicture() {
+    helper.sendDocumentPicture?()
+    print(helper.documentsImages.count)
     print("@! >>> Enviando imagens dos documentos...")
   }
 }

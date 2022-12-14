@@ -21,9 +21,13 @@ open class PartnerHelper {
   public var faceTecPublicFaceScanEncryptionKey: String = ""
   public var faceTecProductionKeyText: String = ""
   
-//  public var getFaceScan: String = ""
-//  public var getAuditTrailImage: String = ""
-//  public var getLowQualityAuditTrailImage: String = ""
+  public var documentsImages: [Any] = []
+  public var documentType: String = ""
+  public var documentByte: String = ""
+  
+  public var getFaceScan: String = ""
+  public var getAuditTrailImage: String = ""
+  public var getLowQualityAuditTrailImage: String = ""
   
   public var faceScanResultCallback: FaceTecFaceScanResultCallback?
   
@@ -35,7 +39,7 @@ open class PartnerHelper {
   
   public func initializeSDK(_ viewController: UIViewController) {
     let mainViewModel = ScanViewModel(helper: self)
-    viewController.navigationController?.pushViewController(ScanViewController(viewModel: mainViewModel), animated: true)
+    viewController.navigationController?.pushViewController(ScanViewController(viewModel: mainViewModel, helper: self), animated: true)
   }
   
   public func startFaceCapture() -> UIViewController {
@@ -49,7 +53,7 @@ open class PartnerHelper {
   
   public func startDocumentCapture() -> UIViewController {
     let mainViewModel = ScanViewModel(helper: self)
-    return ScanViewController(viewModel: mainViewModel, viewTitle: "Frente")
+    return ScanViewController(viewModel: mainViewModel, helper: self, viewTitle: "Frente")
   }
   
   public func transactionId(_ id: String = "") -> String {
@@ -68,8 +72,12 @@ open class PartnerHelper {
     return FaceTec.sdk.createFaceTecAPIUserAgentString(sessionToken)
   }
   
-  public func getDocumentImageType(_ type: String = "") -> String {
-    return type
+  public func setDocumentType(_ type: String) {
+    documentType = type
+  }
+  
+  public func getDocumentImageType() -> String {
+    return documentType
   }
   
   public func getDocumentImageSize(_ size: String = "") -> String {
@@ -86,17 +94,5 @@ open class PartnerHelper {
     } else {
       return false
     }
-  }
-  
-  public func getFaceScan(_ string: String = "") -> String {
-    return string
-  }
-  
-  public func getAuditTrailImage(_ string: String = "") -> String {
-    return string
-  }
-  
-  public func getLowQualityAuditTrailImage(_ string: String = "") -> String {
-    return string
   }
 }

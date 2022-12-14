@@ -25,7 +25,6 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   
   weak var viewController: LoginViewController?
   private weak var navigationDelegate: PhotoFaceNavigationDelegate?
-  private var decisionMatrix: DecisionMatrix?
   
   let helper = PartnerHelper()
   let worker: PhotoFaceWorker
@@ -117,7 +116,7 @@ extension LoginViewModel {
   
   /// First time getting TransactionID
   ///
-  func setupTransactionID(_ transactionID: String) {
+  func setupTransactionID(_ transactionID: String = "") {
     
     worker.getTransactionID(transactionID: transactionID) { [weak self] (response) in
       guard let self = self else { return }
@@ -182,15 +181,23 @@ extension LoginViewModel {
   }
   
   func sendDocuments() {
+    
+    let documents: [String: Any] = [
+      "transactionId": self.transactionID,
+      "documents": helper.documentsImages
+    ]
+    
     worker.sendDocumentPictures(transactionId: transactionID,
-                                imgType: helper.getDocumentImageType(),
-                                imgByte: helper.getDocumentImageSize()) { [weak self] (response) in
+                                documents: documents) { [weak self] (response) in
       guard let self = self else { return }
       switch response {
       case .success:
         print("@! >>> Documento enviado com sucesso!")
-        
+
+        /// Navigate to viiew based on API status return
+        ///
         self.setupTransactionID(self.transactionID)
+        
         print("@! >>> Navegando para escaneamento facial...")
         
       case .noConnection(let description):
@@ -205,6 +212,12 @@ extension LoginViewModel {
     }
   }
   
+  public func createDictionaryRequestForAddingItems(type: String, byte: String) -> Data {
+    let dictRequest = ["type": type, "byte": byte]
+    let dataRequest = try! JSONEncoder().encode(dictRequest)
+    return dataRequest
+  }
+  
   func createSession() {
     guard let deviceKeyIdentifier = deviceKeyIdentifier else { return }
     
@@ -215,16 +228,11 @@ extension LoginViewModel {
       switch response {
       case .success(let model):
         self.session = model.objectReturn[0].session
-        self.helper.createUserAgentForSession(model.objectReturn[0].session)
-        print("@! >>> Session Data: ", model.objectReturn[0].session)
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-          self.createLiveness()
-          print("@! >>> FaceScan: ",  self.helper.getFaceScan())
-        }
-        
         self.helper.sessionToken = model.objectReturn[0].session
+        
+        print("@! >>> Session: ", self.session)
+        
+        self.setupTransactionID()
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -245,8 +253,6 @@ extension LoginViewModel {
                        sessionId: helper.createUserAgentForSession(self.session ?? ""),
                        deviceKey: deviceKeyIdentifier ?? "") { [weak self] (response) in
       guard let self = self else { return }
-      
-      print(faceScan)
       
       switch response {
       case .success(let model):
@@ -309,6 +315,7 @@ extension LoginViewModel {
   func postDocuments() {
     helper.sendDocumentPicture = {
       self.sendDocuments()
+      self.openFaceCapture()
     }
   }
   
@@ -319,7 +326,7 @@ extension LoginViewModel {
     statusViewModel.transactionID = self.transactionID
     statusViewModel.statusDescription = self.statusDescription
     let statusViewController = StatusViewController(viewModel: statusViewModel)
-    self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
+    self.viewController?.navigationController?.present(statusViewController, animated: true)
     print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
   }
   
@@ -334,17 +341,13 @@ extension LoginViewModel {
   }
   
   func openFaceCapture() {
-    createSession()
-    
-    
     let faceCaptureViewController = helper.startFaceCapture()
     viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
     
     helper.navigateToStatus = {
+      self.openStatus()
       print("Navegando para tela de Status...")
     }
-    
-    print("@! >>> Redirecionando para captura de face...")
   }
   
   private
@@ -359,28 +362,7 @@ extension LoginViewModel {
   func createSessionOnNavigate() {
     helper.onNavigateToFaceCapture = {
       self.createSession()
-    }
-  }
-  
-  func createLiveness() {
-    
-    helper.waitingFaceTecResponse = { [weak self] (faceScan, auditTrailImage, lowQualityAuditTrailImage) in
-      
-      guard let self = self else { return }
-      
-      print("@! >>> FaceScan (1): ", faceScan)
-      print("@! >>> AuditTrailImage (2): ", auditTrailImage)
-      print("@! >>> LowQualityAuditTrailImage (3): ", lowQualityAuditTrailImage)
-    }
-  }
-  
-  func testingData() {
-    let faceCaptureViewController = helper.startFaceCapture()
-    
-    if helper.faceTecAnalisys() == true {
-      print("@! >>> It's true!")
-    } else {
-      print("@! >>> It's false...")
+      print("@! >>> Redirecionando para captura de face...")
     }
   }
 }

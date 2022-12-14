@@ -5,7 +5,7 @@ import PartnerOneSDK
 open class ScanViewController: BaseViewController<ScanView> {
   
   private var viewModel: ScanViewModel
-  private var helper = PartnerHelper()
+  private var helper: PartnerHelper
   var viewTitle: String
   
   /// Camera Setup Variables
@@ -20,8 +20,10 @@ open class ScanViewController: BaseViewController<ScanView> {
   
   //MARK: - init
   public init(viewModel: ScanViewModel,
+              helper: PartnerHelper,
               viewTitle: String = "") {
     self.viewModel = viewModel
+    self.helper = helper
     self.viewTitle = viewTitle
     super.init()
   }
@@ -174,18 +176,26 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
   
   public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
     
-    guard let imageData = photo.fileDataRepresentation() else { return }
+    guard let imageData = photo.fileDataRepresentation() else {
+      return
+    }
     
     let previewImage = UIImage(data: imageData)
     
     let photoPreviewContainer = baseView.photoPreviewContainer
     photoPreviewContainer.imageView.image = previewImage
     
-    viewModel.sendPicture(imageType: imageData.base64EncodedString(),
-                          imageSize: "\(imageData.map({ $0.byteSwapped }))")
+    helper.documentType = viewTitle == viewModel.setPhotoSide(.frontView) ? "FRENTE" : "VERSO"
+    helper.documentByte = imageData.base64EncodedString()
+    
+    var document: [String:Any] = [
+      "type": "",
+      "byte": imageData.base64EncodedString()
+    ]
+    
+    helper.documentsImages.append(document)
     
     captureSession.stopRunning()
-    baseView.photoPreviewContainer.isHidden = false
   }
 }
 

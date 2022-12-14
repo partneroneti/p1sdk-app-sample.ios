@@ -23,7 +23,6 @@
 		EF5BFD872941761B00F1955E /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD862941761B00F1955E /* TransactionModel.swift */; };
 		EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD88294176D500F1955E /* ErrorModel.swift */; };
 		EF9202D32942A2D000302029 /* FaceTecDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D22942A2D000302029 /* FaceTecDataModel.swift */; };
-		EF9202D72942B24600302029 /* DecisionMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202D62942B24600302029 /* DecisionMatrix.swift */; };
 		EF9202DB2942BF0E00302029 /* SessionIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202DA2942BF0E00302029 /* SessionIDModel.swift */; };
 		EF9202E72944B3BC00302029 /* MainResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9202E62944B3BC00302029 /* MainResponseModel.swift */; };
 		EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A081293A0C5000C5DFA9 /* AppDelegate.swift */; };
@@ -55,6 +54,7 @@
 		EFB7A0DD293A6C6700C5DFA9 /* PhotoFaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */; };
 		EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0DE293A70AC00C5DFA9 /* Request.swift */; };
 		EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0E0293A73C100C5DFA9 /* Router.swift */; };
+		EFD4F5D829493F0300DAF19B /* DocumentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F5D729493F0300DAF19B /* DocumentDataModel.swift */; };
 		EFDBA2CA294672960040268E /* LivenessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDBA2C9294672960040268E /* LivenessModel.swift */; };
 		FEAF551555F1478CABBCE107 /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */; };
 /* End PBXBuildFile section */
@@ -112,7 +112,6 @@
 		EF5BFD862941761B00F1955E /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		EF5BFD88294176D500F1955E /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		EF9202D22942A2D000302029 /* FaceTecDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTecDataModel.swift; sourceTree = "<group>"; };
-		EF9202D62942B24600302029 /* DecisionMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionMatrix.swift; sourceTree = "<group>"; };
 		EF9202DA2942BF0E00302029 /* SessionIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionIDModel.swift; sourceTree = "<group>"; };
 		EF9202E62944B3BC00302029 /* MainResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainResponseModel.swift; sourceTree = "<group>"; };
 		EFB7A07E293A0C5000C5DFA9 /* PhotoFaceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFaceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +147,7 @@
 		EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFaceRouter.swift; sourceTree = "<group>"; };
 		EFB7A0DE293A70AC00C5DFA9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EFB7A0E0293A73C100C5DFA9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EFD4F5D729493F0300DAF19B /* DocumentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDataModel.swift; sourceTree = "<group>"; };
 		EFDBA2C9294672960040268E /* LivenessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessModel.swift; sourceTree = "<group>"; };
 		FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -216,6 +216,7 @@
 				EF9202DA2942BF0E00302029 /* SessionIDModel.swift */,
 				EF9202E62944B3BC00302029 /* MainResponseModel.swift */,
 				EFDBA2C9294672960040268E /* LivenessModel.swift */,
+				EFD4F5D729493F0300DAF19B /* DocumentDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,7 +318,6 @@
 				EFB7A0DC293A6C6700C5DFA9 /* PhotoFaceRouter.swift */,
 				EFB7A0E0293A73C100C5DFA9 /* Router.swift */,
 				EF2400D1293BF8F2002A9746 /* Worker.swift */,
-				EF9202D62942B24600302029 /* DecisionMatrix.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -616,7 +616,6 @@
 				EFB7A0C7293A12B800C5DFA9 /* MainTextInput.swift in Sources */,
 				EFB7A0DB293A508400C5DFA9 /* Response.swift in Sources */,
 				EF2400D4293BFF12002A9746 /* Result.swift in Sources */,
-				EF9202D72942B24600302029 /* DecisionMatrix.swift in Sources */,
 				EFB7A0CC293A244500C5DFA9 /* StatusView.swift in Sources */,
 				EFB7A0B9293A0CBB00C5DFA9 /* LoginViewController.swift in Sources */,
 				EFB7A088293A0C5000C5DFA9 /* Document.swift in Sources */,
@@ -635,6 +634,7 @@
 				EFB7A0C2293A0D5F00C5DFA9 /* BaseViewController.swift in Sources */,
 				EFB7A0DF293A70AC00C5DFA9 /* Request.swift in Sources */,
 				EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */,
+				EFD4F5D829493F0300DAF19B /* DocumentDataModel.swift in Sources */,
 				EFB7A082293A0C5000C5DFA9 /* AppDelegate.swift in Sources */,
 				EF9202E72944B3BC00302029 /* MainResponseModel.swift in Sources */,
 				EFB7A0C9293A12DE00C5DFA9 /* DescriptionLabel.swift in Sources */,

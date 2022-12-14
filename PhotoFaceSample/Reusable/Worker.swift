@@ -8,18 +8,11 @@ protocol AccessTokeProtocol: AnyObject {
 
 protocol PhotoFaceWorkerProtocol: AnyObject {
   func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void)
-  func getTransaction(cpf: String,
-                      completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void)
-  func getTransactionID(transactionID: String,
-                        completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
+  func getTransaction(cpf: String, completion: @escaping (Response<ResponseModel<TransactionModel>>) -> Void)
+  func getTransactionID(transactionID: String, completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
   func getCredentials(completion: @escaping (Response<ResponseModel<FaceTecDataModel>>) -> Void)
-  func sendDocumentPictures(transactionId: String,
-                            imgType: String,
-                            imgByte: String,
-                            completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void))
-  func getSession(userAgent: String,
-                  deviceKey: String,
-                  completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
+  func sendDocumentPictures(transactionId: String, documents: [String:Any], completion: @escaping ((Response<ResponseModel<DocumentDataModel>>) -> Void))
+  func getSession(userAgent: String, deviceKey: String, completion: @escaping ((Response<ResponseModel<SessionIDModel>>) -> Void))
   func getLiveness(transactionID: String,
                    faceScan: String,
                    auditTrailImage: String,
@@ -83,22 +76,13 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
   }
   
   func sendDocumentPictures(transactionId: String,
-                            imgType: String,
-                            imgByte: String,
-                            completion: @escaping ((Response<ResponseModel<TransactionIDModel>>) -> Void)) {
+                            documents: [String:Any],
+                            completion: @escaping ((Response<ResponseModel<DocumentDataModel>>) -> Void)) {
     guard let url = URL(string: "\(apiURL)/document") else {
       return
     }
     
-    let body: [String:Any] = [
-      "transactionId": transactionId,
-      "documents": [
-        "type": imgType,
-        "byte": imgByte
-      ]
-    ]
-    
-    network.loginParser(url: url, body: body, header: accessToken, method: .post, completion: completion)
+    network.loginParser(url: url, body: documents, header: accessToken, method: .post, completion: completion)
   }
   
   func getSession(userAgent: String,
