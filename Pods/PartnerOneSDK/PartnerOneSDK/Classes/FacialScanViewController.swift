@@ -6,7 +6,7 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
   //MARK: - Properties
   
   var viewModel: ScanViewModel
-  var helper = PartnerHelper()
+  var helper: PartnerHelper
   
   private var latestExternalDatabaseRefID: String = ""
   private var latestSessionResult: FaceTecSessionResult!
@@ -15,6 +15,8 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
   private var resultCallback: FaceTecFaceScanResultCallback?
   private var latestProcessor: Processor!
   private var utils: SampleAppUtilities?
+  
+  public var faceScanBase64: String = ""
   
   var sessionId: String?
   var deviceKey: String?
@@ -31,8 +33,9 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
   
   //MARK: - init
   
-  init(viewModel: ScanViewModel) {
+  init(viewModel: ScanViewModel, helper: PartnerHelper) {
     self.viewModel = viewModel
+    self.helper = helper
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -50,6 +53,8 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
     view.addSubview(activity)
     activity.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     activity.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    
+    print("@! >>>> PRINTÃO !!!!! \(helper.transactionId())")
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +89,8 @@ extension FacialScanViewController {
       
       LivenessCheckProcessor(sessionToken: self.helper.createUserAgentForSession(),
                              fromViewController: self)
+      
+      self.faceTecLivenessData(completion: {})
       
       if self.helper.wasProcessed == true {
         print("@! >>> Foi processado!")
@@ -138,12 +145,15 @@ extension FacialScanViewController {
   
   public func faceTecLivenessData(faceScanBase: String = "",
                                   auditTrailImage: String = "",
-                                  lowQualityAuditTrailImage: String = "") {
+                                  lowQualityAuditTrailImage: String = "",
+                                  completion: @escaping (() -> Void)) {
     self.helper.getFaceScan = faceScanBase
     self.helper.getAuditTrailImage = auditTrailImage
     self.helper.getLowQualityAuditTrailImage = lowQualityAuditTrailImage
     
-    self.helper.waitingFaceTecResponse?(faceScanBase, auditTrailImage, lowQualityAuditTrailImage)
+    self.faceScanBase64 = faceScanBase
+    
+    completion()
     
     print("@! >>> Processamento finalizado.")
     

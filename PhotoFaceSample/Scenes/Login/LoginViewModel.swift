@@ -194,10 +194,12 @@ extension LoginViewModel {
       switch response {
       case .success:
         print("@! >>> Documento enviado com sucesso!")
-
+        
         /// Navigate to viiew based on API status return
         ///
-        self.setupTransactionID(self.transactionID)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+          self.setupTransactionID(self.transactionID)
+        }
         
         print("@! >>> Navegando para escaneamento facial...")
         
@@ -225,13 +227,15 @@ extension LoginViewModel {
         self.session = model.objectReturn[0].session
         self.helper.sessionToken = model.objectReturn[0].session
         
-        print("@! >>> Session: ", self.session)
-        
-        self.helper.waitingFaceTecResponse = { faceScan, auditTrailImage, lowQualityAuditTrailImage in
-          self.setupLiveness(faceScan: faceScan,
-                             auditTrailImage: auditTrailImage,
-                             lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+        print("@! >>> Session: ", String(self.session!))
+        print("@! >>> GetFaceScan: ", self.helper.getFaceScan)
+          
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+          self.setupLiveness(faceScan: self.helper.getFaceScan,
+                             auditTrailImage: self.helper.getAuditTrailImage,
+                             lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
         }
+        
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -315,7 +319,7 @@ extension LoginViewModel {
   
   func postDocuments() {
     helper.sendDocumentPicture = {
-      self.sendDocuments()
+//      self.sendDocuments()
       self.openFaceCapture()
     }
   }

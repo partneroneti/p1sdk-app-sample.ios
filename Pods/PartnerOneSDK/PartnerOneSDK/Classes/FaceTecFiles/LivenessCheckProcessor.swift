@@ -34,13 +34,14 @@ open class LivenessCheckProcessor: NSObject, Processor, FaceTecFaceScanProcessor
         return
     }
     
+    self.helper.getFaceScan = sessionResult.faceScanBase64 ?? ""
+    
     self.fromViewController.faceTecLivenessData(faceScanBase: sessionResult.faceScanBase64 ?? "",
                                                 auditTrailImage: sessionResult.auditTrailCompressedBase64?[0] ?? "",
-                                                lowQualityAuditTrailImage: sessionResult.lowQualityAuditTrailCompressedBase64?[0] ?? "")
-    
-    self.fromViewController.processorResponse?()
-    
-    if success {
+                                                lowQualityAuditTrailImage: sessionResult.lowQualityAuditTrailCompressedBase64?[0] ?? "") {
+      self.helper.waitingFaceTecResponse?()
+      
+      self.fromViewController.processorResponse?()
       FaceTecCustomization.setOverrideResultScreenSuccessMessage("Liveness\nConfirmed")
     }
     

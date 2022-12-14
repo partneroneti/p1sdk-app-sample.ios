@@ -9,7 +9,7 @@ open class PartnerHelper {
   
   public var sendDocumentPicture: (() -> Void)?
   public var onNavigateToFaceCapture: (() -> Void)?
-  public var waitingFaceTecResponse: ((_ faceScan: String, _ auditTrailImage: String, _ lowQualityAuditTrailImage: String) -> Void)?
+  public var waitingFaceTecResponse: (() -> Void)?
   public var navigateToStatus: (() -> Void)?
   public var onSuccessFaceTec: (() -> Void)?
   
@@ -45,10 +45,8 @@ open class PartnerHelper {
   
   public func startFaceCapture() -> UIViewController {
     let mainViewModel = ScanViewModel(helper: self)
-    let viewController = FacialScanViewController(viewModel: mainViewModel)
-    
+    let viewController = FacialScanViewController(viewModel: mainViewModel, helper: self)
     processor?.helper = self
-    
     return viewController
   }
   
@@ -87,5 +85,11 @@ open class PartnerHelper {
   
   public func lastViewController(_ viewController: UIViewController = UIViewController()) -> UIViewController {
     return viewController
+  }
+  
+  public func faceScanBase64() -> String {
+    let mainViewModel = ScanViewModel(helper: self)
+    let viewController = FacialScanViewController(viewModel: mainViewModel, helper: self)
+    return viewController.faceScanBase64
   }
 }

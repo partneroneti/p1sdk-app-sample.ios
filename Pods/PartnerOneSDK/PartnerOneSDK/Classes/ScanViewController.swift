@@ -41,7 +41,9 @@ open class ScanViewController: BaseViewController<ScanView> {
   
   open override func viewDidLoad() {
     super.viewDidLoad()
-    setupBinds()
+    if #available(iOS 11.0, *) {
+      setupBinds()
+    }
   }
   
   open override func didReceiveMemoryWarning() {
@@ -164,16 +166,6 @@ extension ScanViewController {
 @available(iOS 11.0, *)
 extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate {
   
-  @objc
-  func takePicure() {
-    let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-    
-    if let photoPreviewType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {
-      photoSettings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: photoPreviewType]
-      photoOutput.capturePhoto(with: photoSettings, delegate: self)
-    }
-  }
-  
   public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
     
     guard let imageData = photo.fileDataRepresentation() else {
@@ -188,18 +180,27 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
     helper.documentType = viewTitle == viewModel.setPhotoSide(.frontView) ? "FRENTE" : "VERSO"
     helper.documentByte = imageData.base64EncodedString()
     
-    var document: [String:Any] = [
-      "type": helper.documentType,
-      "byte": helper.documentByte
-    ]
-    
-    helper.documentsImages.append(document)
-    
     captureSession.stopRunning()
+  }
+  
+  @objc
+  func takePicure() {
+    let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+    
+    if let photoPreviewType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {
+      photoSettings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: photoPreviewType]
+      photoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+    
+    viewModel.appendDocumentPicture(type: helper.documentType,
+                                    byte: helper.documentByte)
+    
+    print("@! >>> Documento da \(viewTitle) adicionado.")
   }
 }
 
 extension ScanViewController {
+  
   func setupBinds() {
     /// Setup View Title
     /// * Return from viewModel as (.front)*
@@ -209,11 +210,14 @@ extension ScanViewController {
     viewModel.sideTitle = viewTitle
     
     baseView.didTapTakePicture = { [weak self] in
-      guard let self = self else { return }
+      guard let self = self else {
+        return
+      }
+      
       if #available(iOS 11.0, *) {
         self.takePicure()
-        self.viewModel.navigateToNextView(self)
       }
+      self.viewModel.navigateToNextView(self)
     }
     
     baseView.didTapBack = { [weak self] in
