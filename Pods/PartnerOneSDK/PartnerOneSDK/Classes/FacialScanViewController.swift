@@ -16,6 +16,9 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
   private var latestProcessor: Processor!
   private var utils: SampleAppUtilities?
   
+  var sessionId: String?
+  var deviceKey: String?
+  var transactionId: String?
   var processorResponse: (() -> Void)?
   
   private let activity: UIActivityIndicatorView = {
@@ -47,8 +50,6 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
     view.addSubview(activity)
     activity.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     activity.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    
-    helper.faceTecAnalisys(self)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +63,10 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
 
 extension FacialScanViewController {
   func setupFaceTec() {
+    self.transactionId = helper.transaction
+    self.deviceKey = helper.faceTecDeviceKeyIdentifier
+    self.sessionId = helper.sessionToken()
+    
     FaceTec.sdk.initializeInProductionMode(productionKeyText: Config.ProductionKeyText,
                                            deviceKeyIdentifier: Config.DeviceKeyIdentifier,
                                            faceScanEncryptionKey: Config.PublicFaceScanEncryptionKey)
@@ -79,16 +84,24 @@ extension FacialScanViewController {
       
       LivenessCheckProcessor(sessionToken: self.helper.createUserAgentForSession(),
                              fromViewController: self)
+      
+      if self.helper.wasProcessed == true {
+        print("@! >>> Foi processado!")
+      }
+      
+      self.processorResponse = {
+        if self.resultCallback?.onFaceScanGoToNextStep(scanResultBlob: "") != nil {
+          print("BLOB!")
+        } else {
+          self.navigationController?.popViewController(animated: true)
+        }
+      }
     })
   }
   
   func processSessionWhileFaceTecSDKWaits(sessionResult: FaceTecSessionResult,
                                           faceScanResultCallback: FaceTecFaceScanResultCallback) {
-    print("@! >>>>>>>>>>>>>>>>>>>>>>")
-    
-    self.processorResponse = {
-      self.faceTecLivenessData()
-    }
+    self.resultCallback = faceScanResultCallback
   }
   
   func onFaceTecSDKCompletelyDone() {
@@ -137,5 +150,6 @@ extension FacialScanViewController {
     let livenessProcessor = LivenessCheckProcessor(sessionToken: self.helper.createUserAgentForSession(),
                                                    fromViewController: self)
     livenessProcessor.success = true
+    livenessProcessor.faceScanResultCallback = resultCallback
   }
 }

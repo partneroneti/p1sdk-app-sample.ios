@@ -42,7 +42,7 @@ private extension LoginViewController {
   func setupBinds() {
     (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
     viewModel.postDocuments()
-    viewModel.createSessionOnNavigate()
+//    viewModel.createSessionOnNavigate()
     
     /// Navigation do SDK Screen
     ///

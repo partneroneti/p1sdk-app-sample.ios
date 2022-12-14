@@ -2,8 +2,12 @@ import UIKit
 import Foundation
 import Alamofire
 import ObjectMapper
+import PartnerOneSDK
+import FaceTecSDK
 
-struct DataParser {
+class DataParser: NSObject, URLSessionTaskDelegate {
+  
+  var faceScanResultCallback: FaceTecFaceScanResultCallback!
   
   func mainParser<T: Mappable>(url: URL,
                                body: [String:Any],
@@ -242,6 +246,11 @@ struct DataParser {
       completion(.failure(.errorAPI(error: "")), 500)
       return
     }
+  }
+  
+  func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+      let uploadProgress: Float = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
+      faceScanResultCallback.onFaceScanUploadProgress(uploadedPercent: uploadProgress)
   }
 }
 

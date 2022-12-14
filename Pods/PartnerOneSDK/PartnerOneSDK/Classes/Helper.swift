@@ -29,6 +29,7 @@ open class PartnerHelper {
   public var getAuditTrailImage: String = ""
   public var getLowQualityAuditTrailImage: String = ""
   
+  public var wasProcessed: Bool = false
   public var faceScanResultCallback: FaceTecFaceScanResultCallback?
   
   //MARK: - init
@@ -86,13 +87,5 @@ open class PartnerHelper {
   
   public func lastViewController(_ viewController: UIViewController = UIViewController()) -> UIViewController {
     return viewController
-  }
-  
-  public func faceTecAnalisys(_ viewController: UIViewController = UIViewController()) -> Bool {
-    if currentViewController == viewController {
-      return true
-    } else {
-      return false
-    }
   }
 }

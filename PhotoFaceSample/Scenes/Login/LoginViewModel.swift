@@ -34,6 +34,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   var statusDescription: String?
   var session: String?
   var livenessCode: Int?
+  var livenessMessage: String?
   
   ///FaceTec properties
   ///
@@ -133,7 +134,7 @@ extension LoginViewModel {
         /// Erase prints below
         ///
         print("@! >>> Satus da matriz de decisão: ", model.objectReturn[0].result[0].status)
-        print("@! >>> Descrição da matriz de decisão", model.objectReturn[0].result[0].statusDescription)
+        print("@! >>> Descrição da matriz de decisão: ", model.objectReturn[0].result[0].statusDescription)
         
         self.helper.transaction = self.transactionID
       case .noConnection(let description):
@@ -212,12 +213,6 @@ extension LoginViewModel {
     }
   }
   
-  public func createDictionaryRequestForAddingItems(type: String, byte: String) -> Data {
-    let dictRequest = ["type": type, "byte": byte]
-    let dataRequest = try! JSONEncoder().encode(dictRequest)
-    return dataRequest
-  }
-  
   func createSession() {
     guard let deviceKeyIdentifier = deviceKeyIdentifier else { return }
     
@@ -232,7 +227,11 @@ extension LoginViewModel {
         
         print("@! >>> Session: ", self.session)
         
-        self.setupTransactionID()
+        self.helper.waitingFaceTecResponse = { faceScan, auditTrailImage, lowQualityAuditTrailImage in
+          self.setupLiveness(faceScan: faceScan,
+                             auditTrailImage: auditTrailImage,
+                             lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+        }
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -257,11 +256,12 @@ extension LoginViewModel {
       switch response {
       case .success(let model):
         self.livenessCode = model.objectReturn[0].code
+        self.livenessMessage = model.objectReturn[0].description
         
         print("@! >>> Liveness Code: \(self.livenessCode)")
+        print("@! >>> Liveness Code: \(self.livenessMessage)")
         
-        self.setSessionCode(self.livenessCode ?? 0)
-        
+        self.helper.wasProcessed = true
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -281,6 +281,7 @@ extension LoginViewModel {
   func navigateToView(_ status: Int = 0) {
     switch status {
     case 0:
+      openStatus()
       break
     case 1:
       openStatus()
@@ -326,6 +327,8 @@ extension LoginViewModel {
     statusViewModel.transactionID = self.transactionID
     statusViewModel.statusDescription = self.statusDescription
     let statusViewController = StatusViewController(viewModel: statusViewModel)
+    statusViewController.modalTransitionStyle = .coverVertical
+    statusViewController.modalPresentationStyle = .overCurrentContext
     self.viewController?.navigationController?.present(statusViewController, animated: true)
     print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
   }
@@ -341,6 +344,8 @@ extension LoginViewModel {
   }
   
   func openFaceCapture() {
+    createSession()
+    
     let faceCaptureViewController = helper.startFaceCapture()
     viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
     

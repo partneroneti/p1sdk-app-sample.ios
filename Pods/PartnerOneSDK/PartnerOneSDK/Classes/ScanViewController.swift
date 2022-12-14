@@ -189,8 +189,8 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
     helper.documentByte = imageData.base64EncodedString()
     
     var document: [String:Any] = [
-      "type": "",
-      "byte": imageData.base64EncodedString()
+      "type": helper.documentType,
+      "byte": helper.documentByte
     ]
     
     helper.documentsImages.append(document)
