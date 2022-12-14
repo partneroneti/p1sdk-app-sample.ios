@@ -39,9 +39,6 @@ private extension StatusViewController {
     
     /// Status realoader
     ///
-    viewModel.triggerGetStatus(in: .seconds(10)) { [weak self] in
-      guard let self = self else { return }
-      self.viewModel.setupTransactionID()
-    }
+    viewModel.triggerGetStatus()
   }
 }

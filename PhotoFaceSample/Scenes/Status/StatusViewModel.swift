@@ -23,7 +23,7 @@ class StatusViewModel {
   var transactionID: String?
   var status: Int?
   var statusDescription: String?
-  var timer: DispatchSourceTimer?
+  var timer: Timer?
   
   //MARK: - init
   
@@ -44,7 +44,7 @@ extension StatusViewModel {
     
     worker.getTransactionID(transactionID: transactionID) { [weak self] (response) in
       guard let self = self else { return }
-    
+      
       switch response {
       case .success(let model):
         self.status = model.objectReturn[0].result[0].status
@@ -56,23 +56,22 @@ extension StatusViewModel {
         
         print("@! >>> STATUS_DESCRIPTION", model.objectReturn[0].result[0].statusDescription)
       case .noConnection(let description):
-          print("Server error timeOut: \(description) \n")
+        print("Server error timeOut: \(description) \n")
       case .serverError(let error):
-          let errorData = "\(error.statusCode), -, \(error.msgError)"
-          print("Server error: \(errorData) \n")
-          break
+        let errorData = "\(error.statusCode), -, \(error.msgError)"
+        print("Server error: \(errorData) \n")
+        break
       case .timeOut(let description):
-          print("Server error noConnection: \(description) \n")
+        print("Server error noConnection: \(description) \n")
       }
     }
   }
   
   /// Trigger to refresh status
-  /// 
-  func triggerGetStatus(in interval: DispatchTimeInterval, completion: @escaping (() -> Void)) {
-    timer = DispatchSource.makeTimerSource(flags: .strict, queue: .main)
-    timer?.setEventHandler(handler: completion)
-    timer?.schedule(deadline: .now() + interval, leeway: .milliseconds(500))
-    timer?.activate()
+  ///
+  func triggerGetStatus() {
+    self.timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (timer) in
+      self.setupTransactionID()
+    })
   }
 }
