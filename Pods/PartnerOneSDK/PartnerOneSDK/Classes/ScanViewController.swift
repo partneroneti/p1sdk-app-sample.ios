@@ -177,15 +177,15 @@ extension ScanViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCa
     let photoPreviewContainer = baseView.photoPreviewContainer
     photoPreviewContainer.imageView.image = previewImage
     
-    helper.documentType = viewTitle == viewModel.setPhotoSide(.frontView) ? "FRENTE" : "VERSO"
-    helper.documentByte = imageData.base64EncodedString()
+    let type = viewTitle == viewModel.setPhotoSide(.frontView) ? "FRENTE" : "VERSO"
     
-    captureSession.stopRunning()
-    
-    viewModel.appendDocumentPicture(type: helper.documentType,
-                                    byte: helper.documentByte)
+    viewModel.appendDocumentPicture(type: type,
+                                    byte: imageData.base64EncodedString())
     
     print("@! >>> Documento da \(viewTitle) adicionado.")
+    print("@! >>> Numero de itens: \(helper.documentsImages.count)")
+    
+    captureSession.stopRunning()
   }
   
   @objc
@@ -212,6 +212,10 @@ extension ScanViewController {
     baseView.didTapTakePicture = { [weak self] in
       guard let self = self else {
         return
+      }
+      
+      if self.viewTitle == self.viewModel.setPhotoSide(.backView) {
+        self.baseView.takePicBtn.isUserInteractionEnabled = false
       }
       
       if #available(iOS 11.0, *) {

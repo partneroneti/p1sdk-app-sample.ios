@@ -169,6 +169,8 @@ extension LoginViewModel {
         Config.DeviceKeyIdentifier = self.deviceKeyIdentifier ?? "Device Key não encontrado."
         Config.PublicFaceScanEncryptionKey = self.certificate ?? "Certificado não encontrado."
         
+        self.helper.faceTecDeviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
+        
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -200,7 +202,7 @@ extension LoginViewModel {
         
         /// Navigate to viiew based on API status return
         ///
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
           self.setupTransactionID(self.transactionID)
         }
         
@@ -320,14 +322,18 @@ extension LoginViewModel {
   
   private
   func openStatus() {
-    let statusViewModel = StatusViewModel()
+    let worker = PhotoFaceWorker(accessToken: accessToken)
+    let statusViewModel = StatusViewModel(worker: worker,
+                                          helper: helper,
+                                          transactionID: helper.transaction)
     statusViewModel.status = self.status
     statusViewModel.transactionID = self.transactionID
     statusViewModel.statusDescription = self.statusDescription
+    statusViewModel.deviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
     let statusViewController = StatusViewController(viewModel: statusViewModel)
     statusViewController.modalTransitionStyle = .coverVertical
     statusViewController.modalPresentationStyle = .overCurrentContext
-    self.viewController?.navigationController?.present(statusViewController, animated: true)
+    self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
     print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
   }
   

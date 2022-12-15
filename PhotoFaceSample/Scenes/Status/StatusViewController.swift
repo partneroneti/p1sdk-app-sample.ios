@@ -31,6 +31,18 @@ private extension StatusViewController {
     baseView.transactionIdLabel.descriptionLabel.text = viewModel.transactionID
     baseView.statusLabel.descriptionLabel.text = "\(String(describing: viewModel.statusDescription!))"
     
+    self.viewModel.didChangeStatus = { [weak self] in
+      guard let self = self else {
+        return
+      }
+      
+      if self.viewModel.status == 2 {
+        self.viewModel.setReproved(self.baseView.statusLabel.descriptionLabel)
+      } else if self.viewModel.status == 1 {
+        self.viewModel.setApproved(self.baseView.statusLabel.descriptionLabel)
+      }
+    }
+    
     /// Action to pop to home
     ///
     baseView.didTapReset = {
