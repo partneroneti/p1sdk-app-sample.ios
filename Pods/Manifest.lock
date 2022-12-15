@@ -6,7 +6,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - ObjectMapper (~> 3.5)
-  - PartnerOneSDK (from `https://github.com/partneroneti/p1sdk.ios.git`, branch `main`)
+  - PartnerOneSDK (from `https://github.com/partneroneti/p1sdk.ios.git`, branch `hotfix/ajuste-transicao-tela-scan-face`)
 
 SPEC REPOS:
   trunk:
@@ -15,12 +15,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   PartnerOneSDK:
-    :branch: main
+    :branch: hotfix/ajuste-transicao-tela-scan-face
     :git: https://github.com/partneroneti/p1sdk.ios.git
 
 CHECKOUT OPTIONS:
   PartnerOneSDK:
-    :commit: ebeb06402244218b98eb02f5871b701da6ab9d73
+    :commit: 96b0f94ebaaebeeca788beacebf52ff1343cbeaf
     :git: https://github.com/partneroneti/p1sdk.ios.git
 
 SPEC CHECKSUMS:
@@ -28,6 +28,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PartnerOneSDK: 3cda736d817e85daef32afccfb438d8323fd8e12
 
-PODFILE CHECKSUM: 3ef6c14b80635726fb11e9a52d8cff784b85c9fb
+PODFILE CHECKSUM: f2a8ef17684310220f96280a53899af5d6499df2
 
 COCOAPODS: 1.11.3

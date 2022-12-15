@@ -48,6 +48,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
        navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
     self.worker = worker
     self.navigationDelegate = navigationDelegate
+      
   }
   
 }
@@ -232,11 +233,11 @@ extension LoginViewModel {
         
         print("@! >>> Session: ", String(self.session!))
           
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-          self.setupLiveness(faceScan: self.helper.getFaceScan,
-                             auditTrailImage: self.helper.getAuditTrailImage,
-                             lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//          self.setupLiveness(faceScan: self.helper.getFaceScan,
+//                             auditTrailImage: self.helper.getAuditTrailImage,
+//                             lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
+//        }
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
@@ -340,7 +341,9 @@ extension LoginViewModel {
     
     let faceCaptureViewController = helper.startFaceCapture()
     viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
-    
+      PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
+          self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+      }
     helper.navigateToStatus = {
       self.openStatus()
       print("Navegando para tela de Status...")

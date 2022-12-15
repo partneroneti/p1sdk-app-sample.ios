@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1E38EF6A-5485-43D8-979C-B41748F2328E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E101968-F7ED-4F83-A3BE-209280356DA7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "getLiveness(transactionID:faceScan:auditTrailImage:lowQualityAuditTrailImage:sessionId:deviceKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F35B4AF6-5A9E-499A-8365-220FA92792F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40556F85-9959-406E-94ED-E069684CED81"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A6F31BB-83E1-4B5E-AB33-CDE134B51FB0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A6F31BB-83E1-4B5E-AB33-CDE134B51FB0 - 3b31daf42206e4d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "2A6F31BB-83E1-4B5E-AB33-CDE134B51FB0 - 3b31daf42206e4d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF77483F-B116-4685-8A9D-74C8193DF7E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EF77483F-B116-4685-8A9D-74C8193DF7E6 - 3b31daf42206e579"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+               <Location
+                  uuid = "EF77483F-B116-4685-8A9D-74C8193DF7E6 - 3b31daf42206e579"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68A8CB9D-5A35-4EB6-B22C-B0232D916B6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "68A8CB9D-5A35-4EB6-B22C-B0232D916B6C - 3b31daf42206e5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "1516">
+               </Location>
+               <Location
+                  uuid = "68A8CB9D-5A35-4EB6-B22C-B0232D916B6C - 3b31daf42206e5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2748">
+               </Location>
+               <Location
+                  uuid = "68A8CB9D-5A35-4EB6-B22C-B0232D916B6C - 3b31daf42206e5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2036">
+               </Location>
+               <Location
+                  uuid = "68A8CB9D-5A35-4EB6-B22C-B0232D916B6C - 3b31daf42206e5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "2040">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02F7AD7E-15BD-4622-8EA2-D00057556825"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "LivenessCheckProcessor"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "02F7AD7E-15BD-4622-8EA2-D00057556825 - 67606fc091af74ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "02F7AD7E-15BD-4622-8EA2-D00057556825 - fd0afd15fd759599"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.urlSession(_: __C.NSURLSession, task: __C.NSURLSessionTask, didSendBodyData: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "12F31959-F146-45EB-B1AB-C37CC40EDE25"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "12F31959-F146-45EB-B1AB-C37CC40EDE25 - 3b31daf42206e496"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "972">
+               </Location>
+               <Location
+                  uuid = "12F31959-F146-45EB-B1AB-C37CC40EDE25 - 3b31daf42206e496"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "580">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "618CA874-6BA0-4B88-B51F-FE563FFAE3F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "618CA874-6BA0-4B88-B51F-FE563FFAE3F8 - 3b31daf42206e4f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "856">
+               </Location>
+               <Location
+                  uuid = "618CA874-6BA0-4B88-B51F-FE563FFAE3F8 - 3b31daf42206e4f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACFC344A-76DC-4FAD-AF07-B78948E7D565"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ACFC344A-76DC-4FAD-AF07-B78948E7D565 - 3b31daf42206fa60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "1948">
+               </Location>
+               <Location
+                  uuid = "ACFC344A-76DC-4FAD-AF07-B78948E7D565 - 3b31daf42206fa22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2056">
+               </Location>
+               <Location
+                  uuid = "ACFC344A-76DC-4FAD-AF07-B78948E7D565 - 3b31daf42206fa22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2060">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE - 3b31daf42206fa01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "2304">
+               </Location>
+               <Location
+                  uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE - 3b31daf42206fa01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "2480">
+               </Location>
+               <Location
+                  uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE - 67606fc091af74ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE - 3b31daf42206fa22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2056">
+               </Location>
+               <Location
+                  uuid = "DB9BFFF1-895D-45F1-8075-5770CCA8F3BE - 3b31daf42206fa22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "2060">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F911FBBE-5C3E-4378-98AA-36D2D246534F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "urlSession(_:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F911FBBE-5C3E-4378-98AA-36D2D246534F - 31c1a80b2aaf31e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "F911FBBE-5C3E-4378-98AA-36D2D246534F - fd0afd15fd75945b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.urlSession(_: __C.NSURLSession, task: __C.NSURLSessionTask, didSendBodyData: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C68A014-1662-41F2-9646-E630A43C2EF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "sendPicture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6336F7F-EE3F-4AFA-B74B-7827ED6ECA6C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "sendPicture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47CB2962-77AE-4267-8ED1-52E97BE61338"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "appendDocumentPicture(type:byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E75FCAAC-BC83-45BD-B39B-023292F58994"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "getTransactionID(transactionID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C99F4D4-30F4-4FFF-A05B-52528237144F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33033D9F-AD52-45BD-B289-ACCAC4525A71"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0366B246-B077-42E6-BF59-785FACD386E0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "takePicure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55558AC4-7A76-4E2D-8C27-D7A556F48731"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "takePicure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "374E14ED-72CF-4BEE-96CC-CD2C303A9364"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6598BEDD-1C92-4B8C-9F98-6694C80FCB85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "getTransactionID(transactionID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0E551A1-7253-4356-82BF-2870674F8CD0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "setupTransactionID(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "298B9BED-7BC8-4437-9556-5AB3EA37BCF2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "takePicure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "298B9BED-7BC8-4437-9556-5AB3EA37BCF2 - 3befd65b60307cf7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.ScanViewController.takePicure() -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "298B9BED-7BC8-4437-9556-5AB3EA37BCF2 - 3befd65b60307cf7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.ScanViewController.takePicure() -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "384">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBC2D449-4210-48A2-ACC5-6E549827743C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "photoOutput(_:didFinishProcessingPhoto:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FAEF6BC-AE7C-43FC-AE66-1AD017473721"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/ScanViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "appendDocumentPicture(type:byte:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F513FB5-9446-4C4A-9281-F074DB93B114"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "getLiveness(transactionID:faceScan:auditTrailImage:lowQualityAuditTrailImage:sessionId:deviceKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03DA4862-1C37-45F9-B73B-8F63D9313335"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "openFaceCapture()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03DA4862-1C37-45F9-B73B-8F63D9313335 - d60ced3fd824a315"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoFaceSample.LoginViewModel.openFaceCapture() -&gt; ()"
+                  moduleName = "PhotoFaceSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "344"
+                  endingLineNumber = "344"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "03DA4862-1C37-45F9-B73B-8F63D9313335 - 9a76c4d30a35af58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in PhotoFaceSample.LoginViewModel.openFaceCapture() -&gt; ()"
+                  moduleName = "PhotoFaceSample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "345"
+                  endingLineNumber = "345"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BC71602-BA2C-49DE-A907-692A40636B8C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "openFaceCapture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABE011B5-78BD-4622-98E7-7F9E8F0EE650"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Reusable/Worker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "getLiveness(transactionID:faceScan:auditTrailImage:lowQualityAuditTrailImage:sessionId:deviceKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C48C5E6-77D7-4D08-B0AD-1FBB43F2409A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "setupLiveness(faceScan:auditTrailImage:lowQualityAuditTrailImage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77F6B82B-5993-4B7B-99FA-8684A0613AD3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "openFaceCapture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA468F50-1CFB-4144-A0D6-8AE2497CCFAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA468F50-1CFB-4144-A0D6-8AE2497CCFAB - 3b31daf42206e5fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "788">
+               </Location>
+               <Location
+                  uuid = "FA468F50-1CFB-4144-A0D6-8AE2497CCFAB - 3b31daf42206e5fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PartnerOneSDK.LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult: __C.FaceTecSessionResult, faceScanResultCallback: __C.FaceTecFaceScanResultCallback) -&gt; ()"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/allerallegro/Documents/Projects/PhotoFaceSample/Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "784">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1D50708-3562-47D3-B357-B5D955539A32"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PartnerOneSDK/PartnerOneSDK/Classes/FaceTecFiles/LivenessCheckProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB8D60A4-73EC-4B75-93F2-6C559C6B138B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoFaceSample/Scenes/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "openFaceCapture()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

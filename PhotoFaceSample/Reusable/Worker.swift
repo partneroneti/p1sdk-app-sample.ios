@@ -31,6 +31,7 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
   
   init(accessToken: String = "") {
     self.accessToken = accessToken
+      
   }
   
   func parseMainData(_ completion: @escaping (Response<ResponseModel<ObjectReturnModel>>) -> Void) {
@@ -95,6 +96,8 @@ class PhotoFaceWorker: Request, PhotoFaceWorkerProtocol, AccessTokeProtocol {
     
     network.getParser(url: url, header: accessToken, method: .get, isSession: true, userAgent: userAgent, xDeviceKey: deviceKey, completion: completion)
   }
+    
+
   
   func getLiveness(transactionID: String,
                    faceScan: String,

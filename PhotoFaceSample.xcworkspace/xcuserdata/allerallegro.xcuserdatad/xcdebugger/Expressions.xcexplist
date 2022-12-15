@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:):LivenessCheckProcessor.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.helper.faceScan">
+            </PersistentString>
+            <PersistentString
+               value = "self.helper.livenessCallBack">
+            </PersistentString>
+            <PersistentString
+               value = "PartnerHelper.livenessCallBack">
+            </PersistentString>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "sessionResult.auditTrailCompressedBase64?[0] ">
+            </PersistentString>
+            <PersistentString
+               value = "sessionResult.faceScanBase64">
+            </PersistentString>
+            <PersistentString
+               value = "sessionResult.lowQualityAuditTrailCompressedBase64">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewModel.openFaceCapture():LoginViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "PartnerHelper.livenessCallBack">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhotoFaceWorker.getTransactionID(transactionID:completion:):Worker.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "accessToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanViewModel.sendPicture():ScanViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sideTitle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
