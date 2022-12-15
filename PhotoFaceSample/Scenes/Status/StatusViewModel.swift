@@ -13,7 +13,7 @@ class StatusViewModel {
   
   //MARK: - Properties
   
-  weak var viewController: StatusViewController?
+  var viewController: StatusViewController?
   let worker: PhotoFaceWorker
   var helper: PartnerHelper
   
@@ -81,7 +81,7 @@ class StatusViewModel {
         
         print("@! >>> Session: ", String(self.session!))
           
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
           self.setupLiveness(faceScan: self.helper.getFaceScan,
                              auditTrailImage: self.helper.getAuditTrailImage,
                              lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
@@ -113,10 +113,20 @@ class StatusViewModel {
         self.livenessCode = model.objectReturn[0].code
         self.livenessMessage = model.objectReturn[0].description
         
-        print("@! >>> Liveness Code: \(self.livenessCode)")
-        print("@! >>> Liveness Code: \(self.livenessMessage)")
+        guard let code = self.livenessCode,
+              let message = self.livenessMessage else {
+          return
+        }
         
-        self.helper.wasProcessed = true
+        print("@! >>> Liveness Code: \(code)")
+        print("@! >>> Liveness Message: \(message)")
+        
+        self.helper.waitingFaceTecResponse?()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+          let statusVC = StatusViewController(viewModel: self)
+          self.viewController?.navigationController?.pushViewController(statusVC, animated: true)
+        }
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):

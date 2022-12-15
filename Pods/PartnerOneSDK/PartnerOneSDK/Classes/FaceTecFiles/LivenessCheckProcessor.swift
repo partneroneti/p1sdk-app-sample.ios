@@ -39,10 +39,12 @@ open class LivenessCheckProcessor: NSObject, Processor, FaceTecFaceScanProcessor
     self.fromViewController.faceTecLivenessData(faceScanBase: sessionResult.faceScanBase64 ?? "",
                                                 auditTrailImage: sessionResult.auditTrailCompressedBase64?[0] ?? "",
                                                 lowQualityAuditTrailImage: sessionResult.lowQualityAuditTrailCompressedBase64?[0] ?? "") {
-      self.helper.waitingFaceTecResponse?()
       
       self.fromViewController.processorResponse?()
-      FaceTecCustomization.setOverrideResultScreenSuccessMessage("Liveness\nConfirmed")
+     
+      self.helper.waitingFaceTecResponse = {
+        FaceTecCustomization.setOverrideResultScreenSuccessMessage("Liveness\nConfirmed")
+      }
     }
     
     print("@! >>> Escaneamento facial feito. Fazendo checagem...")

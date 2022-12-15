@@ -264,8 +264,8 @@ extension LoginViewModel {
         self.livenessCode = model.objectReturn[0].code
         self.livenessMessage = model.objectReturn[0].description
         
-        print("@! >>> Liveness Code: \(self.livenessCode)")
-        print("@! >>> Liveness Code: \(self.livenessMessage)")
+        print("@! >>> Liveness Code: \(String(describing: self.livenessCode))")
+        print("@! >>> Liveness Code: \(String(describing: self.livenessMessage))")
         
         self.helper.wasProcessed = true
       case .noConnection(let description):
@@ -331,8 +331,6 @@ extension LoginViewModel {
     statusViewModel.statusDescription = self.statusDescription
     statusViewModel.deviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
     let statusViewController = StatusViewController(viewModel: statusViewModel)
-//    statusViewController.modalTransitionStyle = .coverVertical
-//    statusViewController.modalPresentationStyle = .overCurrentContext
     self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
     print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
   }

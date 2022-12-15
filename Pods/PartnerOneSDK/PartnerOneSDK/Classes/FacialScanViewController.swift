@@ -53,8 +53,6 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
     view.addSubview(activity)
     activity.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     activity.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    
-    print("@! >>>> PRINTÃO !!!!! \(helper.transactionId())")
   }
   
   override func viewWillAppear(_ animated: Bool) {
