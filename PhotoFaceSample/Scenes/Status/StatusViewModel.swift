@@ -190,6 +190,9 @@ extension StatusViewModel {
     faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
     viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
     print("@! >>> Abrindo face scan...")
+      PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
+          self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+      }
   }
   
   private

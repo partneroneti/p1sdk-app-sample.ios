@@ -21,6 +21,15 @@ open class PartnerHelper {
   public var faceTecDeviceKeyIdentifier: String = ""
   public var faceTecPublicFaceScanEncryptionKey: String = ""
   public var faceTecProductionKeyText: String = ""
+    
+    public var faceScan: String = ""
+    public var auditTrailImage: String = ""
+    public var lowQualityAuditTrailImage: String = ""
+    
+    private var documentImageTypeFront: String = ""
+    private var documentImageTypeBack: String = ""
+    
+    
   
   public var documentsImages = [[String:Any]]()
   public var documentType: String = ""
@@ -79,6 +88,16 @@ open class PartnerHelper {
   public func getDocumentImageType() -> String {
     return documentType
   }
+    public func setDocumentImageTypeFront(_ type: String = "") -> Void {
+    documentImageTypeFront = type
+    }
+    
+    public func getDocumentImageTypeBack() -> String {
+        return documentImageTypeBack
+    }
+    public func setDocumentImageTypeBack(_ type: String = "") -> Void {
+      documentImageTypeBack = type
+    }
   
   public func getDocumentImageSize(_ size: String = "") -> String {
     return size

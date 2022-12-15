@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		087B62518B3A40826B4FF7BD /* Pods_PhotoFaceSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0D58F04E5B7EEEE5EC9409 /* Pods_PhotoFaceSampleTests.framework */; };
+		43E2B324294BB401009F86D0 /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */; };
+		43E2B32B294BB49B009F86D0 /* FaceTecSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E2B329294BB492009F86D0 /* FaceTecSDK.xcframework */; };
+		43E2B32C294BB49B009F86D0 /* FaceTecSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43E2B329294BB492009F86D0 /* FaceTecSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2BC6C1ECFD1A80BCA3BB4A3 /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C38804F8F4D339AE554D8AD /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework */; };
 		EF08860129425EF6001E8EB4 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860029425EF6001E8EB4 /* ResultModel.swift */; };
 		EF08860529426036001E8EB4 /* TransactionIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08860429426036001E8EB4 /* TransactionIDModel.swift */; };
@@ -17,8 +20,6 @@
 		EF2400D8293C026E002A9746 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D7293C026E002A9746 /* ErrorResponse.swift */; };
 		EF2400DA293C07E3002A9746 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400D9293C07E3002A9746 /* DataParser.swift */; };
 		EF2400E1293C1F68002A9746 /* ObjectReturnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */; };
-		EF5BFD1429404AD400F1955E /* FaceTecSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; };
-		EF5BFD1529404AD400F1955E /* FaceTecSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF5BFD1729404D3A00F1955E /* FaceTec.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF5BFD1629404D3A00F1955E /* FaceTec.strings */; };
 		EF5BFD872941761B00F1955E /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD862941761B00F1955E /* TransactionModel.swift */; };
 		EF5BFD89294176D500F1955E /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BFD88294176D500F1955E /* ErrorModel.swift */; };
@@ -56,7 +57,6 @@
 		EFB7A0E1293A73C100C5DFA9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB7A0E0293A73C100C5DFA9 /* Router.swift */; };
 		EFD4F5D829493F0300DAF19B /* DocumentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4F5D729493F0300DAF19B /* DocumentDataModel.swift */; };
 		EFDBA2CA294672960040268E /* LivenessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDBA2C9294672960040268E /* LivenessModel.swift */; };
-		FEAF551555F1478CABBCE107 /* Pods_PhotoFaceSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59D6BB97CB741354D4115F /* Pods_PhotoFaceSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,13 +77,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EFCE7255293FEFAE00636B4C /* Embed Frameworks */ = {
+		43E2B32D294BB49B009F86D0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EF5BFD1529404AD400F1955E /* FaceTecSDK.xcframework in Embed Frameworks */,
+				43E2B32C294BB49B009F86D0 /* FaceTecSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		1C38804F8F4D339AE554D8AD /* Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSample_PhotoFaceSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E2B329294BB492009F86D0 /* FaceTecSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FaceTecSDK.xcframework; path = "../../../Downloads/FaceTecSDK-ios-9.4.25/FaceTecSDK.xcframework"; sourceTree = "<group>"; };
 		4B020C2088848A4AA2E1FB57 /* Pods-PhotoFaceSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSample.release.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSample/Pods-PhotoFaceSample.release.xcconfig"; sourceTree = "<group>"; };
 		57E1713E6E0060CF46C4C562 /* Pods-PhotoFaceSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFaceSampleTests.release.xcconfig"; path = "Target Support Files/Pods-PhotoFaceSampleTests/Pods-PhotoFaceSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		5E0D58F04E5B7EEEE5EC9409 /* Pods_PhotoFaceSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoFaceSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +108,6 @@
 		EF2400D7293C026E002A9746 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		EF2400D9293C07E3002A9746 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		EF2400E0293C1F68002A9746 /* ObjectReturnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectReturnModel.swift; sourceTree = "<group>"; };
-		EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = FaceTecSDK.xcframework; sourceTree = "<group>"; };
 		EF5BFD1629404D3A00F1955E /* FaceTec.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FaceTec.strings; sourceTree = "<group>"; };
 		EF5BFD862941761B00F1955E /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		EF5BFD88294176D500F1955E /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5BFD1429404AD400F1955E /* FaceTecSDK.xcframework in Frameworks */,
-				FEAF551555F1478CABBCE107 /* Pods_PhotoFaceSample.framework in Frameworks */,
+				43E2B32B294BB49B009F86D0 /* FaceTecSDK.xcframework in Frameworks */,
+				43E2B324294BB401009F86D0 /* Pods_PhotoFaceSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +224,7 @@
 		EFB7A075293A0C5000C5DFA9 = {
 			isa = PBXGroup;
 			children = (
-				EF5BFD1229404AD100F1955E /* FaceTecSDK.xcframework */,
+				43E2B329294BB492009F86D0 /* FaceTecSDK.xcframework */,
 				EFB7A080293A0C5000C5DFA9 /* PhotoFaceSample */,
 				EFB7A099293A0C5200C5DFA9 /* PhotoFaceSampleTests */,
 				EFB7A0A3293A0C5200C5DFA9 /* PhotoFaceSampleUITests */,
@@ -377,8 +377,8 @@
 				EFB7A07A293A0C5000C5DFA9 /* Sources */,
 				EFB7A07B293A0C5000C5DFA9 /* Frameworks */,
 				EFB7A07C293A0C5000C5DFA9 /* Resources */,
-				EFCE7255293FEFAE00636B4C /* Embed Frameworks */,
 				1EB2E07AD2C2A19BE822FB14 /* [CP] Embed Pods Frameworks */,
+				43E2B32D294BB49B009F86D0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -17,7 +17,6 @@
 		20CCEE43CCC7613E3812B73214688D48 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2C2E52E4E050D990702CD9CA35940C /* TransformType.swift */; };
 		2119BBBDD76C9B182007C9E8D3BD8DDA /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D79C7678F989DDC12454562BA1F995 /* Timeline.swift */; };
 		22CEF2CC143238429F4AF6E81EF5283B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A25040A38D750A46682722A9B70F81 /* UIView+Extension.swift */; };
-		24BA0482D19EE7FDFAE455085FB67B90 /* FaceTecSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69D3C9004DBF9003187F350F291B815 /* FaceTecSDK.framework */; };
 		27DBBCB064A84F884748A948BBD8C271 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4608007DBC46B66D5BBACE75C612BBD3 /* ErrorType.swift */; };
 		2946CF56E583FE33A336FBDBE95107E5 /* PartnerOneWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FA1948517A288400B4978F88D2E2EB /* PartnerOneWorker.swift */; };
 		2DBA3EBF9138795BF487751527499F20 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C835B6E52BFDE264757D1749E305B51E /* DateFormatterTransform.swift */; };
@@ -148,6 +147,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		43E2B328294BB45B009F86D0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		024417A3274F60C7671EFF77E64C7E56 /* SessionModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionModel.swift; path = PartnerOneSDK/Classes/SessionModel.swift; sourceTree = "<group>"; };
 		03AA0C8B04FF19A24B504FE8ACFBD526 /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
@@ -171,7 +183,7 @@
 		28D6974EE16D98A8313856EC597B6BF2 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		2A7AF7211AA3AE05656E0F7373720097 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		2CBBAA543FD188466A28D6796C8A8DAE /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PartnerOneSDK; path = PartnerOneSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PartnerOneSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3202879EB9A81FB57AB920BC8DF50F01 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Config.swift; path = PartnerOneSDK/Classes/FaceTecFiles/Config.swift; sourceTree = "<group>"; };
 		323CCE2AFBE7F24D67F61277AA199B4B /* Pods-PhotoFaceSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PhotoFaceSample-dummy.m"; sourceTree = "<group>"; };
 		342362DD7D7D1C35515E8964D701D467 /* Pods-PhotoFaceSampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PhotoFaceSampleTests.modulemap"; sourceTree = "<group>"; };
@@ -223,7 +235,7 @@
 		9B2C2E52E4E050D990702CD9CA35940C /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = Sources/TransformType.swift; sourceTree = "<group>"; };
 		9B55DF901DA17873074C091F2B0B5A25 /* SampleAppUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SampleAppUtilities.swift; path = PartnerOneSDK/Classes/FaceTecFiles/SampleAppUtilities.swift; sourceTree = "<group>"; };
 		9B8DBE07A1EF3EE18A130AAD541B62F6 /* Pods-PhotoFaceSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotoFaceSample.release.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1B5FA371222168EA895D71C325242CE /* Pods-PhotoFaceSample-PhotoFaceSampleUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PhotoFaceSample-PhotoFaceSampleUITests-frameworks.sh"; sourceTree = "<group>"; };
 		A2C6869912767538E7494AC4EBE83757 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		A3F851BA9CF7A743277DC8852B105804 /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
@@ -242,7 +254,6 @@
 		C2AF324243143EF5E7ACCEA9FB63E22C /* ServerError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerError.swift; path = PartnerOneSDK/Classes/ServerError.swift; sourceTree = "<group>"; };
 		C2F260C5EC489C04FB36EB1FFB7E57ED /* Pods-PhotoFaceSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotoFaceSample-acknowledgements.plist"; sourceTree = "<group>"; };
 		C4D2AF9AC43D710A948FCBA96EA78268 /* DataTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTransform.swift; path = Sources/DataTransform.swift; sourceTree = "<group>"; };
-		C69D3C9004DBF9003187F350F291B815 /* FaceTecSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaceTecSDK.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/FaceTecSDK.framework; sourceTree = DEVELOPER_DIR; };
 		C835B6E52BFDE264757D1749E305B51E /* DateFormatterTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatterTransform.swift; path = Sources/DateFormatterTransform.swift; sourceTree = "<group>"; };
 		CBEBC663320D40B7A6A4B5233710FACE /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		CEFC2A46BE084D76D188759AAFB6541E /* DictionaryTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryTransform.swift; path = Sources/DictionaryTransform.swift; sourceTree = "<group>"; };
@@ -304,7 +315,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24BA0482D19EE7FDFAE455085FB67B90 /* FaceTecSDK.framework in Frameworks */,
 				A27E85CBC66FF0674315EAC4E776CBD6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +435,6 @@
 				11A25040A38D750A46682722A9B70F81 /* UIView+Extension.swift */,
 				8841EC4A719B0C3AC061E8A7B457FAD5 /* Support Files */,
 			);
-			name = PartnerOneSDK;
 			path = PartnerOneSDK;
 			sourceTree = "<group>";
 		};
@@ -451,7 +460,6 @@
 				F19CAAE79DA4AED9F63D41EE414C3B7E /* Validation.swift */,
 				04B95FCB1FC38F378C5933D04DB057B7 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -460,7 +468,7 @@
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
 				B9084FE779702931E8DF1D00A2D725FB /* ObjectMapper */,
-				2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */,
+				2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */,
 				DB33D24E97A97ADDC6AAEA777D59E371 /* Pods-PhotoFaceSample */,
 				714E5F0F4B961193C98733427EE7EDA6 /* Pods-PhotoFaceSample-PhotoFaceSampleUITests */,
 				433E82F8C448565563532D5303D73788 /* Pods-PhotoFaceSampleTests */,
@@ -513,7 +521,6 @@
 		C113A1B6789FF094537BD5211B183964 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C69D3C9004DBF9003187F350F291B815 /* FaceTecSDK.framework */,
 				DDADE5FC484DADB14C602CA35E7F8200 /* Foundation.framework */,
 			);
 			name = iOS;
@@ -559,7 +566,6 @@
 				750722263367CA63017C87F2CFE242A3 /* URLTransform.swift */,
 				0D3BDAD082B21EAB67C7E182CC0117F4 /* Support Files */,
 			);
-			name = ObjectMapper;
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -641,6 +647,7 @@
 				2CA6D84109FF8A148D7D786ED6E1AECB /* Sources */,
 				550CB93D4E341758D4141E2DE19BC0A7 /* Frameworks */,
 				DF2FECC4A9F13CC73B99BEDABAD5B873 /* Resources */,
+				43E2B328294BB45B009F86D0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -648,7 +655,7 @@
 			);
 			name = PartnerOneSDK;
 			productName = PartnerOneSDK;
-			productReference = 2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK */;
+			productReference = 2E2D211A6C9A04FD020538A1FE34223F /* PartnerOneSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		162E649F50FEC62B61BDD87D1BD422B4 /* ObjectMapper */ = {
