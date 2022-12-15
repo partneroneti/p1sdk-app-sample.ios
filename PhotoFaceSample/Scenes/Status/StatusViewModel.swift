@@ -13,16 +13,12 @@ class StatusViewModel {
   
   //MARK: - Properties
   
-  var viewController: StatusViewController?
+  weak var viewController: StatusViewController?
   let worker: PhotoFaceWorker
   var helper: PartnerHelper
   
   var didChangeStatus: (() -> Void)?
-//  var statusMessage: Status = Status(message: "") {
-//    didSet {
-//      didChangeStatus?(statusMessage)
-//    }
-//  }
+  var dismissStatus: (() -> Void)?
   
   var session: String?
   var livenessCode: Int?
@@ -47,9 +43,6 @@ class StatusViewModel {
   /// TransactionID getter
   ///
   func setupTransactionID() {
-    
-    print("@! >>> DeviceKeyIdentifier da Status ViewModel: ", helper.faceTecDeviceKeyIdentifier)
-    
     worker.getTransactionID(transactionID: transactionID) { [weak self] (response) in
       guard let self = self else { return }
       
@@ -61,10 +54,6 @@ class StatusViewModel {
         self.didChangeStatus?()
         
         self.navigateToView(self.status!)
-        
-        if self.status == 3 {
-          self.timer?.invalidate()
-        }
         
         print("@! >>> Status: ", model.objectReturn[0].result[0].statusDescription)
       case .noConnection(let description):
@@ -152,10 +141,16 @@ extension StatusViewModel {
     switch status {
     case 0:
       break
-    case 1: setApproved()
-    case 2: setReproved()
-    case 3: openFaceCapture()
-    case 4: openDocumentCapture()
+    case 1:
+      setApproved()
+    case 2:
+      setReproved()
+    case 3:
+      self.timer?.invalidate()
+      dismissStatus?()
+      break
+    case 4:
+      openDocumentCapture()
     default:
       break
     }
@@ -179,19 +174,18 @@ extension StatusViewModel {
     label.textColor = .systemRed
   }
   
-  func openFaceCapture() {
+  func openFaceCapture(_ viewController: UIViewController) {
     createSession()
-    
     let faceCaptureViewController = helper.startFaceCapture()
-    viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
+    faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
+    viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
+    print("@! >>> Abrindo face scan...")
   }
   
   private
   func openDocumentCapture() {
     let documentViewController = helper.startDocumentCapture()
     viewController?.navigationController?.pushViewController(documentViewController, animated: true)
-    
-    print("@! >>> Logado com sucesso!")
-    print("@! >>> Redirecionando para captura de documento...")
+    print("@! >>> Abrindo captura de documento...")
   }
 }

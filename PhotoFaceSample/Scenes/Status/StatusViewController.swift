@@ -1,10 +1,15 @@
 import UIKit
 
+protocol StatusViewControllerProtocol: AnyObject {
+  func presentFaceTec()
+}
+
 final class StatusViewController: BaseViewController<StatusView> {
   
   //MARK: - Properties
   
   var viewModel: StatusViewModel
+  weak var delegate: StatusViewControllerProtocol?
   
   //MARK: - init
   
@@ -45,8 +50,14 @@ private extension StatusViewController {
     
     /// Action to pop to home
     ///
-    baseView.didTapReset = {
-      self.navigationController?.popToRootViewController(animated: true)
+    baseView.restartBtn.btnAction = {
+      self.dismiss(animated: true)
+      print("@! >>> Fechar Status.")
+    }
+    
+    viewModel.dismissStatus = { [weak self] in
+      guard let self = self else { return }
+      self.viewModel.openFaceCapture(self)
     }
     
     /// Status realoader

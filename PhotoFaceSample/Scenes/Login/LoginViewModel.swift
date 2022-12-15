@@ -331,20 +331,10 @@ extension LoginViewModel {
     statusViewModel.statusDescription = self.statusDescription
     statusViewModel.deviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
     let statusViewController = StatusViewController(viewModel: statusViewModel)
-    statusViewController.modalTransitionStyle = .coverVertical
-    statusViewController.modalPresentationStyle = .overCurrentContext
+//    statusViewController.modalTransitionStyle = .coverVertical
+//    statusViewController.modalPresentationStyle = .overCurrentContext
     self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
     print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
-  }
-  
-  private
-  func statusViewController() -> UIViewController {
-    let statusViewModel = StatusViewModel()
-    statusViewModel.status = self.status
-    statusViewModel.transactionID = self.transactionID
-    statusViewModel.statusDescription = self.statusDescription
-    let statusViewController = StatusViewController(viewModel: statusViewModel)
-    return statusViewController
   }
   
   func openFaceCapture() {

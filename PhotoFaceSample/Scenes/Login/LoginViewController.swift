@@ -28,6 +28,10 @@ final class LoginViewController: BaseViewController<LoginView> {
     super.viewWillAppear(animated)
     viewModel.getInitialData()
   }
+  
+  deinit {
+    print("@! >>> Leving Login View Controller...")
+  }
 }
 
 extension LoginViewController: UITextFieldDelegate {
