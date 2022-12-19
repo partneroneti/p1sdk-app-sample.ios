@@ -1,0 +1,40 @@
+e2c5943	Aller Allegro	Thu Dec 15 17:07:13 2022 -0300	ajuste callback
+28e9f34	Aller Allegro	Thu Dec 15 13:12:48 2022 -0300	ajuste callback = android
+b70782f	Thyago Casablancas	Thu Dec 15 01:57:13 2022 -0300	update
+53abff6	Thyago Casablancas	Thu Dec 15 01:35:21 2022 -0300	update
+c2e8727	Thyago Casablancas	Wed Dec 14 23:24:29 2022 -0300	Update
+02f809f	Thyago Casablancas	Wed Dec 14 20:00:49 2022 -0300	Update timer scheduler
+5dbfa15	Thyago Casablancas	Wed Dec 14 17:42:12 2022 -0300	Update navigation
+12dfd28	Thyago Casablancas	Wed Dec 14 14:58:15 2022 -0300	update facetec
+3ef286d	Thyago Casablancas	Wed Dec 14 02:48:24 2022 -0300	update
+af49040	Thyago Casablancas	Wed Dec 14 01:08:03 2022 -0300	update
+e8653f8	Thyago Casablancas	Tue Dec 13 15:48:17 2022 -0300	Appending Data
+47cd538	Thyago Casablancas	Tue Dec 13 12:28:25 2022 -0300	UpdateUpdate
+66b17bb	Thyago Casablancas	Tue Dec 13 09:22:28 2022 -0300	Update
+826d09d	Thyago Casablancas	Mon Dec 12 16:40:43 2022 -0300	Main update
+68c2358	Thyago Casablancas	Sun Dec 11 16:33:48 2022 -0300	Update
+8a904af	Thyago Casablancas	Sun Dec 11 16:30:39 2022 -0300	Update
+e02eea2	Thyago Casablancas	Sun Dec 11 14:24:23 2022 -0300	Update model Result
+6875fa4	Thyago Casablancas	Sat Dec 10 16:35:22 2022 -0300	Update Strings callers
+6f49ca7	Thyago Casablancas	Sat Dec 10 16:05:15 2022 -0300	Update prints
+3274190	Thyago Casablancas	Sat Dec 10 15:31:26 2022 -0300	Removing unnecessary items
+9d2fafc	Thyago Casablancas	Sat Dec 10 15:27:30 2022 -0300	Many updates
+77866b3	Thyago Casablancas	Thu Dec 8 21:40:30 2022 -0300	Post for documents
+6aa4372	Thyago Casablancas	Thu Dec 8 21:10:40 2022 -0300	update facetec string passing data
+1275c5e	Thyago Casablancas	Thu Dec 8 20:36:34 2022 -0300	Sorting SDK Data
+288eb5a	Thyago Casablancas	Thu Dec 8 18:57:50 2022 -0300	Status view listener
+7408fdd	Thyago Casablancas	Thu Dec 8 15:39:33 2022 -0300	Update Status Calls
+9efb648	Thyago Casablancas	Thu Dec 8 14:44:40 2022 -0300	Update
+8dd162e	Thyago Casablancas	Thu Dec 8 14:36:06 2022 -0300	Adjustment Api calls
+ce05a41	Thyago Casablancas	Thu Dec 8 00:03:05 2022 -0300	Updates
+bdd287f	Thyago Casablancas	Wed Dec 7 23:28:30 2022 -0300	Update Network Parsing
+0831431	Thyago Casablancas	Wed Dec 7 03:27:59 2022 -0300	Update
+9feaa5e	Thyago Casablancas	Mon Dec 5 00:09:37 2022 -0300	Update Constraints
+e2bc40d	Thyago Casablancas	Sun Dec 4 15:07:44 2022 -0300	Update Navigation
+2174fee	Thyago Casablancas	Sat Dec 3 19:54:05 2022 -0300	Update network parsing
+d321be2	Thyago Casablancas	Sat Dec 3 16:20:47 2022 -0300	Update Classes
+5eaed60	Thyago Casablancas	Fri Dec 2 15:10:46 2022 -0300	Adjust Routing
+60c98a3	Thyago Casablancas	Fri Dec 2 14:49:51 2022 -0300	Adding Networking Layer
+2414227	Thyago Casablancas	Fri Dec 2 12:24:32 2022 -0300	Layout Update
+32c7e9d	Thyago Casablancas	Fri Dec 2 09:55:44 2022 -0300	Main Screens
+5e2c4aa	Thyago Casablancas	Fri Dec 2 07:35:00 2022 -0300	Initial Commit

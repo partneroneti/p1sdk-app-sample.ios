@@ -47,7 +47,6 @@ final class FacialScanViewController: UIViewController, FaceTecFaceScanProcessor
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     navigationItem.hidesBackButton = true
     view.backgroundColor = .white
     view.addSubview(activity)
@@ -78,6 +77,8 @@ extension FacialScanViewController {
       guard let self = self else {
         return
       }
+        
+        ThemeHelpers.setAppTheme(theme: "")
       
       Config.displayLogs()
       

@@ -3,19 +3,30 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static ThemeHelpers.getCustomizationForTheme(theme:):ThemeHelpers.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIImage(named: &quot;FaceTec_ideal_1&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "currentCustomization.cancelButtonCustomization.customImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LivenessCheckProcessor.processSessionWhileFaceTecSDKWaits(sessionResult:faceScanResultCallback:):LivenessCheckProcessor.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.helper.faceScan">
-            </PersistentString>
-            <PersistentString
-               value = "self.helper.livenessCallBack">
+               value = "">
             </PersistentString>
             <PersistentString
                value = "PartnerHelper.livenessCallBack">
             </PersistentString>
             <PersistentString
-               value = "">
+               value = "self.helper.faceScan">
+            </PersistentString>
+            <PersistentString
+               value = "self.helper.livenessCallBack">
             </PersistentString>
             <PersistentString
                value = "sessionResult.auditTrailCompressedBase64?[0] ">
@@ -33,6 +44,23 @@
          <PersistentStrings>
             <PersistentString
                value = "PartnerHelper.livenessCallBack">
+            </PersistentString>
+            <PersistentString
+               value = "UIImage.init(named: &quot;FaceTec_ideal_1&quot;)">
+            </PersistentString>
+            <PersistentString
+               value = "UIImage(named: &quot;FaceTec_ideal_1.png&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Config.retrieveConfigurationWizardCustomization():Config.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Config.font">
+            </PersistentString>
+            <PersistentString
+               value = "UIFont.init(name: &quot;SFProDisplay-Regular&quot;, size: 10)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
