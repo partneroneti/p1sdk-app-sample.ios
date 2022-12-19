@@ -9,7 +9,7 @@ target 'PhotoFaceSample' do
 #  pod 'PartnerOneSDK', :path => "../PartnerOneSDK"
   pod 'Alamofire', '~> 4.7'
   pod 'ObjectMapper', '~> 3.5'
-  pod 'PartnerOneSDK', :git => "https://github.com/partneroneti/p1sdk.ios.git", :branch => 'hotfix/ajuste-transicao-tela-scan-face'
+  pod 'PartnerOneSDK', :git => "https://github.com/partneroneti/p1sdk.ios.git", :branch => 'main'
 
   # Pods for PhotoFaceSample
 
