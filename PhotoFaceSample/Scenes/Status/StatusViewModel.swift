@@ -69,7 +69,8 @@ class StatusViewModel {
   }
   
   
-  func createSession() {
+func createSession(onComplete: @escaping ()->Void)
+    {
     worker.getSession(userAgent: helper.createUserAgentForNewSession(),
                       deviceKey: helper.faceTecDeviceKeyIdentifier) { [weak self] (response) in
       guard let self = self else { return }
@@ -81,11 +82,12 @@ class StatusViewModel {
         
         print("@! >>> Session: ", String(self.session!))
           
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-          self.setupLiveness(faceScan: self.helper.getFaceScan,
-                             auditTrailImage: self.helper.getAuditTrailImage,
-                             lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+//          self.setupLiveness(faceScan: self.helper.getFaceScan,
+//                             auditTrailImage: self.helper.getAuditTrailImage,
+//                             lowQualityAuditTrailImage: self.helper.getLowQualityAuditTrailImage)
+//        }
+          onComplete()
         
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
@@ -185,14 +187,18 @@ extension StatusViewModel {
   }
   
   func openFaceCapture(_ viewController: UIViewController) {
-    createSession()
-    let faceCaptureViewController = helper.startFaceCapture()
-    faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
-    viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
-    print("@! >>> Abrindo face scan...")
-      PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
-          self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
-      }
+      createSession(onComplete: {
+          
+          let faceCaptureViewController = self.helper.startFaceCapture()
+          faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
+          viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
+          print("@! >>> Abrindo face scan...")
+            PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
+                self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+            }
+          
+      } )
+
   }
   
   private

@@ -219,7 +219,7 @@ extension LoginViewModel {
     }
   }
   
-  func createSession() {
+    func createSession(onComplete: @escaping ()->Void) {
     guard let deviceKeyIdentifier = deviceKeyIdentifier else { return }
     
     worker.getSession(userAgent: helper.createUserAgentForNewSession(),
@@ -232,6 +232,7 @@ extension LoginViewModel {
         self.helper.sessionToken = model.objectReturn[0].session
         
         print("@! >>> Session: ", String(self.session!))
+        onComplete()
           
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
 //          self.setupLiveness(faceScan: self.helper.getFaceScan,
@@ -337,17 +338,21 @@ extension LoginViewModel {
   }
   
   func openFaceCapture() {
-    createSession()
+    createSession(onComplete: {
+        let faceCaptureViewController = self.helper.startFaceCapture()
+        self.viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
+          PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
+              self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
+          }
+        self.helper.navigateToStatus = {
+          self.openStatus()
+          print("Navegando para tela de Status...")
+        }
+        
+        
+    })
     
-    let faceCaptureViewController = helper.startFaceCapture()
-    viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
-      PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
-          self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
-      }
-    helper.navigateToStatus = {
-      self.openStatus()
-      print("Navegando para tela de Status...")
-    }
+
   }
   
   private
