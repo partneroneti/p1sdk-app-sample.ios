@@ -219,7 +219,7 @@ extension LoginViewModel {
     }
       
       //Tira a tela quando submeter as imagens
-      viewController?.navigationController?.popViewController(animated: true)
+      viewController?.navigationController?.popToRootViewController(animated: false)
   }
   
     func createSession(onComplete: @escaping ()->Void) {
