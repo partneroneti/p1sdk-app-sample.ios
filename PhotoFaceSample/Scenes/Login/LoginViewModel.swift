@@ -217,6 +217,9 @@ extension LoginViewModel {
         print("Server error noConnection: \(description) \n")
       }
     }
+      
+      //Tira a tela quando submeter as imagens
+      viewController?.navigationController?.popViewController(animated: true)
   }
   
     func createSession(onComplete: @escaping ()->Void) {
