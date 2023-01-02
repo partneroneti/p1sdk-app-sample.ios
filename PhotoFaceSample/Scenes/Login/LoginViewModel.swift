@@ -219,7 +219,7 @@ extension LoginViewModel {
     }
       
       //Tira a tela quando submeter as imagens
-      viewController?.navigationController?.popViewController(animated: true)
+      viewController?.navigationController?.popToRootViewController(animated: false)
   }
   
     func createSession(onComplete: @escaping ()->Void) {
@@ -331,6 +331,10 @@ extension LoginViewModel {
     let statusViewModel = StatusViewModel(worker: worker,
                                           helper: helper,
                                           transactionID: helper.transaction)
+      statusViewModel.didOpnenDocumentCapture = {
+          self.openDocumentCapture()
+      }
+      
     statusViewModel.status = self.status
     statusViewModel.transactionID = self.transactionID
     statusViewModel.statusDescription = self.statusDescription
