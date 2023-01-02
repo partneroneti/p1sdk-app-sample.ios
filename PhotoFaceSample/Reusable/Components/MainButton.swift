@@ -20,7 +20,6 @@ final class MainButton: BaseView {
       
   override func initialize() {
     backgroundColor = .white
-    clipsToBounds = false
     
     addSubview(mainButton)
   }
@@ -28,7 +27,9 @@ final class MainButton: BaseView {
   override func installConstraints() {
     NSLayoutConstraint.activate([
       mainButton.widthAnchor.constraint(equalTo: widthAnchor),
-      mainButton.heightAnchor.constraint(equalToConstant: 40)
+      mainButton.heightAnchor.constraint(equalToConstant: 40),
+      mainButton.topAnchor.constraint(equalTo: topAnchor),
+      mainButton .bottomAnchor.constraint(equalTo: bottomAnchor)
     ])
   }
   

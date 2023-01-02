@@ -51,8 +51,8 @@ private extension StatusViewController {
     /// Action to pop to home
     ///
     baseView.restartBtn.btnAction = {
-      self.dismiss(animated: true)
-      print("@! >>> Fechar Status.")
+        print("@! >>> Fechar Status.")
+        self.navigationController?.popViewController(animated: true)
     }
     
     viewModel.dismissStatus = { [weak self] in

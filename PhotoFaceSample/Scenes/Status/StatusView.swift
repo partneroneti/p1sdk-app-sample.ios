@@ -35,7 +35,6 @@ final class StatusView: BaseView {
   
   let restartBtn: MainButton = {
     let button = MainButton()
-    button.isUserInteractionEnabled = true
     button.mainButton.setTitle(Strings.restartTitle.rawValue, for: .normal)
     return button
   }()
@@ -44,7 +43,6 @@ final class StatusView: BaseView {
   
   override func initialize() {
     backgroundColor = .white
-    clipsToBounds = false
     
     addSubview(mainTitle)
     addSubview(mainStack)

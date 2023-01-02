@@ -17,8 +17,9 @@ class StatusViewModel {
   let worker: PhotoFaceWorker
   var helper: PartnerHelper
   
-  var didChangeStatus: (() -> Void)?
-  var dismissStatus: (() -> Void)?
+    var didOpnenDocumentCapture: (() -> Void)?
+    var didChangeStatus: (() -> Void)?
+    var dismissStatus: (() -> Void)?
   
   var session: String?
   var livenessCode: Int?
@@ -204,7 +205,8 @@ extension StatusViewModel {
   private
   func openDocumentCapture() {
     let documentViewController = helper.startDocumentCapture()
-    viewController?.navigationController?.pushViewController(documentViewController, animated: true)
+      viewController?.navigationController?.popViewController(animated: true)
+      self.didOpnenDocumentCapture?()
     print("@! >>> Abrindo captura de documento...")
   }
 }
