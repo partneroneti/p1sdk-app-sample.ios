@@ -204,7 +204,8 @@ extension StatusViewModel {
   
   private
   func openDocumentCapture() {
-    let documentViewController = helper.startDocumentCapture()
+      timer?.invalidate()
+      let documentViewController = helper.startDocumentCapture()
       viewController?.navigationController?.popViewController(animated: true)
       self.didOpnenDocumentCapture?()
     print("@! >>> Abrindo captura de documento...")
