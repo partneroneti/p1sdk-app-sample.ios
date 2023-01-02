@@ -9,7 +9,7 @@ target 'PhotoFaceSample' do
 #  pod 'PartnerOneSDK', :path => "../PartnerOneSDK"
   pod 'Alamofire', '~> 4.7'
   pod 'ObjectMapper', '~> 3.5'
-  pod 'PartnerOneSDK', :git => "https://github.com/partneroneti/p1sdk.ios.git", :branch => 'main'
+  pod 'PartnerOneSDK', :path => '../p1sdk.ios' # :git => "https://github.com/partneroneti/p1sdk.ios.git", :branch => 'main'
 
   # Pods for PhotoFaceSample
 
@@ -22,4 +22,12 @@ target 'PhotoFaceSample' do
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '4.0'
+        end
+    end
 end

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9899DFC0-DA99-44AE-A0FD-65B9180AB484"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AA3AF50-9001-4B2A-B12C-196896F80AA6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../p1sdk.ios/ImageHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "cropImage(_:toRect:imageViewWidth:imageViewHeight:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AA3AF50-9001-4B2A-B12C-196896F80AA6 - b394005e12a06d96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PartnerOneSDK.ImageHelper.cropImage(_: __C.UIImage, toRect: __C.CGRect, imageViewWidth: CoreGraphics.CGFloat, imageViewHeight: CoreGraphics.CGFloat) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrianomazucato/Documents/developer/partnerone/p1sdk.ios/ImageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1324">
+               </Location>
+               <Location
+                  uuid = "8AA3AF50-9001-4B2A-B12C-196896F80AA6 - b394005e12a06df5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PartnerOneSDK.ImageHelper.cropImage(_: __C.UIImage, toRect: __C.CGRect, imageViewWidth: CoreGraphics.CGFloat, imageViewHeight: CoreGraphics.CGFloat) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "PartnerOneSDK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adrianomazucato/Documents/developer/partnerone/p1sdk.ios/ImageHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "568">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
