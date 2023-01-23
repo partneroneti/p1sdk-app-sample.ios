@@ -51,12 +51,16 @@ class StatusViewModel {
       case .success(let model):
         self.status = model.objectReturn[0].result[0].status
         self.statusDescription = String(model.objectReturn[0].result[0].statusDescription)
-        
+          print("@! >>> Status: ", self.status)
+          print("@! >>> Status: ", self.statusDescription)
+          
+          self.timer?.invalidate()
+          
         self.didChangeStatus?()
         
         self.navigateToView(self.status!)
         
-        print("@! >>> Status: ", model.objectReturn[0].result[0].statusDescription)
+        
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -153,13 +157,12 @@ extension StatusViewModel {
   func navigateToView(_ status: Int = 0) {
     switch status {
     case 0:
-      break
+        triggerGetStatus()
     case 1:
       setApproved()
     case 2:
       setReproved()
     case 3:
-      self.timer?.invalidate()
       dismissStatus?()
       break
     case 4:
@@ -194,7 +197,7 @@ extension StatusViewModel {
           faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
           viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
           print("@! >>> Abrindo face scan...")
-            PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
+            PartnerHelper.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
                 self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
             }
           

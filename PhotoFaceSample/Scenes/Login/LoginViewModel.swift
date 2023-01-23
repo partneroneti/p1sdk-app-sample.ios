@@ -23,34 +23,29 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
   
   //MARK: - Properties
   
-  weak var viewController: LoginViewController?
-  private weak var navigationDelegate: PhotoFaceNavigationDelegate?
+    weak var viewController: LoginViewController?
+    private weak var navigationDelegate: PhotoFaceNavigationDelegate?
+    
+    private var deviceKeyIdentifier: String?
   
-  let helper = PartnerHelper()
-  let worker: PhotoFaceWorker
-  var transactionID: String = ""
-  var accessToken: String = ""
-  var status: Int?
-  var statusDescription: String?
-  var session: String?
-  var livenessCode: Int?
-  var livenessMessage: String?
+    let helper = PartnerHelper()
+    let worker: PhotoFaceWorker
+    var transactionID: String = ""
+    var accessToken: String = ""
+    var status: Int?
+    var statusDescription: String?
+    var session: String?
+    var livenessCode: Int?
+    var livenessMessage: String?
   
   ///FaceTec properties
-  ///
-  var certificate: String?
-  var productionKeyText: String?
-  var deviceKeyIdentifier: String?
   
-  //MARK: - init
+    //MARK: - init
   
-  init(worker: PhotoFaceWorker,
-       navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
-    self.worker = worker
-    self.navigationDelegate = navigationDelegate
-      
-  }
-  
+    init(worker: PhotoFaceWorker, navigationDelegate: PhotoFaceNavigationDelegate? = nil) {
+        self.worker = worker
+        self.navigationDelegate = navigationDelegate
+    }
 }
 
 //MARK: - API Info Functions
@@ -150,46 +145,41 @@ extension LoginViewModel {
     }
   }
   
-  func getCredentials() {
-    worker.getCredentials { [weak self] (response) in
-      guard let self = self else { return }
-      
-      switch response {
-      case .success(let model):
-        self.certificate = model.objectReturn[0].certificate
-        self.deviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
-        self.productionKeyText = model.objectReturn[0].productionKeyText
-        
-        /// Erase prints below
-        ///
-        print("@! >>> FaceTec Certificado: ", model.objectReturn[0].certificate)
-        print("@! >>> FaceTec DeviceKeyIdentifier: ", model.objectReturn[0].deviceKeyIdentifier)
-        print("@! >>> FaceTec ProductionKey: ",  model.objectReturn[0].productionKeyText)
-        
-        Config.ProductionKeyText = self.productionKeyText ?? "Production Key não encontrada."
-        Config.DeviceKeyIdentifier = self.deviceKeyIdentifier ?? "Device Key não encontrado."
-        Config.PublicFaceScanEncryptionKey = self.certificate ?? "Certificado não encontrado."
-        
-        self.helper.faceTecDeviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
-        
-      case .noConnection(let description):
-        print("Server error timeOut: \(description) \n")
-      case .serverError(let error):
-        let errorData = "\(error.statusCode), -, \(error.msgError)"
-        print("Server error: \(errorData) \n")
-        break
-      case .timeOut(let description):
-        print("Server error noConnection: \(description) \n")
-      }
+    func getCredentials() {
+        worker.getCredentials { [weak self] (response) in
+            guard let self = self else { return }
+
+            switch response {
+                case .success(let model):
+                
+                self.deviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
+
+                    print("@! >>> FaceTec Certificado: ", model.objectReturn[0].certificate)
+                    print("@! >>> FaceTec DeviceKeyIdentifier: ", model.objectReturn[0].deviceKeyIdentifier)
+                    print("@! >>> FaceTec ProductionKey: ",  model.objectReturn[0].productionKeyText)
+                  
+                    self.helper.faceTecProductionKeyText = model.objectReturn[0].productionKeyText
+                    self.helper.faceTecPublicFaceScanEncryptionKey = model.objectReturn[0].certificate
+                    self.helper.faceTecDeviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
+                        
+                case .noConnection(let description):
+                    print("Server error timeOut: \(description) \n")
+                case .serverError(let error):
+                    let errorData = "\(error.statusCode), -, \(error.msgError)"
+                    print("Server error: \(errorData) \n")
+                break
+                case .timeOut(let description):
+                    print("Server error noConnection: \(description) \n")
+            }
+        }
     }
-  }
   
   func sendDocuments() {
     
     var newDocuments = [[String:Any]]()
     newDocuments = helper.documentsImages
     
-    var documents: [String: Any] = [
+    let documents: [String: Any] = [
       "transactionId": self.transactionID,
       "documents": newDocuments
     ]
@@ -348,18 +338,15 @@ extension LoginViewModel {
     createSession(onComplete: {
         let faceCaptureViewController = self.helper.startFaceCapture()
         self.viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
-          PartnerHelper.livenessCallBack={faceScan, auditTrailImage , lowQualityAuditTrailImage in
-              self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
-          }
-        self.helper.navigateToStatus = {
-          self.openStatus()
-          print("Navegando para tela de Status...")
+          
+        PartnerHelper.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
+            self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
         }
-        
-        
+        self.helper.navigateToStatus = {
+            self.openStatus()
+            print("Navegando para tela de Status...")
+        }
     })
-    
-
   }
   
   private

@@ -110,8 +110,6 @@ class DataParser: NSObject, URLSessionTaskDelegate {
       request.addValue(xDeviceKey, forHTTPHeaderField: "X-Device-Key")
     }
     request.httpMethod = "\(method)"
-    
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
       
       Alamofire.request(request).response { (response) in
         guard let statusCode = response.response?.statusCode,
@@ -127,15 +125,21 @@ class DataParser: NSObject, URLSessionTaskDelegate {
           guard let item = responseJSON as? [String:Any] else {
             return
           }
+            
+            print("RESPONSe \(item)")
           
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
         } else {
-          print(error?.localizedDescription ?? "Não conseguimos receber os dados da API...")
+          print("Não conseguimos receber os dados da API...")
         }
       }
-    }
-    task.resume()
+    
+//    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//
+//
+//    }
+//    task.resume()
   }
   
   func mapperParser<T: Mappable>(url: URL,
