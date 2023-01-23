@@ -30,8 +30,8 @@ class PhotoFaceRouter: Router, PhotoFaceNavigationDelegate {
   }
   
   func pushViewController(_ viewController: UIViewController) {
-    let navigationController = UINavigationController(rootViewController: viewController)
-    navigationController.pushViewController(navigationController, animated: true)
+//    let navigationController = UINavigationController(rootViewController: viewController)
+      presenter.pushViewController(viewController, animated: true)
   }
 }
 

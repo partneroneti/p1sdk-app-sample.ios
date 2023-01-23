@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
     let presenter = UINavigationController()
+      presenter.navigationBar.isTranslucent = false
+      presenter.navigationBar.tintColor = .blue
+      presenter.navigationBar.barTintColor = .blue
     let router = PhotoFaceRouter(presenter: presenter)
     router.start()
     
@@ -25,10 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     worker.accessToken = rootViewModel.accessToken
     
-    let navigationController = UINavigationController(rootViewController: rootViewController)
+//    let navigationController = UINavigationController(rootViewController: rootViewController)
+//      navigationController.setNavigationBarHidden(false, animated: false)
     
-    let window = UIWindow(frame: window!.bounds)
-    window.rootViewController = navigationController
+      let window = UIWindow(frame: UIScreen.main.bounds)
+    window.rootViewController = presenter
     window.makeKeyAndVisible()
     
     self.window = window
