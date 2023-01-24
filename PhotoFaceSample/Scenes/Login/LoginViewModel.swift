@@ -28,7 +28,7 @@ class LoginViewModel: LogiViewModelProtocol, AccessTokeProtocol {
     
     private var deviceKeyIdentifier: String?
   
-    let helper = PartnerHelper()
+    let partnerManager = PartnerManager()
     let worker: PhotoFaceWorker
     var transactionID: String = ""
     var accessToken: String = ""
@@ -88,14 +88,14 @@ extension LoginViewModel {
         /// Get and passa TransactionID to SDK Helper
         ///
         self.transactionID = model.objectReturn[0].transactionId
-        self.helper.transaction = self.transactionID
+        self.partnerManager.transaction = self.transactionID
         
         self.getCredentials()
         /// Navigate to SDK after API response 200
         ///
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-          self.setupTransactionID(self.transactionID)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//          self.setupTransactionID(self.transactionID)
+//        }
         
         print("@! >>> Transaction ID gerado: \(String(model.objectReturn[0].transactionId))")
         
@@ -132,7 +132,7 @@ extension LoginViewModel {
         print("@! >>> Satus da matriz de decisão: ", model.objectReturn[0].result[0].status)
         print("@! >>> Descrição da matriz de decisão: ", model.objectReturn[0].result[0].statusDescription)
         
-        self.helper.transaction = self.transactionID
+        self.partnerManager.transaction = self.transactionID
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -152,15 +152,19 @@ extension LoginViewModel {
             switch response {
                 case .success(let model):
                 
-                self.deviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
+                    self.deviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
 
                     print("@! >>> FaceTec Certificado: ", model.objectReturn[0].certificate)
                     print("@! >>> FaceTec DeviceKeyIdentifier: ", model.objectReturn[0].deviceKeyIdentifier)
                     print("@! >>> FaceTec ProductionKey: ",  model.objectReturn[0].productionKeyText)
                   
-                    self.helper.faceTecProductionKeyText = model.objectReturn[0].productionKeyText
-                    self.helper.faceTecPublicFaceScanEncryptionKey = model.objectReturn[0].certificate
-                    self.helper.faceTecDeviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
+                    self.partnerManager.faceTecProductionKeyText = model.objectReturn[0].productionKeyText
+                    self.partnerManager.faceTecPublicFaceScanEncryptionKey = model.objectReturn[0].certificate
+                    self.partnerManager.faceTecDeviceKeyIdentifier = model.objectReturn[0].deviceKeyIdentifier
+                
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                      self.setupTransactionID(self.transactionID)
+                    }
                         
                 case .noConnection(let description):
                     print("Server error timeOut: \(description) \n")
@@ -177,7 +181,7 @@ extension LoginViewModel {
   func sendDocuments() {
     
     var newDocuments = [[String:Any]]()
-    newDocuments = helper.documentsImages
+    newDocuments = partnerManager.documentsImages
     
     let documents: [String: Any] = [
       "transactionId": self.transactionID,
@@ -215,14 +219,14 @@ extension LoginViewModel {
     func createSession(onComplete: @escaping ()->Void) {
     guard let deviceKeyIdentifier = deviceKeyIdentifier else { return }
     
-    worker.getSession(userAgent: helper.createUserAgentForNewSession(),
+    worker.getSession(userAgent: partnerManager.createUserAgentForNewSession(),
                       deviceKey: deviceKeyIdentifier) { [weak self] (response) in
       guard let self = self else { return }
       
       switch response {
       case .success(let model):
         self.session = model.objectReturn[0].session
-        self.helper.sessionToken = model.objectReturn[0].session
+        self.partnerManager.sessionToken = model.objectReturn[0].session
         
         print("@! >>> Session: ", String(self.session!))
         onComplete()
@@ -245,35 +249,37 @@ extension LoginViewModel {
     }
   }
   
-  func setupLiveness(faceScan: String, auditTrailImage: String, lowQualityAuditTrailImage: String) {
-    worker.getLiveness(transactionID: self.transactionID,
-                       faceScan: faceScan,
-                       auditTrailImage: auditTrailImage,
-                       lowQualityAuditTrailImage: lowQualityAuditTrailImage,
-                       sessionId: helper.createUserAgentForSession(self.session ?? ""),
-                       deviceKey: deviceKeyIdentifier ?? "") { [weak self] (response) in
-      guard let self = self else { return }
-      
-      switch response {
-      case .success(let model):
-        self.livenessCode = model.objectReturn[0].code
-        self.livenessMessage = model.objectReturn[0].description
-        
-        print("@! >>> Liveness Code: \(String(describing: self.livenessCode))")
-        print("@! >>> Liveness Code: \(String(describing: self.livenessMessage))")
-        
-        self.helper.wasProcessed = true
-      case .noConnection(let description):
-        print("Server error timeOut: \(description) \n")
-      case .serverError(let error):
-        let errorData = "\(error.statusCode), -, \(error.msgError)"
-        print("Server error: \(errorData) \n")
-        break
-      case .timeOut(let description):
-        print("Server error noConnection: \(description) \n")
-      }
+    func setupLiveness(faceScan: String, auditTrailImage: String, lowQualityAuditTrailImage: String) {
+        worker.getLiveness(transactionID: self.transactionID,
+                           faceScan: faceScan,
+                           auditTrailImage: auditTrailImage,
+                           lowQualityAuditTrailImage: lowQualityAuditTrailImage,
+                           sessionId: partnerManager.createUserAgentForSession(self.session ?? ""),
+                           deviceKey: deviceKeyIdentifier ?? "") { [weak self] (response) in
+            
+                guard let self = self else { return }
+
+                switch response {
+                case .success(let model):
+                self.livenessCode = model.objectReturn[0].code
+                self.livenessMessage = model.objectReturn[0].description
+
+                print("@! >>> Liveness Code: \(String(describing: self.livenessCode))")
+                print("@! >>> Liveness Code: \(String(describing: self.livenessMessage))")
+
+                  self.partnerManager.wasProcessed = true
+                  self.openStatus()
+                case .noConnection(let description):
+                print("Server error timeOut: \(description) \n")
+                case .serverError(let error):
+                let errorData = "\(error.statusCode), -, \(error.msgError)"
+                print("Server error: \(errorData) \n")
+                break
+                case .timeOut(let description):
+                print("Server error noConnection: \(description) \n")
+            }
+        }
     }
-  }
 }
 
 // MARK: - Navigation Delegate
@@ -295,12 +301,12 @@ extension LoginViewModel {
   func setSessionCode(_ code: Int) {
     switch code {
     case 1:
-      helper.navigateToStatus = {
+        partnerManager.navigateToStatus = {
         self.openStatus()
       }
       print("@! >>> Sucesso. Redirecionando para tela de Status.")
     case 3 :
-      helper.navigateToStatus = {
+        partnerManager.navigateToStatus = {
         self.openStatus()
       }
       print("@! >>> Transação REPROVADA. Redirecionando para tela de Status.")
@@ -310,48 +316,56 @@ extension LoginViewModel {
   }
   
   func postDocuments() {
-    helper.sendDocumentPicture = {
+      partnerManager.sendDocumentPicture = {
       self.sendDocuments()
     }
   }
   
   private
-  func openStatus() {
-    let worker = PhotoFaceWorker(accessToken: accessToken)
-    let statusViewModel = StatusViewModel(worker: worker,
-                                          helper: helper,
-                                          transactionID: helper.transaction)
-      statusViewModel.didOpnenDocumentCapture = {
-          self.openDocumentCapture()
-      }
-      
-    statusViewModel.status = self.status
-    statusViewModel.transactionID = self.transactionID
-    statusViewModel.statusDescription = self.statusDescription
-    statusViewModel.deviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
-    let statusViewController = StatusViewController(viewModel: statusViewModel)
-    self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
-    print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
-  }
+    func openStatus() {
+        let worker = PhotoFaceWorker(accessToken: accessToken)
+        let statusViewModel = StatusViewModel(worker: worker,
+                                              partnerManager: partnerManager,
+                                              transactionID: partnerManager.transaction)
+        
+        statusViewModel.didOpnenDocumentCapture = {
+            self.openDocumentCapture()
+        }
+        
+        statusViewModel.status = self.status
+        statusViewModel.transactionID = self.transactionID
+        statusViewModel.statusDescription = self.statusDescription
+        statusViewModel.deviceKeyIdentifier = self.deviceKeyIdentifier ?? ""
+        
+        let statusViewController = StatusViewController(viewModel: statusViewModel)
+        self.viewController?.navigationController?.pushViewController(statusViewController, animated: true)
+        print("@! >>> Seu status atual é: \(String(describing: self.statusDescription)).")
+        
+    }
   
   func openFaceCapture() {
     createSession(onComplete: {
-        let faceCaptureViewController = self.helper.startFaceCapture()
+        let faceCaptureViewController = self.partnerManager.startFaceCapture()
         self.viewController?.navigationController?.pushViewController(faceCaptureViewController, animated: true)
           
-        PartnerHelper.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
+        PartnerManager.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
             self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
         }
-        self.helper.navigateToStatus = {
-            self.openStatus()
-            print("Navegando para tela de Status...")
+        
+        PartnerManager.livenessCancelCallBack = {
+            self.viewController?.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        self.partnerManager.navigateToStatus = {
+//            self.openStatus()
+//            print("Navegando para tela de Status...")
         }
     })
   }
   
   private
   func openDocumentCapture() {
-    let documentViewController = helper.startDocumentCapture()
+    let documentViewController = partnerManager.startDocumentCapture()
     viewController?.navigationController?.pushViewController(documentViewController, animated: true)
     
     print("@! >>> Logado com sucesso!")

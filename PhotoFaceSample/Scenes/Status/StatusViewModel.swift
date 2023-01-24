@@ -15,7 +15,7 @@ class StatusViewModel {
   
   var viewController: StatusViewController?
   let worker: PhotoFaceWorker
-  var helper: PartnerHelper
+  var partnerManager: PartnerManager
   
     var didOpnenDocumentCapture: (() -> Void)?
     var didChangeStatus: (() -> Void)?
@@ -32,13 +32,11 @@ class StatusViewModel {
   
   //MARK: - init
   
-  init(worker: PhotoFaceWorker = PhotoFaceWorker(),
-       helper: PartnerHelper = PartnerHelper(),
-       transactionID: String = "") {
-    self.worker = worker
-    self.helper = helper
-    self.transactionID = transactionID
-  }
+    init(worker: PhotoFaceWorker = PhotoFaceWorker(), partnerManager: PartnerManager = PartnerManager(), transactionID: String = "") {
+        self.worker = worker
+        self.partnerManager = partnerManager
+        self.transactionID = transactionID
+    }
   
   
   /// TransactionID getter
@@ -76,14 +74,14 @@ class StatusViewModel {
   
 func createSession(onComplete: @escaping ()->Void)
     {
-    worker.getSession(userAgent: helper.createUserAgentForNewSession(),
-                      deviceKey: helper.faceTecDeviceKeyIdentifier) { [weak self] (response) in
+    worker.getSession(userAgent: partnerManager.createUserAgentForNewSession(),
+                      deviceKey: partnerManager.faceTecDeviceKeyIdentifier) { [weak self] (response) in
       guard let self = self else { return }
       
       switch response {
       case .success(let model):
         self.session = model.objectReturn[0].session
-        self.helper.sessionToken = model.objectReturn[0].session
+        self.partnerManager.sessionToken = model.objectReturn[0].session
         
         print("@! >>> Session: ", String(self.session!))
           
@@ -111,8 +109,8 @@ func createSession(onComplete: @escaping ()->Void)
                        faceScan: faceScan,
                        auditTrailImage: auditTrailImage,
                        lowQualityAuditTrailImage: lowQualityAuditTrailImage,
-                       sessionId: helper.createUserAgentForSession(self.session ?? ""),
-                       deviceKey: helper.faceTecDeviceKeyIdentifier) { [weak self] (response) in
+                       sessionId: partnerManager.createUserAgentForSession(self.session ?? ""),
+                       deviceKey: partnerManager.faceTecDeviceKeyIdentifier) { [weak self] (response) in
       guard let self = self else { return }
       
       switch response {
@@ -128,12 +126,10 @@ func createSession(onComplete: @escaping ()->Void)
         print("@! >>> Liveness Code: \(code)")
         print("@! >>> Liveness Message: \(message)")
         
-        self.helper.waitingFaceTecResponse?()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+          self.partnerManager.waitingFaceTecResponse?()
           let statusVC = StatusViewController(viewModel: self)
           self.viewController?.navigationController?.pushViewController(statusVC, animated: true)
-        }
+          
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -164,7 +160,6 @@ extension StatusViewModel {
       setReproved()
     case 3:
       dismissStatus?()
-      break
     case 4:
       openDocumentCapture()
     default:
@@ -193,22 +188,25 @@ extension StatusViewModel {
   func openFaceCapture(_ viewController: UIViewController) {
       createSession(onComplete: {
           
-          let faceCaptureViewController = self.helper.startFaceCapture()
+          let faceCaptureViewController = self.partnerManager.startFaceCapture()
           faceCaptureViewController.navigationController?.hidesBottomBarWhenPushed = true
           viewController.navigationController?.pushViewController(faceCaptureViewController, animated: true)
           print("@! >>> Abrindo face scan...")
-            PartnerHelper.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
+            
+            PartnerManager.livenessCallBack = {faceScan, auditTrailImage , lowQualityAuditTrailImage in
                 self.setupLiveness(faceScan: faceScan, auditTrailImage: auditTrailImage, lowQualityAuditTrailImage: lowQualityAuditTrailImage)
             }
           
-      } )
-
+            PartnerManager.livenessCancelCallBack = {
+              self.viewController?.navigationController?.popToRootViewController(animated: true)
+            }
+      })
   }
   
   private
   func openDocumentCapture() {
       timer?.invalidate()
-      let documentViewController = helper.startDocumentCapture()
+      let documentViewController = partnerManager.startDocumentCapture()
       viewController?.navigationController?.popViewController(animated: true)
       self.didOpnenDocumentCapture?()
     print("@! >>> Abrindo captura de documento...")

@@ -7,23 +7,21 @@ import FaceTecSDK
 
 class DataParser: NSObject, URLSessionTaskDelegate {
   
-  var faceScanResultCallback: FaceTecFaceScanResultCallback!
+    var faceScanResultCallback: FaceTecFaceScanResultCallback!
   
-  func mainParser<T: Mappable>(url: URL,
+    func mainParser<T: Mappable>(url: URL,
                                body: [String:Any],
                                method: HTTPMethod,
                                completion: @escaping ((Response<T>) -> Void)) {
     
-    let jsonData = try? JSONSerialization.data(withJSONObject: body)
+        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "\(method)"
+        request.httpBody = jsonData
     
-    var request = URLRequest(url: url)
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.addValue("application/json", forHTTPHeaderField: "Accept")
-    request.httpMethod = "\(method)"
-    request.httpBody = jsonData
-    
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-      
       Alamofire.request(request).response { (response) in
         guard let statusCode = response.response?.statusCode,
               let data = response.data else {
@@ -42,11 +40,9 @@ class DataParser: NSObject, URLSessionTaskDelegate {
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
         } else {
-          print(error?.localizedDescription ?? "Não conseguimos receber os dados da API...")
+          print("Não conseguimos receber os dados da API...")
         }
       }
-    }
-    task.resume()
   }
   
   func loginParser<T: Mappable>(url: URL,
@@ -55,18 +51,16 @@ class DataParser: NSObject, URLSessionTaskDelegate {
                                 method: HTTPMethod,
                                 completion: @escaping ((Response<T>) -> Void)) {
     
-    let jsonData = try? JSONSerialization.data(withJSONObject: body, options: [])
+        let jsonData = try? JSONSerialization.data(withJSONObject: body, options: [])
+
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(header)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("text/plain", forHTTPHeaderField: "Accept")
+        request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "\(method)"
+        request.httpBody = jsonData
     
-    var request = URLRequest(url: url)
-    request.addValue("Bearer \(header)", forHTTPHeaderField: "Authorization")
-    request.addValue("application/json", forHTTPHeaderField: "Accept")
-    request.addValue("text/plain", forHTTPHeaderField: "Accept")
-    request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "\(method)"
-    request.httpBody = jsonData
-    
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-      
       Alamofire.request(request).response { (response) in
         guard let statusCode = response.response?.statusCode,
               let data = response.data else {
@@ -85,11 +79,9 @@ class DataParser: NSObject, URLSessionTaskDelegate {
           let model = Mapper<T>().map(JSON: item)
           completion(.success(model: model!))
         } else {
-          print(error?.localizedDescription ?? "Não conseguimos receber os dados da API...")
+          print("Não conseguimos receber os dados da API...")
         }
       }
-    }
-    task.resume()
   }
   
   func getParser<T: Mappable>(url: URL,
