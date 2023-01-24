@@ -27,6 +27,8 @@ final class LoginViewController: BaseViewController<LoginView> {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     viewModel.getInitialData()
+      
+      self.baseView.beginButton.isUserInteractionEnabled = true
   }
   
   deinit {
@@ -53,15 +55,14 @@ private extension LoginViewController {
       
       guard let self = self else { return }
       
-      self.baseView.beginButton.isUserInteractionEnabled = false
-      
       let dataTextField = self.baseView.cpfTextField.dataTextField
       let cpfNumber = dataTextField.text!
       
       if cpfNumber != "" && cpfNumber.count == 11 {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-          self.viewModel.sendCPFAuth(cpf: cpfNumber)
-          print("@! >>> Botão de Login apertado!")
+            print("@! >>> Botão de Login apertado!")
+            self.baseView.beginButton.isUserInteractionEnabled = false
+            self.viewModel.sendCPFAuth(cpf: cpfNumber)
         }
       }
     }

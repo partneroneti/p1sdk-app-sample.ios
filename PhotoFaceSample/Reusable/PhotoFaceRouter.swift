@@ -4,15 +4,13 @@ import PartnerOneSDK
 class PhotoFaceRouter: Router, PhotoFaceNavigationDelegate {
   
   var worker: PhotoFaceWorker
-  private var helper: PartnerHelper?
+  private var partnerManager: PartnerManager?
   
   public var childRouters: [Router] = []
   private let presenter: UINavigationController
   private weak var navigationDelegate: RouterDelegate?
   
-  init(navigationDelegate: RouterDelegate? = nil,
-       presenter: UINavigationController,
-       worker: PhotoFaceWorker = PhotoFaceWorker()) {
+  init(navigationDelegate: RouterDelegate? = nil, presenter: UINavigationController, worker: PhotoFaceWorker = PhotoFaceWorker()) {
     self.navigationDelegate = navigationDelegate
     self.presenter = presenter
     self.worker = worker
@@ -47,12 +45,12 @@ extension PhotoFaceRouter {
   }
   
   func openDocumentCapture() {
-    guard let viewController = helper?.startDocumentCapture() else { return }
+    guard let viewController = partnerManager?.startDocumentCapture() else { return }
     pushViewController(viewController)
   }
   
   func openFaceCapture() {
-    guard let viewController = helper?.startFaceCapture() else { return }
+    guard let viewController = partnerManager?.startFaceCapture() else { return }
     pushViewController(viewController)
   }
 }
