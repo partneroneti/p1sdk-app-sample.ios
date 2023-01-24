@@ -249,36 +249,37 @@ extension LoginViewModel {
     }
   }
   
-  func setupLiveness(faceScan: String, auditTrailImage: String, lowQualityAuditTrailImage: String) {
-    worker.getLiveness(transactionID: self.transactionID,
-                       faceScan: faceScan,
-                       auditTrailImage: auditTrailImage,
-                       lowQualityAuditTrailImage: lowQualityAuditTrailImage,
-                       sessionId: partnerManager.createUserAgentForSession(self.session ?? ""),
-                       deviceKey: deviceKeyIdentifier ?? "") { [weak self] (response) in
-      guard let self = self else { return }
-      
-      switch response {
-      case .success(let model):
-        self.livenessCode = model.objectReturn[0].code
-        self.livenessMessage = model.objectReturn[0].description
-        
-        print("@! >>> Liveness Code: \(String(describing: self.livenessCode))")
-        print("@! >>> Liveness Code: \(String(describing: self.livenessMessage))")
-        
-          self.partnerManager.wasProcessed = true
-          self.openStatus()
-      case .noConnection(let description):
-        print("Server error timeOut: \(description) \n")
-      case .serverError(let error):
-        let errorData = "\(error.statusCode), -, \(error.msgError)"
-        print("Server error: \(errorData) \n")
-        break
-      case .timeOut(let description):
-        print("Server error noConnection: \(description) \n")
-      }
+    func setupLiveness(faceScan: String, auditTrailImage: String, lowQualityAuditTrailImage: String) {
+        worker.getLiveness(transactionID: self.transactionID,
+                           faceScan: faceScan,
+                           auditTrailImage: auditTrailImage,
+                           lowQualityAuditTrailImage: lowQualityAuditTrailImage,
+                           sessionId: partnerManager.createUserAgentForSession(self.session ?? ""),
+                           deviceKey: deviceKeyIdentifier ?? "") { [weak self] (response) in
+            
+                guard let self = self else { return }
+
+                switch response {
+                case .success(let model):
+                self.livenessCode = model.objectReturn[0].code
+                self.livenessMessage = model.objectReturn[0].description
+
+                print("@! >>> Liveness Code: \(String(describing: self.livenessCode))")
+                print("@! >>> Liveness Code: \(String(describing: self.livenessMessage))")
+
+                  self.partnerManager.wasProcessed = true
+                  self.openStatus()
+                case .noConnection(let description):
+                print("Server error timeOut: \(description) \n")
+                case .serverError(let error):
+                let errorData = "\(error.statusCode), -, \(error.msgError)"
+                print("Server error: \(errorData) \n")
+                break
+                case .timeOut(let description):
+                print("Server error noConnection: \(description) \n")
+            }
+        }
     }
-  }
 }
 
 // MARK: - Navigation Delegate
@@ -326,6 +327,7 @@ extension LoginViewModel {
         let statusViewModel = StatusViewModel(worker: worker,
                                               partnerManager: partnerManager,
                                               transactionID: partnerManager.transaction)
+        
         statusViewModel.didOpnenDocumentCapture = {
             self.openDocumentCapture()
         }

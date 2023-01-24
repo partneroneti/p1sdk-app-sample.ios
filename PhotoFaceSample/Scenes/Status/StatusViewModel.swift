@@ -126,12 +126,10 @@ func createSession(onComplete: @escaping ()->Void)
         print("@! >>> Liveness Code: \(code)")
         print("@! >>> Liveness Message: \(message)")
         
-        self.partnerManager.waitingFaceTecResponse?()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+          self.partnerManager.waitingFaceTecResponse?()
           let statusVC = StatusViewController(viewModel: self)
           self.viewController?.navigationController?.pushViewController(statusVC, animated: true)
-        }
+          
       case .noConnection(let description):
         print("Server error timeOut: \(description) \n")
       case .serverError(let error):
@@ -162,7 +160,6 @@ extension StatusViewModel {
       setReproved()
     case 3:
       dismissStatus?()
-      break
     case 4:
       openDocumentCapture()
     default:

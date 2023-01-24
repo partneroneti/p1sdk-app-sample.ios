@@ -22,6 +22,10 @@ final class StatusViewController: BaseViewController<StatusView> {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      
+      
+      viewModel.viewController = self
+      
     setupBinds()
     viewModel.setupTransactionID()
   }
